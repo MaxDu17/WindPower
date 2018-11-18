@@ -7,7 +7,7 @@ import tensorflow as tf
 import numpy as np
 from pipeline import SetMaker
 from pipeline import Hyperparameters
-from pipeline import Model2
+from modelv2_contained import Model2
 import os
 import csv
 
