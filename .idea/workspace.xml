@@ -3,15 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/lstm_v8__dualv2based.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v8__dualv2based.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/modelv2_contained.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/modelv2_contained.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing_Programs/run_foreign.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing_Programs/run_foreign.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing_Programs/run_foreign_base_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing_Programs/run_foreign_base_case.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v6.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/find_missing.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/find_missing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/all_in_one.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/extractor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/find_missing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/get_files.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/local_grabber_single.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/find_longest_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherDataRetrievalCode/find_longest_run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/SYRACUSE.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/old 2011/2011_TOTALSET.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/old 2011/MARKEDTOTALSET.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/old 2011/cleanset.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/old 2011/error_file.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/old 2011/grabber_debugger.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/old 2011/local_grabber.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,22 +33,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="53" />
+          <entry key="py" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="53" />
+          <entry key="Python" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="882" />
+          <entry key="py" value="1009" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="882" />
+          <entry key="Python" value="1009" />
         </counts>
       </usages-collector>
     </session>
@@ -60,20 +64,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/find_longest_run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+            <state relative-caret-position="456">
+              <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/find_missing.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/find_missing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+            <state relative-caret-position="361">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -109,7 +113,7 @@
         <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v6.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -158,6 +162,8 @@
         <option value="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v6.py" />
         <option value="$PROJECT_DIR$/Testing_Programs/run_foreign_base_case.py" />
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/find_missing.py" />
+        <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/find_missing.py" />
+        <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/find_longest_run.py" />
       </list>
     </option>
   </component>
@@ -219,12 +225,6 @@
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
               <item name="WindPower" type="462c0819:PsiDirectoryNode" />
               <item name="WeatherDataRetrievalCode" type="462c0819:PsiDirectoryNode" />
-              <item name="all-in-one" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WindPower" type="462c0819:PsiDirectoryNode" />
-              <item name="WeatherDataRetrievalCode" type="462c0819:PsiDirectoryNode" />
               <item name="local_saver" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -253,7 +253,49 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.find_longest_run">
+    <configuration name="find_longest_run" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="WindPower" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WeatherDataRetrievalCode" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WeatherDataRetrievalCode/find_longest_run.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="find_missing" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="WindPower" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/find_missing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="normalize_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="WindPower" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -275,8 +317,15 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.normalize_data" />
+      <item itemvalue="Python.find_missing" />
+      <item itemvalue="Python.find_longest_run" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.find_longest_run" />
+        <item itemvalue="Python.find_missing" />
         <item itemvalue="Python.normalize_data" />
       </list>
     </recent_temporary>
@@ -299,7 +348,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
@@ -307,7 +356,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19197397" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19197397" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -561,7 +610,7 @@
     <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v6.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -592,17 +641,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/find_longest_run.py">
+    <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/find_missing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
+        <state relative-caret-position="323">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/all-in-one/find_missing.py">
+    <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/find_missing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+        <state relative-caret-position="361">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/find_longest_run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
         </state>
       </provider>
     </entry>

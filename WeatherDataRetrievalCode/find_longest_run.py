@@ -1,5 +1,6 @@
 import csv
-k_ = open("MARKEDTOTALSET.csv", 'r')
+name = input("total (not marked) set name? \n")
+k_ = open("../Training_Sets/MARKED_" + name+ ".csv", 'r')
 k = list(csv.reader(k_))
 k = [m[0] for m in k]
 
@@ -21,4 +22,4 @@ for i in range(len(k)):
 
 print("here is the best run length: " + str(best_run))
 print("here is the index range of this best run: [" + str(best_run_lower) + "," + str(best_run_upper) + "]")
-print("in excel, that is " "[" + str(best_run_lower+2) + "," + str(best_run_upper+2) + "]")
+print("in excel, that is " "[" + str(best_run_lower+1) + "," + str(best_run_upper+1) + "]")
