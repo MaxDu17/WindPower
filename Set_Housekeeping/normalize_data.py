@@ -10,8 +10,8 @@ def min_max(clean):
     scaled_array = scaled_array / range
     return scaled_array
 
-
-data = pd.read_csv("../Training_sets/2012DATA.csv", skiprows=3)  # read file
+name = input("file name?\n")
+data = pd.read_csv("../Training_Sets/" + name + ".csv", skiprows=3)  # read file
 
 power_native = data[["power (MW)"]].values.tolist()
 power = min_max(data[["power (MW)"]].values).tolist()
@@ -21,7 +21,7 @@ air_temp = min_max(data[["air temperature at 2m (K)"]].values).tolist()
 SAP = min_max(data[["surface air pressure (Pa)"]].values).tolist()
 air_density = min_max(data[["density at hub height (kg/m^3)"]].values).tolist()
 
-logger_ = open("Training_sets/2012DATA_NORMALIZED.csv", "w")
+logger_ = open("../Training_Sets/" + name + "_NORMALIZED.csv", "w")
 logger = csv.writer(logger_, lineterminator = '\n')
 
 headers = ["native_power", "power", "wind_dir", "wind_speed", "air_temp", "SAP", "air_density"]
