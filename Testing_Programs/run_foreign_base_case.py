@@ -1,7 +1,6 @@
-import tensorflow as tf
-from pipeline import SetMaker
-from pipeline import Hyperparameters
-import numpy as np
+#important: this is only meant for previous versions of the LSTM structure. Will not work now
+from pipeline.dataset_maker import SetMaker
+from pipeline.hyperparameters import Hyperparameters
 import csv
 
 hyp = Hyperparameters()

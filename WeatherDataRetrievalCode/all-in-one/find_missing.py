@@ -1,9 +1,9 @@
 import csv
 
-
-k = open("../2011_TOTALSET.csv")
+name = input("total set file name?")
+k = open("../Training_Sets/" + name+ ".csv")
 rawset = list(csv.reader(k))
-m = open("../MARKEDTOTALSET.csv", "w")
+m = open("../Training_Sets/MARKED_" + name + ".csv", "w")
 writer = csv.writer(m, lineterminator="\n")
 offset = 0
 print(len(rawset))

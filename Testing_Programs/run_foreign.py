@@ -1,6 +1,6 @@
 import tensorflow as tf
-from pipeline import SetMaker
-from pipeline import Hyperparameters
+from pipeline.dataset_maker import SetMaker
+from pipeline.hyperparameters import Hyperparameters
 import numpy as np
 import csv
 
