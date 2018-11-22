@@ -5,15 +5,14 @@ Version 7 changes:
 """
 import tensorflow as tf
 import numpy as np
-from pipeline import SetMaker
-from pipeline import Hyperparameters
-from pipeline import My_Loss
+from pipeline.dataset_maker import SetMaker
+from pipeline.hyperparameters import Hyperparameters
 import os
 import csv
 
 sm = SetMaker()
 hyp = Hyperparameters()
-ml = My_Loss()
+
 
 #constructing the big weight now
 with tf.name_scope("weights_and_biases"):

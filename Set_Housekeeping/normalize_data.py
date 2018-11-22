@@ -1,3 +1,5 @@
+#this program takes a .csv and normalizes down the y axis, or through the entire time series.
+#used for current weather data
 import pandas as pd
 import numpy as np
 import csv

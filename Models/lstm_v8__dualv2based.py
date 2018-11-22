@@ -5,8 +5,8 @@ multi-layer LSTM!
 """
 import tensorflow as tf
 import numpy as np
-from pipeline import SetMaker
-from pipeline import Hyperparameters
+from pipeline.dataset_maker import SetMaker
+from pipeline.hyperparameters import Hyperparameters
 from modelv2_contained import Model2
 import os
 import csv

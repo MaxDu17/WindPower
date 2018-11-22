@@ -1,3 +1,5 @@
+#this will be depreciated as time goes by into a flags version of program
+
 class Hyperparameters: #the class that defines the hyperparameters is here
     FOOTPRINT = 9 #how many steps back you take. This is a critical adjustment point
     LEARNING_RATE = 0.001

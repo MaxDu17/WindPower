@@ -9,7 +9,7 @@ class DataParser_Weather:
     """
     def __init__(self):
         #self.data = pd.read_csv("Training_sets/83863-2011.csv", skiprows = 3) #read file
-        self.data = pd.read_csv("C:/Users/Max Du/Desktop/Repos/CSIRE/Training_sets/2012DATA_NORMALIZED.csv")  # read file
+        self.data = pd.read_csv("../Training_Sets/104686-2010_NORMALIZED.csv")  # read file
         #clean_data = data[["Month", "Day", "Hour", "Minute", "power (MW)"]] #extract critical data, not used here
         self.combined_data = self.data[["native_power", "power", "wind_dir", "wind_speed", "air_temp", "SAP", "air_density"]] #extracts ALL data
 

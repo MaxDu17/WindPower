@@ -1,10 +1,6 @@
-
 import tensorflow as tf
-import numpy as np
-from pipeline import SetMaker
-from pipeline import Hyperparameters
-import os
-import csv
+from pipeline.dataset_maker import SetMaker
+from pipeline.hyperparameters import Hyperparameters
 
 #this program takes the structure of the LSTM and makes a frozen pbtxt file, which is needed for freezing the graph
 sm = SetMaker()

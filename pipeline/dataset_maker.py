@@ -1,5 +1,5 @@
-from data_feeder import DataParser
-from hyperparameters import Hyperparameters
+from pipeline.data_feeder import DataParser
+from pipeline.hyperparameters import Hyperparameters
 
 class SetMaker:
     def __init__(self): #initializing variables used in calculation
@@ -42,7 +42,7 @@ class SetMaker:
         self.master_list = list()
         if self.counter + self.hyp.FOOTPRINT+1 > self.training_set_size:
             self.clear_counter()
-            carrier = True
+            carrier = True #this effectively tells the network to reset
             print("wraparound")
         self.master_list = self.dp.grab_list_range(self.counter, self.counter+self.hyp.FOOTPRINT+1)
         self.counter += self.hyp.FOOTPRINT

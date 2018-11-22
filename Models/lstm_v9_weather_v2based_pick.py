@@ -6,8 +6,8 @@ also added picking
 """
 import tensorflow as tf
 import numpy as np
-from pipeline import SetMaker_Weather
-from pipeline import Hyperparameters
+from pipeline.dataset_maker_cw import SetMaker_Weather
+from pipeline.hyperparameters import Hyperparameters
 import os
 import csv
 

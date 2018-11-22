@@ -3,8 +3,8 @@ updated for containment and continuity
 LSTM implementation with wind data set"""
 import tensorflow as tf
 import numpy as np
-from pipeline import SetMaker
-from pipeline import Hyperparameters
+from pipeline.dataset_maker import SetMaker
+from pipeline.hyperparameters import Hyperparameters
 import os
 import csv
 

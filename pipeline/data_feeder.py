@@ -9,7 +9,7 @@ class DataParser:
     """
     def __init__(self):
         #self.data = pd.read_csv("Training_sets/83863-2011.csv", skiprows = 3) #read file
-        self.data = pd.read_csv("C:/Users/wedu/Desktop/Working Repository/CSIRE/Training_sets/104686-2010.csv", skiprows=3)  # read file
+        self.data = pd.read_csv("../Training_Sets/104686-2010.csv", skiprows=3)  # read file
         #clean_data = data[["Month", "Day", "Hour", "Minute", "power (MW)"]] #extract critical data, not used here
         self.power_ds = self.data[["power (MW)"]] #extract a single column
 
