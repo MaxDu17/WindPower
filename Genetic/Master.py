@@ -1,4 +1,5 @@
 import sys
 import os
+import subprocess
 
-os.system("./test.py 1")
+subprocess.Popen(['py', './test.py', '1', '2', '3'])
