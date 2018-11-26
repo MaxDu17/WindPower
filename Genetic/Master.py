@@ -10,7 +10,7 @@ genetic_matrix = []
 
 for i in range(population_size):
     footprint = int(random.randint(1, 15))
-    learning_rate = random.randrange(0.00001, 0.1)
+    learning_rate = random.randrange(1,10000)/100000
     cell_dim = random.randint(1, 100)
     hidden_dim = random.randint(1, 100)
     genetic_matrix.append([footprint, learning_rate, cell_dim, hidden_dim])
