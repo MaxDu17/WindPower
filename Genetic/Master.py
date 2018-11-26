@@ -5,7 +5,6 @@ import random
 population_size = 10
 training_epoch = 20000
 
-a =
 
 genetic_matrix = []
 
