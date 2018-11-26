@@ -1,4 +1,6 @@
 import sys
 
 print("hi! I've been run!")
-print(sys.argv)
+for k in sys.argv[1:]:
+    print(int(k))
+quit();
