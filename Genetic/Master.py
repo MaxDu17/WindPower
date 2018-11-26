@@ -14,3 +14,4 @@ for i in range(population_size):
     genetic_matrix.append([footprint, learning_rate, cell_dim, hidden_dim])
     subprocess.Popen(['/usr/bin/python3', './test.py', str(footprint), str(learning_rate), str(cell_dim), str(hidden_dim)])
 
+print(genetic_matrix)
