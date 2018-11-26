@@ -1,5 +1,3 @@
-import sys
-import os
 import subprocess
 import random
 population_size = 10
