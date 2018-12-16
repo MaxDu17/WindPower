@@ -10,6 +10,7 @@ import tensorflow as tf
 import numpy as np
 from pipeline.dataset_maker import SetMaker
 import sys
+import csv
 
 sm = SetMaker()
 hyperparameters = [float(k) for k in sys.argv[1:]] # this extracts all hyperparameters
@@ -19,6 +20,11 @@ footprint = int(hyperparameters[1])
 cell_dim = int(hyperparameters[2])
 hidden_dim = int(hyperparameters[3])
 epochs = int(hyperparameters[4])#just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
+test_size = int(hyperparameters[5])
+SERIAL_NUMBER = int(hyperparameters[6]) #this is for telling which instance this is
+#this makes the crash file, to b e deleted later
+test = open("../Genetic/", "w")
+logger = csv.writer(log_loss, lineterminator="\n")
 
 #constructing the big weight now
 with tf.name_scope("weights_and_biases"):
@@ -120,19 +126,17 @@ with tf.Session() as sess:
 
         next_state, output_, loss_, summary, _ = sess.run([curr_state, output, loss, summary_op, optimizer],
                                                           feed_dict = {inputs:data, Y:label, init_state:next_state})
-
-        logger.writerow([loss_])
-
-        if epoch % 50 == 0:
-            writer.add_summary(summary, global_step=epoch)
+        '''
+        if epoch % 500 == 0:
             print("I finished epoch ", epoch, " out of ", epochs, " epochs")
             print("The absolute value loss for this sample is ", np.sqrt(loss_))
             print("predicted number: ", output_, ", real number: ", label)
+            '''
 
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1, cell_dim])
     print(np.shape(next_state))
-    for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
+    for test in range(test_size):  # this will be replaced later
 
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
@@ -143,7 +147,4 @@ with tf.Session() as sess:
                                      feed_dict={inputs: data, Y: label, init_state: next_state})
         RMS_loss += np.sqrt(loss_)
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
-        test_logger.writerow(carrier)
-    RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
-    print("test: rms loss is ", RMS_loss)
-    test_logger.writerow(["final adaptive loss average", RMS_loss])
+    RMS_loss = RMS_loss / test_size
