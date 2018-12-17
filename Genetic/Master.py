@@ -1,6 +1,6 @@
 import subprocess
 import random
-POPULATION_SIZE = 10
+POPULATION_SIZE = 1
 TRAINING_EPOCHS = 20000
 TEST_SIZE = 1000
 
@@ -13,7 +13,7 @@ for i in range(POPULATION_SIZE):
     cell_dim = hidden_dim = random.randint(1, 100)
     #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
     genetic_matrix.append([footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS])
-    subprocess.Popen(['/usr/bin/python3', './test.py', str(footprint), str(learning_rate), str(cell_dim), str(hidden_dim), str(TRAINING_EPOCHS), str(TEST_SIZE), str(i)])
+    subprocess.Popen(['/usr/bin/python3', '../Models/lstm_v2_c_genetic.py', str(footprint), str(learning_rate), str(cell_dim), str(hidden_dim), str(TRAINING_EPOCHS), str(TEST_SIZE), str(i)])
 
 print(genetic_matrix)
 print("-----------------------------------")
