@@ -89,7 +89,7 @@ with tf.name_scope("loss"):
 
 with tf.name_scope("optimizer"):
     optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
-
+'''
 with tf.name_scope("summaries_and_saver"):
     tf.summary.histogram("W_Forget", W_Forget)
     tf.summary.histogram("W_Input", W_Input)
@@ -107,7 +107,7 @@ with tf.name_scope("summaries_and_saver"):
 
     summary_op = tf.summary.merge_all()
     saver = tf.train.Saver()
-
+'''
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
     sm.create_training_set()
