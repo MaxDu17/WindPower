@@ -23,8 +23,8 @@ epochs = int(hyperparameters[4])#just a data issue. No data is being destroyed h
 test_size = int(hyperparameters[5])
 SERIAL_NUMBER = int(hyperparameters[6]) #this is for telling which instance this is
 #this makes the crash file, to b e deleted later
-test = open("../Genetic/", "w")
-logger = csv.writer(log_loss, lineterminator="\n")
+test = open("../Genetic/" + str(SERIAL_NUMBER) + ".csv", "w")
+test_logger = csv.writer(test, lineterminator="\n")
 
 #constructing the big weight now
 with tf.name_scope("weights_and_biases"):
@@ -135,7 +135,6 @@ with tf.Session() as sess:
 
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1, cell_dim])
-    print(np.shape(next_state))
     for test in range(test_size):  # this will be replaced later
 
         data = sm.next_epoch_test_waterfall()
@@ -148,3 +147,4 @@ with tf.Session() as sess:
         RMS_loss += np.sqrt(loss_)
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
     RMS_loss = RMS_loss / test_size
+    test_logger.writerow(RMS_loss)
