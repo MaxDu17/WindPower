@@ -15,13 +15,15 @@ import csv
 sm = SetMaker()
 hyperparameters = [float(k) for k in sys.argv[1:]] # this extracts all hyperparameters
 #format: lr, ftprint, cd, hd
-learning_rate = hyperparameters[0]
-footprint = int(hyperparameters[1])
+footprint = int(hyperparameters[0])
+learning_rate = hyperparameters[1]
 cell_dim = int(hyperparameters[2])
 hidden_dim = int(hyperparameters[3])
 epochs = int(hyperparameters[4])#just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
 test_size = int(hyperparameters[5])
 SERIAL_NUMBER = int(hyperparameters[6]) #this is for telling which instance this is
+
+print(hyperparameters)
 #this makes the crash file, to b e deleted later
 test = open("../Genetic/" + str(SERIAL_NUMBER) + ".csv", "w")
 test_logger = csv.writer(test, lineterminator="\n")
