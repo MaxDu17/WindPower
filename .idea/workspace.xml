@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Genetic/Master.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/Master.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/dataset_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/dataset_maker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_genetic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+            <state relative-caret-position="342">
+              <caret line="126" column="47" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
               <folding>
                 <element signature="e#314#337#0" expanded="true" />
               </folding>
@@ -61,6 +63,7 @@
       <find>population_size</find>
       <find>loss_</find>
       <find>log</find>
+      <find>self.FOOTPRINT</find>
     </findStrings>
     <replaceStrings>
       <replace>hidden_dim</replace>
@@ -72,6 +75,7 @@
       <replace>../Graphs_and_Results/v2_c/</replace>
       <replace>TRAINING_EPOCHS</replace>
       <replace>POPULATION_SIZE</replace>
+      <replace>self.FOOTPRINT</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -86,7 +90,6 @@
         <option value="$PROJECT_DIR$/Models/gru_1.py" />
         <option value="$PROJECT_DIR$/pipeline/data_feeder.py" />
         <option value="$PROJECT_DIR$/pipeline/data_feeder_cw.py" />
-        <option value="$PROJECT_DIR$/pipeline/dataset_maker.py" />
         <option value="$PROJECT_DIR$/pipeline/hyperparameters.py" />
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/get_best_pt_lib.py" />
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/extractfiles.py" />
@@ -112,6 +115,7 @@
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/find_longest_run.py" />
         <option value="$PROJECT_DIR$/Testing_Programs/Master.py" />
         <option value="$PROJECT_DIR$/Genetic/test.py" />
+        <option value="$PROJECT_DIR$/pipeline/dataset_maker.py" />
         <option value="$PROJECT_DIR$/Genetic/Master.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" />
       </list>
@@ -150,6 +154,11 @@
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
               <item name="WindPower" type="462c0819:PsiDirectoryNode" />
               <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WindPower" type="462c0819:PsiDirectoryNode" />
+              <item name="pipeline" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
@@ -357,12 +366,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26332623" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26332623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.19826652" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.19826652" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -431,20 +440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline/data_feeder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -593,6 +588,20 @@
     <entry file="file://$PROJECT_DIR$/pipeline/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline/data_feeder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="16" column="67" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Genetic/Master.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -602,8 +611,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_genetic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="34" lean-forward="true" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        <state relative-caret-position="342">
+          <caret line="126" column="47" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
           <folding>
             <element signature="e#314#337#0" expanded="true" />
           </folding>

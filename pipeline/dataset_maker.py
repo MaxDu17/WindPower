@@ -2,7 +2,7 @@ from pipeline.data_feeder import DataParser
 from pipeline.hyperparameters import Hyperparameters
 
 class SetMaker:
-    def __init__(self): #initializing variables used in calculation
+    def __init__(self, FOOTPRINT): #initializing variables used in calculation
         self.dp = DataParser()
         self.hyp = Hyperparameters()
         self.master_list = list()
@@ -14,6 +14,7 @@ class SetMaker:
         self.self_prompt_counter = 0
         self.running_list = list()
         self.label_list = list()
+        self.FOOTPRINT = FOOTPRINT #this will allow genetic feeding
 
     def use_foreign(self, file_name): #wrapper function used to load a different-than-normal dataset, for foreign testing
         self.dp.use_foreign(file_name)
@@ -28,44 +29,44 @@ class SetMaker:
     def next_epoch(self): #this gets a new training epoch, retrns status on resetting the states
         carrier = False
         self.master_list = list()
-        if self.counter + self.hyp.FOOTPRINT+1 > self.training_set_size:
+        if self.counter + self.FOOTPRINT+1 > self.training_set_size:
             self.clear_counter()
             carrier = True
             print("wraparound")
-        self.master_list = self.dp.grab_list_range(self.counter, self.counter+self.hyp.FOOTPRINT+1)
-        self.counter += self.hyp.FOOTPRINT
+        self.master_list = self.dp.grab_list_range(self.counter, self.counter+self.FOOTPRINT+1)
+        self.counter += self.FOOTPRINT
         self.batch_counter = 0
         return carrier
 
     def next_epoch_waterfall(self): #this just returns the entire sequence. DO NOT CALL NEXT_SAMPLE WITH THIS.
         carrier = False
         self.master_list = list()
-        if self.counter + self.hyp.FOOTPRINT+1 > self.training_set_size:
+        if self.counter + self.FOOTPRINT+1 > self.training_set_size:
             self.clear_counter()
             carrier = True #this effectively tells the network to reset
             print("wraparound")
-        self.master_list = self.dp.grab_list_range(self.counter, self.counter+self.hyp.FOOTPRINT+1)
-        self.counter += self.hyp.FOOTPRINT
+        self.master_list = self.dp.grab_list_range(self.counter, self.counter+self.FOOTPRINT+1)
+        self.counter += self.FOOTPRINT
         self.batch_counter = 0
         return carrier, self.master_list[:-1]
 
     def next_epoch_test(self): #this jumps a footprint to test. Biased estimator, and so is depreciated.
         if self.test_counter == 0:
             raise Exception("you forgot to initialize the test_counter! Execute create_training_set")
-        if self.test_counter + self.hyp.FOOTPRINT + 1 > self.dp.dataset_size():
+        if self.test_counter + self.FOOTPRINT + 1 > self.dp.dataset_size():
             raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
         self.master_list = list()
-        self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter + self.hyp.FOOTPRINT + 1)
-        self.test_counter += self.hyp.FOOTPRINT
+        self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter + self.FOOTPRINT + 1)
+        self.test_counter += self.FOOTPRINT
         self.batch_counter = 0
 
     def next_epoch_test_waterfall(self): #this is nextepochtestsingleshift but with a waterfall
         if self.test_counter == 0:
             raise Exception("you forgot to initialize the test_counter! Execute create_training_set")
-        if self.test_counter + self.hyp.FOOTPRINT + 1 > self.dp.dataset_size():
+        if self.test_counter + self.FOOTPRINT + 1 > self.dp.dataset_size():
             raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
         self.master_list = list()
-        self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter + self.hyp.FOOTPRINT + 1)
+        self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter + self.FOOTPRINT + 1)
         self.test_counter += 1
         self.batch_counter = 0
         return self.master_list[:-1]
@@ -73,17 +74,17 @@ class SetMaker:
     def next_epoch_test_single_shift(self): #instead of jumping a footprint, we shift by one; this is necessary for assessment
         if self.test_counter == 0:
             raise Exception("you forgot to initialize the test_counter! Execute create_training_set")
-        if self.test_counter + self.hyp.FOOTPRINT + 1 > self.dp.dataset_size():
+        if self.test_counter + self.FOOTPRINT + 1 > self.dp.dataset_size():
             raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
         self.master_list = list()
-        self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter + self.hyp.FOOTPRINT + 1)
+        self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter + self.FOOTPRINT + 1)
         self.test_counter += 1
         self.batch_counter = 0
 
     def next_epoch_test_pair(self): #gives in pairs: one data and one label, then shift one.
         if self.test_counter == 0:
             raise Exception("you forgot to initialize the test_counter! Execute create_training_set")
-        if self.test_counter + self.hyp.FOOTPRINT + 1 > self.dp.dataset_size():
+        if self.test_counter + self.FOOTPRINT + 1 > self.dp.dataset_size():
             raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
         self.master_list = list()
         self.master_list = self.dp.grab_list_range(self.test_counter+1, self.test_counter + 3)
@@ -94,20 +95,20 @@ class SetMaker:
         return data, label
 
     def next_epoch_valid(self): #next validation epoch. Note that this is imperative; it doesn't return anything
-        if self.valid_counter + self.hyp.FOOTPRINT + 1 > self.validation_set_size:
+        if self.valid_counter + self.FOOTPRINT + 1 > self.validation_set_size:
             raise ValueError("you have reached the end of the validation. Please check your code"
                              " for boundary cases. Violation dataset_maker/next_epoch_valid")
         self.master_list = list()
-        self.master_list = self.dp.grab_list_range(self.valid_counter, self.valid_counter + self.hyp.FOOTPRINT + 1)
+        self.master_list = self.dp.grab_list_range(self.valid_counter, self.valid_counter + self.FOOTPRINT + 1)
         self.valid_counter += 1
         self.batch_counter = 0
 
     def next_epoch_valid_waterfall(self):  #this is returning the entire datalist, useful for the "contained" modules that don't use for loops
-        if self.valid_counter + self.hyp.FOOTPRINT + 1 > self.validation_set_size:
+        if self.valid_counter + self.FOOTPRINT + 1 > self.validation_set_size:
             raise ValueError("you have reached the end of the validation. Please check your code"
                              " for boundary cases. Violation dataset_maker/next_epoch_valid")
         self.master_list = list()
-        self.master_list = self.dp.grab_list_range(self.valid_counter, self.valid_counter + self.hyp.FOOTPRINT + 1)
+        self.master_list = self.dp.grab_list_range(self.valid_counter, self.valid_counter + self.FOOTPRINT + 1)
         self.valid_counter += 1
         self.batch_counter = 0
         return self.master_list[:-1]
@@ -122,9 +123,9 @@ class SetMaker:
         return self.master_list[-1]
 
     def next_sample(self): #returns the next sample of the epoch
-        if self.batch_counter >=self.hyp.FOOTPRINT:
+        if self.batch_counter >=self.FOOTPRINT:
             raise ValueError("you are infiltrating into key territory! Traceback: dataset_maker/next_sample. "
-                             "Violation: batch_counter > self.hyp.FOOTPRINT")
+                             "Violation: batch_counter > self.FOOTPRINT")
         else:
             carrier = self.master_list[self.batch_counter]
             self.batch_counter += 1

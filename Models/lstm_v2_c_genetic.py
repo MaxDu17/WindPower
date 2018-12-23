@@ -12,7 +12,7 @@ from pipeline.dataset_maker import SetMaker
 import sys
 import csv
 
-sm = SetMaker()
+
 hyperparameters = [float(k) for k in sys.argv[1:]] # this extracts all hyperparameters
 #format: lr, ftprint, cd, hd
 footprint = int(hyperparameters[0])
@@ -23,7 +23,7 @@ epochs = int(hyperparameters[4])#just a data issue. No data is being destroyed h
 test_size = int(hyperparameters[5])
 SERIAL_NUMBER = int(hyperparameters[6]) #this is for telling which instance this is
 
-print(hyperparameters)
+sm = SetMaker(footprint)
 #this makes the crash file, to b e deleted later
 test = open("../Genetic/" + str(SERIAL_NUMBER) + ".csv", "w")
 test_logger = csv.writer(test, lineterminator="\n")
@@ -117,6 +117,7 @@ with tf.Session() as sess:
     next_state = np.zeros(shape=[2,1,cell_dim])
 
     for epoch in range(epochs):
+        print(epoch)
         reset, data = sm.next_epoch_waterfall() #this gets you the entire cow, so to speak
         label = sm.get_label()
         label = np.reshape(label, [1, 1])
