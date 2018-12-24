@@ -117,17 +117,16 @@ with tf.Session() as sess:
     next_state = np.zeros(shape=[2,1,cell_dim])
 
     for epoch in range(epochs):
-        print(epoch)
         reset, data = sm.next_epoch_waterfall() #this gets you the entire cow, so to speak
         label = sm.get_label()
         label = np.reshape(label, [1, 1])
         data = np.reshape(data, [footprint,1,1])
-        
+        loss_ = 0
 
         if reset:  # this allows for hidden states to reset after the training set loops back around
             next_state = np.zeros(shape=[2,1,cell_dim])
 
-        next_state, _ = sess.run([curr_state, optimizer],
+        next_state, loss_,  _ = sess.run([curr_state, loss, optimizer],
                                                           feed_dict = {inputs:data, Y:label, init_state:next_state})
         '''
         if epoch % 500 == 0:
@@ -135,7 +134,8 @@ with tf.Session() as sess:
             print("The absolute value loss for this sample is ", np.sqrt(loss_))
             print("predicted number: ", output_, ", real number: ", label)
             '''
-
+        if(epoch % 100 == 0):
+            print("This is epoch " + str(epoch) + " and the loss is " + str(loss_))
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1, cell_dim])
     for test in range(test_size):  # this will be replaced later
@@ -150,4 +150,4 @@ with tf.Session() as sess:
         RMS_loss += np.sqrt(loss_)
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
     RMS_loss = RMS_loss / test_size
-    test_logger.writerow(RMS_loss)
+    test_logger.writerow([RMS_loss])
