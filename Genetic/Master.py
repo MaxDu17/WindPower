@@ -32,8 +32,9 @@ for i in range(POPULATION_SIZE):
     data.close()
 
 test = open("test.csv", "w")
-test_ = csv.DictWriter(test, data_dict.keys())
+test_ = csv.writer(test)
 print(data_dict)
-test_.writerow(data_dict)
+for k, v in data_dict.items():
+    test_.writerow([k, v])
 print("DONE DONE DONE DONE DONE DONE")
 
