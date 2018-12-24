@@ -35,6 +35,6 @@ test = open("test.csv", "w")
 test_ = csv.writer(test)
 print(data_dict)
 for k, v in data_dict.items():
-    test_.writerow([k, v[0], v[1]])
+    test_.writerow([k, v])
 print("DONE DONE DONE DONE DONE DONE")
 
