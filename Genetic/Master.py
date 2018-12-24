@@ -34,6 +34,6 @@ for i in range(POPULATION_SIZE):
 test = open("test.csv", "w")
 test_ = csv.writer(test, lineterminator= "\n")
 print(data_dict)
-[test_.writerow(k) for k in data_dict]
+[test_.writerow([k]) for k in data_dict]
 print("DONE DONE DONE DONE DONE DONE")
 
