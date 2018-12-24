@@ -1,7 +1,7 @@
 import subprocess
 import random
 import csv
-POPULATION_SIZE = 7
+POPULATION_SIZE = 3
 TRAINING_EPOCHS = 100
 TEST_SIZE = 1000
 
