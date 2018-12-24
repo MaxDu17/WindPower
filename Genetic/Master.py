@@ -14,7 +14,7 @@ for i in range(POPULATION_SIZE):
     footprint = int(random.randint(1, 15))
     cell_dim = hidden_dim = random.randint(1, 100)
     #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
-    genetic_matrix.append([footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i])
+    genetic_matrix.append([footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE])
 
     subprocess_array.append(
         subprocess.Popen(['/usr/bin/python3', '../Models/lstm_v2_c_genetic.py', str(footprint),
@@ -28,7 +28,7 @@ for i in range(POPULATION_SIZE):
     data_ = list(csv.reader(data, lineterminator = "\n"))
     data_ = [m[0] for m in data_]
     loss = float(data_[0])
-    data_dict[i] = [genetic_matrix, loss]
+    data_dict[i] = [genetic_matrix[i], loss]
     data.close()
 
 test = open("test.csv", "w")
