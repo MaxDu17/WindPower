@@ -1,19 +1,37 @@
 import subprocess
 import random
-POPULATION_SIZE = 1
-TRAINING_EPOCHS = 80000
+import csv
+POPULATION_SIZE = 10
+TRAINING_EPOCHS = 10000
 TEST_SIZE = 1000
 
 
 genetic_matrix = []
-
+data_dict = {}
+subprocess_array = []
 for i in range(POPULATION_SIZE):
     learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
     footprint = int(random.randint(1, 15))
     cell_dim = hidden_dim = random.randint(1, 100)
     #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
     genetic_matrix.append([footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i])
-    subprocess.Popen(['/usr/bin/python3', '../Models/lstm_v2_c_genetic.py', str(footprint), str(learning_rate), str(cell_dim), str(hidden_dim), str(TRAINING_EPOCHS), str(TEST_SIZE), str(i)])
+
+    subprocess_array.append(
+        subprocess.Popen(['/usr/bin/python3', '../Models/lstm_v2_c_genetic.py', str(footprint),
+                          str(learning_rate), str(cell_dim), str(hidden_dim), str(TRAINING_EPOCHS), str(TEST_SIZE), str(i)]))
 
 print(genetic_matrix)
-print("-----------------------------------")
+exit_codes=[p.wait() for p in subprocess_array]
+
+for i in range(POPULATION_SIZE):
+    data = open(str(i)+".csv", "r")
+    data_ = csv.reader(data, lineterminator = "\n")
+    loss = float(data_.next())
+    data_dict[i] = [genetic_matrix, loss]
+    data.close()
+
+test = open("test.csv", "w")
+test_ = csv.writer(test, lineterminator= "\n")
+[test_.writerows(k) for k in data_dict]
+print("DONE DONE DONE DONE DONE DONE")
+

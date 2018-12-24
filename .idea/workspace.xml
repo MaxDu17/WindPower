@@ -4,7 +4,6 @@
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Genetic/Master.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/Master.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/naive_base_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/naive_base_case.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +19,11 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Genetic/Master.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="133">
-                    <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+                  <state relative-caret-position="399">
+                    <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+                    <folding>
+                      <element signature="e#0#17#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -36,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_genetic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="152" column="29" lean-forward="true" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+            <state relative-caret-position="2489">
+              <caret line="152" column="23" selection-start-line="152" selection-start-column="23" selection-end-line="152" selection-end-column="23" />
               <folding>
                 <element signature="e#314#337#0" expanded="true" />
               </folding>
@@ -48,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="190" column="67" lean-forward="true" selection-start-line="173" selection-start-column="4" selection-end-line="190" selection-end-column="67" />
+            <state relative-caret-position="274">
+              <caret line="144" column="12" lean-forward="true" selection-start-line="144" selection-start-column="12" selection-end-line="146" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -148,8 +150,8 @@
         <option value="$PROJECT_DIR$/Genetic/test.py" />
         <option value="$PROJECT_DIR$/Models/naive_base_case.py" />
         <option value="$PROJECT_DIR$/pipeline/dataset_maker.py" />
-        <option value="$PROJECT_DIR$/Genetic/Master.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" />
+        <option value="$PROJECT_DIR$/Genetic/Master.py" />
       </list>
     </option>
   </component>
@@ -640,26 +642,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Genetic/Master.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="190" column="67" lean-forward="true" selection-start-line="173" selection-start-column="4" selection-end-line="190" selection-end-column="67" />
+        <state relative-caret-position="274">
+          <caret line="144" column="12" lean-forward="true" selection-start-line="144" selection-start-column="12" selection-end-line="146" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_genetic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="152" column="29" lean-forward="true" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+        <state relative-caret-position="2489">
+          <caret line="152" column="23" selection-start-line="152" selection-start-column="23" selection-end-line="152" selection-end-column="23" />
           <folding>
             <element signature="e#314#337#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Genetic/Master.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>

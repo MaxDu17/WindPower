@@ -134,8 +134,8 @@ with tf.Session() as sess:
             print("The absolute value loss for this sample is ", np.sqrt(loss_))
             print("predicted number: ", output_, ", real number: ", label)
             '''
-        if(epoch % 100 == 0):
-            print("This is epoch " + str(epoch) + " and the loss is " + str(loss_))
+        '''if(epoch % 100 == 0):
+            print("This is epoch " + str(epoch) + " and the loss is " + str(loss_))'''
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1,cell_dim])
     print(np.shape(next_state))
@@ -150,8 +150,9 @@ with tf.Session() as sess:
                                               # why passback? Because we only shift by one!
                                               feed_dict={inputs: data, Y: label, init_state: next_state})
         RMS_loss += np.sqrt(loss_)
-        carrier = [label_, output_[0][0], np.sqrt(loss_)]
-        test_logger.writerow(carrier)
+        #carrier = [label_, output_[0][0], np.sqrt(loss_)]
+        #test_logger.writerow(carrier)
     RMS_loss = RMS_loss / test_size
-    print("test: rms loss is ", RMS_loss)
-    test_logger.writerow(["average loss: ", RMS_loss])
+    print("test for " + str(SERIAL_NUMBER) + ": rms loss is ", RMS_loss)
+    test_logger.writerow([RMS_loss])
+exit(0)
