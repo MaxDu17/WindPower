@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Genetic/Master.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/Master.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +18,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Genetic/Master.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="608">
-                    <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+                  <state relative-caret-position="665">
+                    <caret line="35" column="16" lean-forward="true" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
                     <folding>
                       <element signature="e#0#17#0" expanded="true" />
                     </folding>
@@ -675,8 +674,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Genetic/Master.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="665">
+          <caret line="35" column="16" lean-forward="true" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
