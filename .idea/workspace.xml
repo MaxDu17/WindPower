@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Genetic/Master.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/Master.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/dataset_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/dataset_maker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +34,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_genetic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="126" column="47" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
+            <state relative-caret-position="241">
+              <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="8" />
               <folding>
                 <element signature="e#314#337#0" expanded="true" />
               </folding>
@@ -611,8 +609,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_genetic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="126" column="47" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
+        <state relative-caret-position="241">
+          <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="8" />
           <folding>
             <element signature="e#314#337#0" expanded="true" />
           </folding>

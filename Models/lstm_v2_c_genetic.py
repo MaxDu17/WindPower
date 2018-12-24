@@ -122,12 +122,12 @@ with tf.Session() as sess:
         label = sm.get_label()
         label = np.reshape(label, [1, 1])
         data = np.reshape(data, [footprint,1,1])
-        loss_ = 0
+        
 
         if reset:  # this allows for hidden states to reset after the training set loops back around
             next_state = np.zeros(shape=[2,1,cell_dim])
 
-        next_state, output_, loss_, summary, _ = sess.run([curr_state, output, loss, summary_op, optimizer],
+        next_state, _ = sess.run([curr_state, optimizer],
                                                           feed_dict = {inputs:data, Y:label, init_state:next_state})
         '''
         if epoch % 500 == 0:
