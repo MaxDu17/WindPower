@@ -89,8 +89,9 @@ with tf.name_scope("loss"):
     loss = tf.square(tf.subtract(output, Y))
     loss = tf.reshape(loss, [], name = "loss")
 
-with tf.name_scope("optimizer"):
-    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
+with tf.device("/cpu:0"):
+    with tf.name_scope("optimizer"):
+        optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
 '''
 with tf.name_scope("summaries_and_saver"):
     tf.summary.histogram("W_Forget", W_Forget)
@@ -155,4 +156,5 @@ with tf.Session() as sess:
     RMS_loss = RMS_loss / test_size
     print("test for " + str(SERIAL_NUMBER) + ": rms loss is ", RMS_loss)
     test_logger.writerow([RMS_loss])
+print("FINISHED ONE PROGRAM")
 exit(0)

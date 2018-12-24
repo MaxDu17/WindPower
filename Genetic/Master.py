@@ -25,8 +25,8 @@ exit_codes=[p.wait() for p in subprocess_array]
 
 for i in range(POPULATION_SIZE):
     data = open(str(i)+".csv", "r")
-    data_ = csv.reader(data, lineterminator = "\n")
-    loss = float(data_.next())
+    data_ = list(csv.reader(data, lineterminator = "\n"))
+    loss = float(data_[0])
     data_dict[i] = [genetic_matrix, loss]
     data.close()
 
