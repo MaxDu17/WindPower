@@ -26,6 +26,7 @@ exit_codes=[p.wait() for p in subprocess_array]
 for i in range(POPULATION_SIZE):
     data = open(str(i)+".csv", "r")
     data_ = list(csv.reader(data, lineterminator = "\n"))
+    print(data_)
     data_ = [m[0] for m in data_]
     print(data_)
     loss = float(data_[0])
