@@ -89,9 +89,9 @@ with tf.name_scope("loss"):
     loss = tf.square(tf.subtract(output, Y))
     loss = tf.reshape(loss, [], name = "loss")
 
-with tf.device("/cpu:0"):
-    with tf.name_scope("optimizer"):
-        optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
+
+with tf.name_scope("optimizer"):
+    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
 '''
 with tf.name_scope("summaries_and_saver"):
     tf.summary.histogram("W_Forget", W_Forget)
