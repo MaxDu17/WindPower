@@ -1,7 +1,7 @@
 import subprocess
 import random
 POPULATION_SIZE = 1
-TRAINING_EPOCHS = 5000
+TRAINING_EPOCHS = 80000
 TEST_SIZE = 1000
 
 

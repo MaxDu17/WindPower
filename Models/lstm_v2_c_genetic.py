@@ -137,7 +137,8 @@ with tf.Session() as sess:
         if(epoch % 100 == 0):
             print("This is epoch " + str(epoch) + " and the loss is " + str(loss_))
     RMS_loss = 0.0
-    next_state = np.zeros(shape=[2, 1, cell_dim])
+    next_state = np.zeros(shape=[2, 1,cell_dim])
+    print(np.shape(next_state))
     for test in range(test_size):  # this will be replaced later
 
         data = sm.next_epoch_test_waterfall()
@@ -145,9 +146,12 @@ with tf.Session() as sess:
         label = np.reshape(label_, [1, 1])
         data = np.reshape(data, [footprint, 1, 1])
 
-        next_state, output_, loss_ = sess.run([pass_back_state, output, loss],  # why passback? Because we only shift by one!
-                                     feed_dict={inputs: data, Y: label, init_state: next_state})
+        next_state, output_, loss_ = sess.run([pass_back_state, output, loss],
+                                              # why passback? Because we only shift by one!
+                                              feed_dict={inputs: data, Y: label, init_state: next_state})
         RMS_loss += np.sqrt(loss_)
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
+        test_logger.writerow(carrier)
     RMS_loss = RMS_loss / test_size
-    test_logger.writerow([RMS_loss])
+    print("test: rms loss is ", RMS_loss)
+    test_logger.writerow(["average loss: ", RMS_loss])

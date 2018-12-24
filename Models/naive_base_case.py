@@ -1,12 +1,12 @@
-from pipeline import SetMaker
-from pipeline import Hyperparameters
+from pipeline.dataset_maker import SetMaker
+from pipeline.hyperparameters import Hyperparameters
 import csv
 
 hyp = Hyperparameters()
-sm = SetMaker()
+sm = SetMaker(9)
 
 sm.create_training_set()
-test = open("control/test.csv", "w")
+test = open("../Graphs_and_Results/Naive_case.csv", "w")
 test_logger = csv.writer(test, lineterminator="\n")
 test_logger.writerow(["true_values", "predicted_values", "abs_loss"])
 for i in range(hyp.Info.EVAULATE_TEST_SIZE):
