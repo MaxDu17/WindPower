@@ -1,7 +1,7 @@
 import subprocess
 import random
 import csv
-POPULATION_SIZE = 1
+POPULATION_SIZE = 10
 TRAINING_EPOCHS = 100
 TEST_SIZE = 1000
 
@@ -16,12 +16,13 @@ for i in range(POPULATION_SIZE):
     #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
     genetic_matrix.append([footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE])
 
-    subprocess_array.append(
-        subprocess.Popen(['/usr/bin/python3', '../Models/lstm_v2_c_genetic.py', str(footprint),
-                          str(learning_rate), str(cell_dim), str(hidden_dim), str(TRAINING_EPOCHS), str(TEST_SIZE), str(i)]))
+    current = subprocess.Popen(['/usr/bin/python3', '../Models/lstm_v2_c_genetic.py', str(footprint),
+                          str(learning_rate), str(cell_dim), str(hidden_dim), str(TRAINING_EPOCHS), str(TEST_SIZE), str(i)])
+    data_dict[i] = [genetic_matrix[i], current.wait()]
+
 
 print(genetic_matrix)
-exit_codes=[p.wait() for p in subprocess_array]
+'''
 
 for i in range(POPULATION_SIZE):
     data = open(str(i)+".csv", "r")
@@ -30,7 +31,7 @@ for i in range(POPULATION_SIZE):
     loss = float(data_[0])
     data_dict[i] = [genetic_matrix[i], loss]
     data.close()
-
+'''
 test = open("test.csv", "w")
 test_ = csv.writer(test)
 print(data_dict)
