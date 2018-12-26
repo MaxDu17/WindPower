@@ -139,7 +139,7 @@ with tf.Session() as sess:
             print("This is epoch " + str(epoch) + " and the loss is " + str(loss_))'''
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1,cell_dim])
-    print(np.shape(next_state))
+    #print(np.shape(next_state))
     for test in range(test_size):  # this will be replaced later
 
         data = sm.next_epoch_test_waterfall()
@@ -157,4 +157,4 @@ with tf.Session() as sess:
     print("test for " + str(SERIAL_NUMBER) + ": rms loss is ", RMS_loss)
     test_logger.writerow([RMS_loss])
 print("FINISHED ONE PROGRAM")
-exit(0.1)
+exit(10)
