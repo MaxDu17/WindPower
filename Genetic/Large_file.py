@@ -2,7 +2,7 @@ import subprocess
 import random
 import csv
 import tensorflow as tf
-from pipeline.dataset_maker import SetMaker as sm
+from pipeline.dataset_maker import SetMaker
 import numpy as np
 POPULATION_SIZE = 10
 TRAINING_EPOCHS = 1000
@@ -12,6 +12,7 @@ TEST_SIZE = 1000
 genetic_matrix = []
 data_dict = {}
 subprocess_array = []
+sm = SetMaker()
 def graph(hyperparameters):
     footprint = hyperparameters[0]
     learning_rate = hyperparameters[1]
