@@ -2,7 +2,7 @@ import subprocess
 import random
 import csv
 POPULATION_SIZE = 10
-TRAINING_EPOCHS = 100
+TRAINING_EPOCHS = 1000
 TEST_SIZE = 1000
 
 
@@ -21,7 +21,6 @@ for i in range(POPULATION_SIZE):
     k.wait()
 
 print(genetic_matrix)
-#exit_list = [p.wait for p in subprocess_array]
 
 
 for i in range(POPULATION_SIZE):
@@ -37,5 +36,7 @@ test_ = csv.writer(test)
 print(data_dict)
 for k, v in data_dict.items():
     test_.writerow([k, v])
+
+
 print("DONE DONE DONE DONE DONE DONE")
 
