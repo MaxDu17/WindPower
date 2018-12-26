@@ -18,7 +18,7 @@ for i in range(POPULATION_SIZE):
 
     current = subprocess.Popen(['/usr/bin/python3', '../Models/lstm_v2_c_genetic.py', str(footprint),
                           str(learning_rate), str(cell_dim), str(hidden_dim), str(TRAINING_EPOCHS), str(TEST_SIZE), str(i)])
-    data_dict[i] = [genetic_matrix[i], int(current.wait())/10.0]
+    data_dict[i] = [genetic_matrix[i], current.wait()/1000000.0]
 
 
 print(genetic_matrix)

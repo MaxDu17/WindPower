@@ -160,4 +160,4 @@ with tf.Session() as sess:
     print("test for " + str(SERIAL_NUMBER) + ": rms loss is ", RMS_loss)
     test_logger.writerow([RMS_loss])
 print("FINISHED ONE PROGRAM")
-exit(int(RMS_loss*10))
+sys.exit(int(RMS_loss*1000000))
