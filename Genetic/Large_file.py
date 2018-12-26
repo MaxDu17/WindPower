@@ -12,7 +12,7 @@ TEST_SIZE = 1000
 genetic_matrix = []
 data_dict = {}
 subprocess_array = []
-sm = SetMaker()
+
 def graph(hyperparameters):
     footprint = hyperparameters[0]
     learning_rate = hyperparameters[1]
@@ -21,6 +21,7 @@ def graph(hyperparameters):
     epochs = hyperparameters[4]  # just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
     test_size = hyperparameters[5]
     SERIAL_NUMBER = hyperparameters[6] # this is for telling which instance this is
+    sm = SetMaker(footprint)
     with tf.name_scope("weights_and_biases"):
         W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="forget_weight")
         W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="output_weight")
