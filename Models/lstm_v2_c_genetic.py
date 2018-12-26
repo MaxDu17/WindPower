@@ -111,7 +111,8 @@ with tf.name_scope("summaries_and_saver"):
     summary_op = tf.summary.merge_all()
     saver = tf.train.Saver()
 '''
-with tf.Session() as sess:
+config = tf.ConfigProto(device_count = {'cpu':0})
+with tf.Session(config=config) as sess:
     sess.run(tf.global_variables_initializer())
     sm.create_training_set()
     summary = None #this is just because it was used before
