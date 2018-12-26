@@ -142,5 +142,5 @@ for i in range(POPULATION_SIZE):
     footprint = int(random.randint(1, 15))
     cell_dim = hidden_dim = random.randint(1, 100)
     #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
-    genetic_matrix.append([footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE])
+    genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE]
     print(graph(genetic_matrix))
