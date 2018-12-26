@@ -47,7 +47,7 @@ with tf.name_scope("placeholders"):
     init_state = tf.placeholder(shape = [2,1,cell_dim], dtype = tf.float32, name = "initial_states")
     inputs = tf.placeholder(shape = [footprint,1,1], dtype = tf.float32,  name = "input_data")
 
-with tf.device('\cpu:0'):
+with tf.device('/cpu:0'):
     def step(last_state, X):
         with tf.name_scope("to_gates"):
             C_last, H_last = tf.unstack(last_state)
