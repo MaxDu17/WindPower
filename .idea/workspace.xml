@@ -19,7 +19,7 @@
               <entry file="file://$PROJECT_DIR$/Genetic/Large_file.py">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="671">
-                    <caret line="143" column="54" lean-forward="true" selection-start-line="143" selection-start-column="54" selection-end-line="143" selection-end-column="54" />
+                    <caret line="142" column="24" selection-start-line="142" selection-start-column="24" selection-end-line="142" selection-end-column="24" />
                     <folding>
                       <element signature="e#0#17#0" expanded="true" />
                     </folding>
@@ -687,7 +687,7 @@
     <entry file="file://$PROJECT_DIR$/Genetic/Large_file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="671">
-          <caret line="143" column="54" lean-forward="true" selection-start-line="143" selection-start-column="54" selection-end-line="143" selection-end-column="54" />
+          <caret line="142" column="24" selection-start-line="142" selection-start-column="24" selection-end-line="142" selection-end-column="24" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>

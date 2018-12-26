@@ -139,12 +139,11 @@ def graph(hyperparameters, sess):
     print("test for " + str(SERIAL_NUMBER) + ": rms loss is ", RMS_loss)
     return RMS_loss
 
-
-for i in range(POPULATION_SIZE):
-    learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
-    footprint = int(random.randint(1, 15))
-    cell_dim = hidden_dim = random.randint(1, 100)
-    #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
-    genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
-    with tf.Session() as sess:
+with tf.Session() as sess:
+    for i in range(POPULATION_SIZE):
+        learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
+        footprint = int(random.randint(1, 15))
+        cell_dim = hidden_dim = random.randint(1, 100)
+        #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
+        genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
         print(graph(genetic_matrix, sess))
