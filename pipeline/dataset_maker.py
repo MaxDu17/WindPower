@@ -22,6 +22,7 @@ class SetMaker:
     def create_training_set(self): #initializing statement for training
         self.training_set_size = self.hyp.TRAIN_PERCENT * self.dp.dataset_size()
         self.test_counter = self.training_set_size
+        print(self.test_counter)
 
     def create_validation_set(self): #initializing phrase for validation
         self.validation_set_size = int(self.hyp.VALIDATION_PERCENT * self.dp.dataset_size()) #just casting to whole #
@@ -61,6 +62,7 @@ class SetMaker:
         self.batch_counter = 0
 
     def next_epoch_test_waterfall(self): #this is nextepochtestsingleshift but with a waterfall
+
         if self.test_counter == 0:
             raise Exception("you forgot to initialize the test_counter! Execute create_training_set")
         if self.test_counter + self.FOOTPRINT + 1 > self.dp.dataset_size():

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Genetic/Large_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/Large_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/dataset_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/dataset_maker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +19,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Genetic/Large_file.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="462">
-                    <caret line="138" column="55" selection-start-line="138" selection-start-column="55" selection-end-line="138" selection-end-column="55" />
+                  <state relative-caret-position="295">
+                    <caret line="97" column="13" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="13" />
                     <folding>
                       <element signature="e#0#17#0" expanded="true" />
                     </folding>
@@ -34,7 +35,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_genetic.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
@@ -64,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
-              <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -157,11 +158,11 @@
         <option value="$PROJECT_DIR$/Testing_Programs/Master.py" />
         <option value="$PROJECT_DIR$/Genetic/test.py" />
         <option value="$PROJECT_DIR$/Models/naive_base_case.py" />
-        <option value="$PROJECT_DIR$/pipeline/dataset_maker.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" />
         <option value="$PROJECT_DIR$/Genetic/Master.py" />
         <option value="$PROJECT_DIR$/Models/Large_file.py" />
         <option value="$PROJECT_DIR$/Genetic/Large_file.py" />
+        <option value="$PROJECT_DIR$/pipeline/dataset_maker.py" />
       </list>
     </option>
   </component>
@@ -640,13 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
@@ -686,11 +680,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Genetic/Large_file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="138" column="55" selection-start-line="138" selection-start-column="55" selection-end-line="138" selection-end-column="55" />
+        <state relative-caret-position="295">
+          <caret line="97" column="13" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="13" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
         </state>
       </provider>
     </entry>

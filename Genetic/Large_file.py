@@ -140,7 +140,7 @@ def graph(hyperparameters, sess):
     return RMS_loss
 
 def sort_second(val):
-    return val[2]
+    return val[1]
 
 with tf.Session() as sess:
     results = list()
@@ -150,7 +150,8 @@ with tf.Session() as sess:
         cell_dim = hidden_dim = random.randint(1, 100)
         #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
         genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
-        results.append([i, genetic_matrix, graph(genetic_matrix, sess)])
+        results.append([genetic_matrix, graph(genetic_matrix, sess)])
     results.sort(key = sort_second)
+    results = results[0:2] #picking the top two hyperparameters
     print(results)
 
