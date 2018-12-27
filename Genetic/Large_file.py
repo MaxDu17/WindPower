@@ -5,8 +5,8 @@ import tensorflow as tf
 from pipeline.dataset_maker import SetMaker
 import numpy as np
 POPULATION_SIZE = 10
-TRAINING_EPOCHS = 1000
-TEST_SIZE = 1000
+TRAINING_EPOCHS = 500
+TEST_SIZE = 200
 
 
 genetic_matrix = []
@@ -150,7 +150,7 @@ with tf.Session() as sess:
         cell_dim = hidden_dim = random.randint(1, 100)
         #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
         genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
-        results.append([i, graph(genetic_matrix, sess)])
-    results.sort(key = sort_second())
+        results.append([i, genetic_matrix, graph(genetic_matrix, sess)])
+    results.sort(key = sort_second)
     print(results)
 
