@@ -22,7 +22,6 @@ class SetMaker:
     def create_training_set(self): #initializing statement for training
         self.training_set_size = self.hyp.TRAIN_PERCENT * self.dp.dataset_size()
         self.test_counter = self.training_set_size
-        print(self.test_counter)
 
     def create_validation_set(self): #initializing phrase for validation
         self.validation_set_size = int(self.hyp.VALIDATION_PERCENT * self.dp.dataset_size()) #just casting to whole #

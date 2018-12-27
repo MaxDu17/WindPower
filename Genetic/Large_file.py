@@ -7,6 +7,10 @@ import numpy as np
 POPULATION_SIZE = 10
 TRAINING_EPOCHS = 500
 TEST_SIZE = 200
+ACTIVE_HYP = 4
+CROSSOVER = 2
+
+MUTATION_RATE = 0.2
 
 
 genetic_matrix = []
@@ -111,14 +115,7 @@ def graph(hyperparameters, sess):
 
         next_state, loss_, _ = sess.run([curr_state, loss, optimizer],
                                         feed_dict={inputs: data, Y: label, init_state: next_state})
-        '''
-        if epoch % 500 == 0:
-            print("I finished epoch ", epoch, " out of ", epochs, " epochs")
-            print("The absolute value loss for this sample is ", np.sqrt(loss_))
-            print("predicted number: ", output_, ", real number: ", label)
-            '''
-        '''if(epoch % 100 == 0):
-            print("This is epoch " + str(epoch) + " and the loss is " + str(loss_))'''
+
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1, cell_dim])
     # print(np.shape(next_state))
@@ -141,6 +138,29 @@ def graph(hyperparameters, sess):
 
 def sort_second(val):
     return val[1]
+
+def is_mutate():
+    if(random.random() > MUTATION_RATE):
+        return True
+    else:
+        return False
+
+def index_picker():
+    index = list()
+    for i in range(ACTIVE_HYP):
+        index.append(i) # this makes a consecutive integer list
+    selected_index = random.sample(index, CROSSOVER)
+    return selected_index
+
+def cross_over(array_1, array_2):
+    for i in range(POPULATION_SIZE - 2): #minus 2 b/c the parents will stay too
+        switch_index = index_picker()
+        for k in switch_index:
+            carrier = array_1[k]
+            array_1[k] = array_2[k]
+            array_2[k] = carrier
+        
+
 
 with tf.Session() as sess:
     results = list()
