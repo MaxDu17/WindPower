@@ -140,7 +140,7 @@ def graph(hyperparameters, sess):
     return RMS_loss
 
 def sort_second(val):
-    return val[0]
+    return val[2]
 
 with tf.Session() as sess:
     results = list()
