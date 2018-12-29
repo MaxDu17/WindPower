@@ -184,7 +184,7 @@ def mutate_float(value):
 
 
 def cross_over(array_1, array_2):
-
+    print(array_1)
     scratch_list = list()
     child_list = list()
     for i in range(POPULATION_SIZE - 2): #minus 2 b/c the parents will stay too
@@ -210,7 +210,7 @@ with tf.Session() as sess:
         genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
         results.append([genetic_matrix, graph(genetic_matrix, sess)])
     results.sort(key = sort_second)
-    results = results[0:2][0][0:5] #picking the top two hyperparameters
+    results = results[0:2][0][0:5] #first gets the best 2, second gets only hyperparameter, third removes the serial number
     children = cross_over(results[0], results[1]) #this should g et the hyperparameters
     print(children)
 
