@@ -211,7 +211,7 @@ with tf.Session() as sess:
         results.append([genetic_matrix, graph(genetic_matrix, sess)])
     results.sort(key = sort_second)
     results = results[0:2][0] #first gets the best 2, second gets only hyperparameter
-    results = results[:][0:5]
+    results = [k[0:5] for k in results]
     children = cross_over(results[0], results[1]) #this should g et the hyperparameters
     print(children)
 
