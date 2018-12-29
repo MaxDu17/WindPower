@@ -159,7 +159,7 @@ def mutate(value):
     elif type_ == "float":
         result = mutate_int(value)
     else:
-        raise("The type was not caught")
+        raise ValueError("The type was not caught")
 
     return result
 
