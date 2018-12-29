@@ -164,18 +164,23 @@ def mutate(value):
     return result
 
 def mutate_int(value):
-    mutation = is_mutate() #this checks if mutation is needed (by chance)
+    mutation = is_mutate() # this checks if we are mutating
+    if mutation:  # if we are actually mutating
+        random_result = random.randint(1, 2)  # we do a coin flip
+        if random_result == 1:  # this arbitrary case means we increment
+            value += 1
+        elif random_result == 2:  # this arbitrary case means we decrement
+            value -= 1
+
+    return value  # returns the modified value
 
 def mutate_float(value):
     mutation = is_mutate()
-    if mutation: #if we are actually mutating
-        random_result = random.randint(1,2) # we do a coin flip
-        if random_result == 1: #this arbitrary case means we increment
-            value += 1
-        elif random_result == 2: # this arbitrary case means we decrement
-            value -= 1
+    if mutation:
+        random_shift = random.randrange(-0.002, 0.002)
+        value += random_shift
+    return value
 
-    return value #returns the modified value
 
 def cross_over(array_1, array_2):
     scratch_list = list()
@@ -184,9 +189,12 @@ def cross_over(array_1, array_2):
         for i in range(CROSSOVER):
             parent = parent_picker()
             if parent==1:
-                scratch_list.append(array_1[i])
+                scratch_list.append(mutate(array_1[i]))
             else:
-                scratch_list.append(array_2[i])
+                scratch_list.append(mutate(array_2[i]))
+        child_list.append(scratch_list)
+        scratch_list = list()#we're resetting this
+    return scratch_list
 
 
 
@@ -201,5 +209,6 @@ with tf.Session() as sess:
         results.append([genetic_matrix, graph(genetic_matrix, sess)])
     results.sort(key = sort_second)
     results = results[0:2][0:5] #picking the top two hyperparameters
-    print(results)
+    children = cross_over(results[0], results[1])
+    print(children)
 
