@@ -184,6 +184,7 @@ def mutate_float(value):
 
 
 def cross_over(array_1, array_2):
+    print(array_1[0])
     scratch_list = list()
     child_list = list()
     for i in range(POPULATION_SIZE - 2): #minus 2 b/c the parents will stay too
