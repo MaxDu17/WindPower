@@ -210,7 +210,7 @@ with tf.Session() as sess:
         genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
         results.append([genetic_matrix, graph(genetic_matrix, sess)])
     results.sort(key = sort_second)
-    results = results[0:2][0] #picking the top two hyperparameters
-    children = cross_over(results[0][0:5], results[1][0:5]) #this should g et the hyperparameters
+    results = results[0:2][0][0:5] #picking the top two hyperparameters
+    children = cross_over(results[0], results[1]) #this should g et the hyperparameters
     print(children)
 
