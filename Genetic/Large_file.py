@@ -154,6 +154,7 @@ def parent_picker():
 
 def mutate(value):
     type_ = type(value).__name__
+    print(type_)
     if type_ == "int":
         result = mutate_int(value)
     elif type_ == "float":
