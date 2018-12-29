@@ -8,7 +8,7 @@ POPULATION_SIZE = 10
 TRAINING_EPOCHS = 500
 TEST_SIZE = 200
 ACTIVE_HYP = 4
-CROSSOVER = 2
+CROSSOVER = 4
 
 MUTATION_RATE = 0.2
 
@@ -145,21 +145,49 @@ def is_mutate():
     else:
         return False
 
-def index_picker():
-    index = list()
-    for i in range(ACTIVE_HYP):
-        index.append(i) # this makes a consecutive integer list
-    selected_index = random.sample(index, CROSSOVER)
-    return selected_index
+def parent_picker():
+    result = random.random()
+    if result > 0.5:
+        return 1
+    else:
+        return 2
+
+def mutate(value):
+    type_ = type(value).__name__
+    if type_ == "int":
+        result = mutate_int(value)
+    elif type_ == "float":
+        result = mutate_int(value)
+    else:
+        raise("The type was not caught")
+
+    return result
+
+def mutate_int(value):
+    mutation = is_mutate() #this checks if mutation is needed (by chance)
+
+def mutate_float(value):
+    mutation = is_mutate()
+    if mutation: #if we are actually mutating
+        random_result = random.randint(1,2) # we do a coin flip
+        if random_result == 1: #this arbitrary case means we increment
+            value += 1
+        elif random_result == 2: # this arbitrary case means we decrement
+            value -= 1
+
+    return value #returns the modified value
 
 def cross_over(array_1, array_2):
+    scratch_list = list()
+    child_list = list()
     for i in range(POPULATION_SIZE - 2): #minus 2 b/c the parents will stay too
-        switch_index = index_picker()
-        for k in switch_index:
-            carrier = array_1[k]
-            array_1[k] = array_2[k]
-            array_2[k] = carrier
-        
+        for i in range(CROSSOVER):
+            parent = parent_picker()
+            if parent==1:
+                scratch_list.append(array_1[i])
+            else:
+                scratch_list.append(array_2[i])
+
 
 
 with tf.Session() as sess:
@@ -172,6 +200,6 @@ with tf.Session() as sess:
         genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
         results.append([genetic_matrix, graph(genetic_matrix, sess)])
     results.sort(key = sort_second)
-    results = results[0:2] #picking the top two hyperparameters
+    results = results[0:2][0:5] #picking the top two hyperparameters
     print(results)
 
