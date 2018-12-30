@@ -5,7 +5,7 @@ import tensorflow as tf
 from pipeline.dataset_maker import SetMaker
 import numpy as np
 POPULATION_SIZE = 10
-TRAINING_EPOCHS = 500
+TRAINING_EPOCHS = 50 #used to be 500
 TEST_SIZE = 200
 ACTIVE_HYP = 4
 CROSSOVER = 4
@@ -178,6 +178,7 @@ def mutate_float(value):
     mutation = is_mutate()
     if mutation:
         random_shift = random.randrange(-0.002, 0.002)
+        print(random_shift)
         value += random_shift
     return value
 
