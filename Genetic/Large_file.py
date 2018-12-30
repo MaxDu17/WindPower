@@ -215,6 +215,7 @@ with tf.Session() as sess:
         results.append([genetic_matrix, graph(genetic_matrix, sess)])
     results.sort(key = sort_second)
     results = [k[0] for k in results]
+    results = [k[0:5] for k in results]
      #first gets the best 2, second gets only hyperparameter
     print(results)
     #results = [k[0:5] for k in results]
