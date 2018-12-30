@@ -188,6 +188,7 @@ def cross_over(array_1, array_2):
     #array_2 = array_2[0:5]
     print(array_1)
     print(array_1[0])
+    array_1_ = array_1[0:5]
     scratch_list = list()
     child_list = list()
     for i in range(POPULATION_SIZE - 2): #minus 2 b/c the parents will stay too
