@@ -204,13 +204,13 @@ with tf.Session() as sess:
     for i in range(POPULATION_SIZE):
         learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
         footprint = int(random.randint(1, 15))
-        cell_dim = hidden_dim = random.randint(1, 100)
-        #hidden_dim = random.randint(1, 100) THIS IS FOR LATER
+        cell_dim = random.randint(1, 100)
+        hidden_dim = random.randint(1, 100)
         genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
         results.append([genetic_matrix, graph(genetic_matrix, sess)])
     results.sort(key = sort_second)
     results = [k[0] for k in results] #removes the error. This is no longer needed
-    results = [k[0:5] for k in results] #removes the serial number. This is no longer needed
+    results = [k[0:3] for k in results] #removes the serial number. This is no longer needed
     children = cross_over(results[0], results[1]) #this should g et the hyperparameters
     print(children)
 
