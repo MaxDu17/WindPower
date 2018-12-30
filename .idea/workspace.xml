@@ -18,8 +18,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Genetic/Large_file.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="728">
-                    <caret line="212" column="92" selection-start-line="212" selection-start-column="92" selection-end-line="212" selection-end-column="92" />
+                  <state relative-caret-position="405">
+                    <caret line="168" column="46" selection-start-line="168" selection-start-column="46" selection-end-line="168" selection-end-column="46" />
                     <folding>
                       <element signature="e#0#17#0" expanded="true" />
                     </folding>
@@ -106,6 +106,7 @@
       <find>self.FOOTPRINT</find>
       <find>SELF.HYP.</find>
       <find>create</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>hidden_dim</replace>
@@ -687,8 +688,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Genetic/Large_file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="212" column="92" selection-start-line="212" selection-start-column="92" selection-end-line="212" selection-end-column="92" />
+        <state relative-caret-position="405">
+          <caret line="168" column="46" selection-start-line="168" selection-start-column="46" selection-end-line="168" selection-end-column="46" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>

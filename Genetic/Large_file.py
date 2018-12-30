@@ -154,7 +154,6 @@ def parent_picker():
 
 def mutate(value):
     type_ = type(value).__name__
-    print(type_)
     if type_ == "int":
         result = mutate_int(value)
     elif type_ == "float":
@@ -195,7 +194,7 @@ def cross_over(array_1, array_2):
                 scratch_list.append(mutate(array_2[i]))
         child_list.append(scratch_list)
         scratch_list = list()#we're resetting this
-    return scratch_list
+    return child_list
 
 
 
