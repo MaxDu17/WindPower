@@ -177,7 +177,7 @@ def mutate_int(value):
 def mutate_float(value):
     mutation = is_mutate()
     if mutation:
-        random_shift = random.randrange(-0.002, 0.002)
+        random_shift = random.uniform(-0.002, 0.002)
         print(random_shift)
         value += random_shift
     return value
