@@ -184,8 +184,8 @@ def mutate_float(value):
 
 
 def cross_over(array_1, array_2):
-    array_1 = array_1[0:5]
-    array_2 = array_2[0:5]
+    #array_1 = array_1[0:5]
+    #array_2 = array_2[0:5]
     print(array_1)
     print(array_1[0])
     scratch_list = list()
