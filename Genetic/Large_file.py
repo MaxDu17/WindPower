@@ -25,9 +25,12 @@ def graph(hyperparameters, sess):
     epochs = hyperparameters[4]  # just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
     test_size = hyperparameters[5]
     SERIAL_NUMBER = hyperparameters[6] # this is for telling which instance this is
+    print(hidden_dim)
+    print(cell_dim)
     sm = SetMaker(footprint)
     with tf.name_scope("weights_and_biases"):
         W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="forget_weight")
+        #W_Forget = tf.Variable(tf.random_normal(shape=[cell_dim, hidden_dim + 1]), name="forget_weight")
         W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="output_weight")
         W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="gate_weight")
         W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="input_weight")
@@ -41,7 +44,9 @@ def graph(hyperparameters, sess):
 
     with tf.name_scope("placeholders"):
         Y = tf.placeholder(shape=[1, 1], dtype=tf.float32, name="label")  # not used until the last cycle
-        init_state = tf.placeholder(shape=[2, 1, cell_dim], dtype=tf.float32, name="initial_states")
+        init_state = tf.placeholder(shape=[2, 1, cell_dim], dtype=tf.float32, name="initial_states") #problem here
+        #init_state_cell = tf.placeholder(shape=[1, 1, cell_dim], dtype=tf.float32, name="initial_states_cell")
+        #init_state_hidden = tf.placeholder(shape=[1, 1, hidden_dim], dtype=tf.float32, name="initial_states_hidden")
         inputs = tf.placeholder(shape=[footprint, 1, 1], dtype=tf.float32, name="input_data")
 
 
@@ -79,6 +84,7 @@ def graph(hyperparameters, sess):
         return states
 
     with tf.name_scope("forward_roll"):
+        #init_state = np.stack([init_state_cell, init_state_hidden])
         states_list = tf.scan(fn=step, elems=inputs, initializer=init_state, name="scan")
         curr_state = states_list[-1]
         pass_back_state = tf.add([0.0], states_list[0], name="pass_back_state")
@@ -101,6 +107,10 @@ def graph(hyperparameters, sess):
     sess.run(tf.global_variables_initializer())
     sm.create_training_set()
     summary = None  # this is just because it was used before
+
+    #next_state_cell = np.zeros(shape=[1, 1, cell_dim])
+    #next_state_hidd = np.zeros(shape=[1, 1, hidden_dim])
+    #next_state = np.stack([next_state_cell, next_state_hidd])
     next_state = np.zeros(shape=[2, 1, cell_dim])
 
     for epoch in range(epochs):
@@ -111,7 +121,10 @@ def graph(hyperparameters, sess):
         loss_ = 0
 
         if reset:  # this allows for hidden states to reset after the training set loops back around
-            next_state = np.zeros(shape=[2, 1, cell_dim])
+            # next_state_cell = np.zeros(shape=[1, 1, cell_dim])
+            # next_state_hidd = np.zeros(shape=[1, 1, hidden_dim])
+            # next_state = np.stack([next_state_cell, next_state_hidd])
+            next_state = np.zeros(shape=[2,1,cell_dim])
 
         next_state, loss_, _ = sess.run([curr_state, loss, optimizer],
                                         feed_dict={inputs: data, Y: label, init_state: next_state})
@@ -204,8 +217,8 @@ with tf.Session() as sess:
     for i in range(POPULATION_SIZE):
         learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
         footprint = int(random.randint(1, 15))
-        cell_dim = random.randint(1, 100)
-        hidden_dim = random.randint(1, 100)
+        cell_dim = hidden_dim = random.randint(1, 100)
+        #hidden_dim = random.randint(1, 100)
         genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
         results.append([genetic_matrix, graph(genetic_matrix, sess)])
     results.sort(key = sort_second)
