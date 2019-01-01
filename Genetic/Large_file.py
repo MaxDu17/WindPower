@@ -7,7 +7,7 @@ import numpy as np
 POPULATION_SIZE = 10
 TRAINING_EPOCHS = 500 #used to be 500
 TEST_SIZE = 200
-ACTIVE_HYP = 4
+ACTIVE_HYP = 3
 CROSSOVER = 3
 GENETIC_EPOCHS = 20
 MUTATION_RATE = 0.2
@@ -244,3 +244,6 @@ with tf.Session() as sess:
         first = False
         print(children)
 
+    k = open("best.csv", "w");
+    best_writer = csv.writer(k, lineterminator = "\n")
+    best_writer.writerow(results[0:2])
