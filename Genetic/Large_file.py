@@ -10,7 +10,7 @@ TEST_SIZE = 200
 ACTIVE_HYP = 3
 CROSSOVER = 3
 GENETIC_EPOCHS = 20
-MUTATION_RATE = 0.2
+MUTATION_RATE = 0.1
 
 
 genetic_matrix = []
@@ -201,7 +201,6 @@ def mutate_float(value):
 def cross_over(array_1, array_2):
     scratch_list = list()
     child_list = list()
-    print(len(array_1))
     for i in range(POPULATION_SIZE - 2): #minus 2 b/c the parents will stay too
         for i in range(CROSSOVER):
             parent = parent_picker()
@@ -220,13 +219,14 @@ def cross_over(array_1, array_2):
 with tf.Session() as sess:
     first = True
     for k in range(GENETIC_EPOCHS):
+        print("This is epoch: " + str(GENETIC_EPOCHS))
         results = list()
         for i in range(POPULATION_SIZE):
 
             if first:
                 learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
                 footprint = int(random.randint(5, 15))
-                cell_hidden_dim = random.randint(1, 100)
+                cell_hidden_dim = random.randint(10, 100)
                 genetic_matrix = [footprint, learning_rate, cell_hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
                 results.append([genetic_matrix, graph(genetic_matrix, sess)])
 
@@ -242,8 +242,10 @@ with tf.Session() as sess:
         results = [k[0:3] for k in results] #removes the serial number. This is no longer needed
         children = cross_over(results[0], results[1]) #this should g et the hyperparameters
         first = False
-        print(children)
 
-    k = open("best.csv", "w");
+        print(children)
+        print("The kept parents are: " + str(results[0:2]))
+
+    k = open("best.csv", "w")
     best_writer = csv.writer(k, lineterminator = "\n")
     best_writer.writerow(results[0:2])
