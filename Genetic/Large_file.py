@@ -5,11 +5,11 @@ import tensorflow as tf
 from pipeline.dataset_maker import SetMaker
 import numpy as np
 POPULATION_SIZE = 10
-TRAINING_EPOCHS = 50 #used to be 500
+TRAINING_EPOCHS = 500 #used to be 500
 TEST_SIZE = 200
 ACTIVE_HYP = 4
 CROSSOVER = 3
-GENETIC_EPOCHS = 5
+GENETIC_EPOCHS = 20
 MUTATION_RATE = 0.2
 
 
@@ -225,7 +225,7 @@ with tf.Session() as sess:
 
             if first:
                 learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
-                footprint = int(random.randint(1, 15))
+                footprint = int(random.randint(5, 15))
                 cell_hidden_dim = random.randint(1, 100)
                 genetic_matrix = [footprint, learning_rate, cell_hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
                 results.append([genetic_matrix, graph(genetic_matrix, sess)])
