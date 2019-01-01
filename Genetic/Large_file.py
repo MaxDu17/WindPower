@@ -219,7 +219,7 @@ def cross_over(array_1, array_2):
 with tf.Session() as sess:
     first = True
     for k in range(GENETIC_EPOCHS):
-        print("This is epoch: " + str(GENETIC_EPOCHS))
+        print("This is epoch: " + str(k))
         results = list()
         for i in range(POPULATION_SIZE):
 
