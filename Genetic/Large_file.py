@@ -184,6 +184,9 @@ def mutate_int(value):
         elif random_result == 2:  # this arbitrary case means we decrement
             value -= 1
 
+        if value == 0: #this is a "dumb" way to prevent zero error
+            value += 1
+
     return value  # returns the modified value
 
 def mutate_float(value):
@@ -208,6 +211,8 @@ def cross_over(array_1, array_2):
                 scratch_list.append(mutate(array_2[i]))
         child_list.append(scratch_list)
         scratch_list = list()#we're resetting this
+    child_list.append(array_1)
+    child_list.append(array_2)
     return child_list
 
 
