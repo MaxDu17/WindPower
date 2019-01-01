@@ -8,8 +8,8 @@ POPULATION_SIZE = 10
 TRAINING_EPOCHS = 50 #used to be 500
 TEST_SIZE = 200
 ACTIVE_HYP = 4
-CROSSOVER = 4
-
+CROSSOVER = 3
+GENETIC_EPOCHS = 5
 MUTATION_RATE = 0.2
 
 
@@ -20,13 +20,12 @@ subprocess_array = []
 def graph(hyperparameters, sess):
     footprint = hyperparameters[0]
     learning_rate = hyperparameters[1]
-    cell_dim = hyperparameters[2]
-    hidden_dim = hyperparameters[3]
-    epochs = hyperparameters[4]  # just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
-    test_size = hyperparameters[5]
-    SERIAL_NUMBER = hyperparameters[6] # this is for telling which instance this is
+    cell_dim = hidden_dim = hyperparameters[2]
+    #hidden_dim = hyperparameters[3]
+    epochs = hyperparameters[3]  # just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
+    test_size = hyperparameters[4]
+    SERIAL_NUMBER = hyperparameters[5] # this is for telling which instance this is
     print(hidden_dim)
-    print(cell_dim)
     sm = SetMaker(footprint)
     with tf.name_scope("weights_and_biases"):
         W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="forget_weight")
@@ -191,7 +190,7 @@ def mutate_float(value):
     mutation = is_mutate()
     if mutation:
         random_shift = random.uniform(-0.002, 0.002)
-        print(random_shift)
+        #print(random_shift)
         value += random_shift
     return value
 
@@ -199,6 +198,7 @@ def mutate_float(value):
 def cross_over(array_1, array_2):
     scratch_list = list()
     child_list = list()
+    print(len(array_1))
     for i in range(POPULATION_SIZE - 2): #minus 2 b/c the parents will stay too
         for i in range(CROSSOVER):
             parent = parent_picker()
@@ -213,17 +213,29 @@ def cross_over(array_1, array_2):
 
 
 with tf.Session() as sess:
-    results = list()
-    for i in range(POPULATION_SIZE):
-        learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
-        footprint = int(random.randint(1, 15))
-        cell_dim = hidden_dim = random.randint(1, 100)
-        #hidden_dim = random.randint(1, 100)
-        genetic_matrix = [footprint, learning_rate, cell_dim, hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
-        results.append([genetic_matrix, graph(genetic_matrix, sess)])
-    results.sort(key = sort_second)
-    results = [k[0] for k in results] #removes the error. This is no longer needed
-    results = [k[0:3] for k in results] #removes the serial number. This is no longer needed
-    children = cross_over(results[0], results[1]) #this should g et the hyperparameters
-    print(children)
+    first = True
+    for k in range(GENETIC_EPOCHS):
+        results = list()
+        for i in range(POPULATION_SIZE):
+
+            if first:
+                learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
+                footprint = int(random.randint(1, 15))
+                cell_hidden_dim = random.randint(1, 100)
+                genetic_matrix = [footprint, learning_rate, cell_hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
+                results.append([genetic_matrix, graph(genetic_matrix, sess)])
+
+            else:
+                children[i].append(TRAINING_EPOCHS)
+                children[i].append(TEST_SIZE)
+                children[i].append(i)
+                results.append([children[i], graph(children[i], sess)])
+
+
+        results.sort(key = sort_second)
+        results = [k[0] for k in results] #removes the error. This is no longer needed
+        results = [k[0:3] for k in results] #removes the serial number. This is no longer needed
+        children = cross_over(results[0], results[1]) #this should g et the hyperparameters
+        first = False
+        print(children)
 
