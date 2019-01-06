@@ -13,11 +13,10 @@ NAME = "lstm_v2_c_CSV_FED" #this is the name of the python file for logging purp
 k = open("../Genetic/best.csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
-print(hyp_list[0])
-raise RuntimeError("deez nuts")
-footprint = hyp_list[0][0]
-learning_rate = hyp_list[0][1]
-hidden_dim = cell_dim = hyp_list[0][2]
+
+footprint = int(hyp_list[0][0])
+learning_rate = float(hyp_list[0][1])
+hidden_dim = cell_dim = int(hyp_list[0][2])
 
 sm = SetMaker(footprint)
 
