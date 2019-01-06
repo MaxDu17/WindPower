@@ -1,10 +1,5 @@
-"""Maximilian Du 7-16-18
-LSTM implementation with wind data set
-Version 2 changes:
--relu at the end (whoops! Negative wind!)
--continuous thread
--more markups
--also no for loops and many more changes; see spreadsheet
+"""Maximilian Du 1-5-19
+this takes in a csv and trains the FIRST data point on it
 """
 import tensorflow as tf
 import numpy as np
@@ -13,26 +8,36 @@ from pipeline.hyperparameters import Hyperparameters
 import os
 import csv
 
-sm = SetMaker()
-hyp = Hyperparameters()
+NAME = "lstm_v2_c_CSV_FED" #this is the name of the python file for logging purposes
+
+k = open("../Genetic/best.csv", "r")
+
+hyp_list =  csv.reader(k).list() #extracing the first data point from the csv file
+footprint = hyp_list[0][0]
+learning_rate = hyp_list[0][1]
+hidden_dim = cell_dim = hyp_list[0][2]
+
+sm = SetMaker(footprint)
+
+hyp = Hyperparameters() # this is used later for non-changing hyperparameters
 #constructing the big weight now
 with tf.name_scope("weights_and_biases"):
-    W_Forget = tf.Variable(tf.random_normal(shape = [hyp.hidden_dim + 1,hyp.cell_dim]), name = "forget_weight")
-    W_Output = tf.Variable(tf.random_normal(shape=[hyp.hidden_dim + 1,hyp.cell_dim]), name="output_weight")
-    W_Gate = tf.Variable(tf.random_normal(shape=[hyp.hidden_dim + 1, hyp.cell_dim]), name="gate_weight")
-    W_Input = tf.Variable(tf.random_normal(shape=[hyp.hidden_dim + 1, hyp.cell_dim]), name="input_weight")
-    W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hyp.hidden_dim,1]), name = "outwards_propagating_weight")
+    W_Forget = tf.Variable(tf.random_normal(shape = [hidden_dim + 1,cell_dim]), name = "forget_weight")
+    W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 1,cell_dim]), name="output_weight")
+    W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="gate_weight")
+    W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="input_weight")
+    W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim,1]), name = "outwards_propagating_weight")
 
-    B_Forget = tf.Variable(tf.zeros(shape=[1, hyp.cell_dim]), name = "forget_bias")
-    B_Output = tf.Variable(tf.zeros(shape=[1, hyp.cell_dim]), name="output_bias")
-    B_Gate = tf.Variable(tf.zeros(shape=[1, hyp.cell_dim]), name="gate_bias")
-    B_Input = tf.Variable(tf.zeros(shape=[1,hyp.cell_dim]), name="input_bias")
+    B_Forget = tf.Variable(tf.zeros(shape=[1, cell_dim]), name = "forget_bias")
+    B_Output = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="output_bias")
+    B_Gate = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="gate_bias")
+    B_Input = tf.Variable(tf.zeros(shape=[1,cell_dim]), name="input_bias")
     B_Hidden_to_Out = tf.Variable(tf.zeros(shape=[1,1]), name = "outwards_propagating_bias")
 
 with tf.name_scope("placeholders"):
     Y = tf.placeholder(shape = [1,1], dtype = tf.float32, name = "label") #not used until the last cycle
-    init_state = tf.placeholder(shape = [2,1,hyp.cell_dim], dtype = tf.float32, name = "initial_states")
-    inputs = tf.placeholder(shape = [hyp.FOOTPRINT,1,1], dtype = tf.float32,  name = "input_data")
+    init_state = tf.placeholder(shape = [2,1,cell_dim], dtype = tf.float32, name = "initial_states")
+    inputs = tf.placeholder(shape = [footprint,1,1], dtype = tf.float32,  name = "input_data")
 
 def step(last_state, X):
     with tf.name_scope("to_gates"):
@@ -99,19 +104,19 @@ with tf.name_scope("summaries_and_saver"):
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    ckpt = tf.train.get_checkpoint_state(os.path.dirname('2012/v2/models_CONTAINED/'))
+    ckpt = tf.train.get_checkpoint_state(os.path.dirname('../Graphs_and_Results/' + NAME+ '/models/'))
     if ckpt and ckpt.model_checkpoint_path:
         query = input("checkpoint detected! Would you like to restore from <" + ckpt.model_checkpoint_path + "> ?(y or n)\n")
         if query == 'y':
             saver.restore(sess, ckpt.model_checkpoint_path)
-            if np.sum(B_Forget.eval()) != 0:
+            if np.sum(B_Forget.eval()) != 0: #this checks for restored session
                 print("session restored!")
         else:
             print("session discarded!")
 
-    log_loss = open("2012/v2/GRAPHS_CONTAINED/LOSS.csv", "w")
-    validation = open("2012/v2/GRAPHS_CONTAINED/VALIDATION.csv", "w")
-    test = open("2012/v2/GRAPHS_CONTAINED/TEST.csv", "w")
+    log_loss = open("../Graphs_and_Results/" + NAME + "/GRAPHS/LOSS.csv", "w")
+    validation = open("../Graphs_and_Results/" + NAME + "/GRAPHS/VALIDATION.csv", "w")
+    test = open("../Graphs_and_Results/" + NAME + "/GRAPHS/TEST.csv", "w")
     logger = csv.writer(log_loss, lineterminator="\n")
     validation_logger = csv.writer(validation, lineterminator="\n")
     test_logger = csv.writer(test, lineterminator="\n")
@@ -119,21 +124,21 @@ with tf.Session() as sess:
     sm.create_training_set()
 
 
-    tf.train.write_graph(sess.graph_def, '2012/v2/GRAPHS_CONTAINED/', 'graph.pbtxt')
-    writer = tf.summary.FileWriter("2012/v2/GRAPHS_CONTAINED/", sess.graph)
+    tf.train.write_graph(sess.graph_def, '../Graphs_and_Results/' + NAME + '/GRAPHS/', 'graph.pbtxt')
+    writer = tf.summary.FileWriter("../Graphs_and_Results/" + NAME + "/GRAPHS/", sess.graph)
 
     summary = None
-    next_state = np.zeros(shape=[2,1,hyp.cell_dim])
+    next_state = np.zeros(shape=[2,1,cell_dim])
 
     for epoch in range(hyp.EPOCHS):
         reset, data = sm.next_epoch_waterfall() #this gets you the entire cow, so to speak
         label = sm.get_label()
         label = np.reshape(label, [1, 1])
-        data = np.reshape(data, [hyp.FOOTPRINT,1,1])
+        data = np.reshape(data, [footprint,1,1])
         loss_ = 0
 
         if reset:  # this allows for hidden states to reset after the training set loops back around
-            next_state = np.zeros(shape=[2,1,hyp.cell_dim])
+            next_state = np.zeros(shape=[2,1,cell_dim])
 
         next_state, output_, loss_, summary, _ = sess.run([curr_state, output, loss, summary_op, optimizer],
                                                           feed_dict = {inputs:data, Y:label, init_state:next_state})
@@ -153,7 +158,7 @@ with tf.Session() as sess:
             saver.save(sess, "evaluation/continuous/currweather/RELU/GRAPHS/LSTMweatherRELU", global_step=epoch)
 
             RMS_loss = 0.0
-            next_state_test = np.zeros(shape=[2, 1, hyp.cell_dim])
+            next_state_test = np.zeros(shape=[2, 1, cell_dim])
             carrier = ["true_values", "predicted_values", "abs_error"]
             test_local.writerow(carrier)
             sm.reset_test_counter()
@@ -161,7 +166,7 @@ with tf.Session() as sess:
                 data = sm.next_epoch_test_waterfall()
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
-                data = np.reshape(data, [hyp.FOOTPRINT, 1, 6])
+                data = np.reshape(data, [footprint, 1, 6])
 
                 next_state_test, output_, loss_ = sess.run([pass_back_state, output, loss],
                                                            # why passback? Because we only shift by one!
@@ -174,18 +179,18 @@ with tf.Session() as sess:
             test_local_.close()
 
         if epoch % 2000 == 0 and epoch > 498:
-            saver.save(sess, "2012/v2/models_CONTAINED/LSTMv2", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/LSTMv2", global_step=epoch)
             print("---------------------saved model-------------------------")
 
             next_state_hold = next_state #this "pauses" the training that is happening right now.
             sm.create_validation_set()
             RMS_loss = 0.0
-            next_state = np.zeros(shape=[2, 1, hyp.cell_dim])
+            next_state = np.zeros(shape=[2, 1, cell_dim])
             for i in range(hyp.VALIDATION_NUMBER):
                 data = sm.next_epoch_valid_waterfall()
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
-                data = np.reshape(data, [hyp.FOOTPRINT, 1, 1])
+                data = np.reshape(data, [footprint, 1, 1])
 
                 next_state, loss_ = sess.run([pass_back_state, loss], #why passback? Because we only shift by one!
                                                feed_dict = {inputs:data, Y:label, init_state:next_state})
@@ -199,14 +204,14 @@ with tf.Session() as sess:
             next_state = next_state_hold #restoring past point...
 
     RMS_loss = 0.0
-    next_state = np.zeros(shape=[2, 1, hyp.cell_dim])
+    next_state = np.zeros(shape=[2, 1, cell_dim])
     print(np.shape(next_state))
     for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
 
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
-        data = np.reshape(data, [hyp.FOOTPRINT, 1, 1])
+        data = np.reshape(data, [footprint, 1, 1])
 
         next_state, output_, loss_ = sess.run([pass_back_state, output, loss],  # why passback? Because we only shift by one!
                                      feed_dict={inputs: data, Y: label, init_state: next_state})

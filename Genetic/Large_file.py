@@ -249,3 +249,5 @@ with tf.Session() as sess:
     k = open("best.csv", "w")
     best_writer = csv.writer(k, lineterminator = "\n")
     best_writer.writerow(results[0:2])
+
+

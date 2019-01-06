@@ -9,16 +9,16 @@ YOU TRAIN AGAIN WITH SAVING MECHANISMS IN PLACE LATER
 import tensorflow as tf
 import numpy as np
 from pipeline.dataset_maker import SetMaker
+from pipeline.hyperparameters import Hyperparameters
 import sys
 import csv
-
+hyp = Hyperparameters()
 
 hyperparameters = [float(k) for k in sys.argv[1:]] # this extracts all hyperparameters
 #format: lr, ftprint, cd, hd
 footprint = int(hyperparameters[0])
 learning_rate = hyperparameters[1]
 cell_dim = int(hyperparameters[2])
-hidden_dim = int(hyperparameters[3])
 epochs = int(hyperparameters[4])#just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
 test_size = int(hyperparameters[5])
 SERIAL_NUMBER = int(hyperparameters[6]) #this is for telling which instance this is
