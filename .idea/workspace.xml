@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Genetic/Large_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/Large_file.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/lstm_v2_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v2_c.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Unused/lstm_v2_c_genetic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/dataset_maker.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/dataset_maker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/hyperparameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/hyperparameters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="103" column="78" selection-start-line="103" selection-start-column="78" selection-end-line="103" selection-end-column="78" />
+            <state relative-caret-position="168">
+              <caret line="195" column="105" lean-forward="true" selection-start-line="195" selection-start-column="105" selection-end-line="195" selection-end-column="105" />
               <folding>
                 <element signature="e#220#243#0" expanded="true" />
               </folding>
@@ -106,14 +100,16 @@
       <find>5</find>
       <find>2012</find>
       <find>v2</find>
+      <find>_CONTAINED</find>
+      <find>' + NAME + '</find>
+      <find>hyp.cell_dim</find>
+      <find>hyp.FOOTPRINT</find>
     </findStrings>
     <replaceStrings>
       <replace>hidden_dim</replace>
-      <replace>cell_dim</replace>
       <replace>epochs</replace>
       <replace>learning_rate</replace>
       <replace>footpring</replace>
-      <replace>footprint</replace>
       <replace>../Graphs_and_Results/v2_c/</replace>
       <replace>TRAINING_EPOCHS</replace>
       <replace>POPULATION_SIZE</replace>
@@ -121,6 +117,9 @@
       <replace>../Graphs_and_Results</replace>
       <replace>&quot; + NAME</replace>
       <replace>' + NAME + '</replace>
+      <replace>&quot; + NAME + &quot;</replace>
+      <replace>cell_dim</replace>
+      <replace>footprint</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -718,8 +717,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="103" column="78" selection-start-line="103" selection-start-column="78" selection-end-line="103" selection-end-column="78" />
+        <state relative-caret-position="168">
+          <caret line="195" column="105" lean-forward="true" selection-start-line="195" selection-start-column="105" selection-end-line="195" selection-end-column="105" />
           <folding>
             <element signature="e#220#243#0" expanded="true" />
           </folding>
