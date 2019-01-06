@@ -1,21 +1,21 @@
 #this will be depreciated as time goes by into a flags version of program
 
 class Hyperparameters: #the class that defines the hyperparameters is here
-    FOOTPRINT = 9 #how many steps back you take. This is a critical adjustment point
-    LEARNING_RATE = 0.001
+    #FOOTPRINT = 9 #how many steps back you take. This is a critical adjustment point
+    #LEARNING_RATE = 0.001
     EPOCHS = 80001
     TRAIN_PERCENT = 0.6
-    VALIDATION_PERCENT = 0.002 #nullifies for now
+    #VALIDATION_PERCENT = 0.002 #nullifies for now
     VALIDATION_NUMBER = 60
-    cell_dim = 75
-    hidden_dim = 75
+    #cell_dim = 75
+    #hidden_dim = 75
     TEST = True
     SAVER_JUMP = 2000
     SUMMARY_JUMP = 50
     RUN_PROMPT = 25
-    STD = 0.5
-    SEED = 76137
-    MEAN = 0
+    #STD = 0.5
+    #SEED = 76137
+    #MEAN = 0
     FINALJUMP = 10 #this is how many tests it will spit out during the last portion of training
 
     class Info: #not used in real code, just as metadata

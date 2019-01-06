@@ -117,6 +117,9 @@ class SetMaker:
     def clear_valid_counter(self): #this is a public function that clears the validation counter
         self.valid_counter =0
 
+    def reset_test_counter(self):
+        self.test_counter = self.training_set_size
+
     def clear_counter(self): #resets the counter. This is a private function
         self.counter = 0
 

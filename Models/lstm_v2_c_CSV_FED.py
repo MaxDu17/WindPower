@@ -1,10 +1,5 @@
-"""Maximilian Du 7-16-18
-LSTM implementation with wind data set
-Version 2 changes:
--relu at the end (whoops! Negative wind!)
--continuous thread
--more markups
--also no for loops and many more changes; see spreadsheet
+"""Maximilian Du 1-5-19
+this takes in a csv and trains the FIRST data point on it
 """
 import tensorflow as tf
 import numpy as np
@@ -12,6 +7,8 @@ from pipeline.dataset_maker import SetMaker
 from pipeline.hyperparameters import Hyperparameters
 import os
 import csv
+
+NAME = "lstm_v2_c_CSV_FED"
 
 sm = SetMaker()
 hyp = Hyperparameters()
@@ -99,19 +96,19 @@ with tf.name_scope("summaries_and_saver"):
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    ckpt = tf.train.get_checkpoint_state(os.path.dirname('2012/v2/models_CONTAINED/'))
+    ckpt = tf.train.get_checkpoint_state(os.path.dirname('../Graphs_and_Results/' + NAME+ '/models_CONTAINED/'))
     if ckpt and ckpt.model_checkpoint_path:
         query = input("checkpoint detected! Would you like to restore from <" + ckpt.model_checkpoint_path + "> ?(y or n)\n")
         if query == 'y':
             saver.restore(sess, ckpt.model_checkpoint_path)
-            if np.sum(B_Forget.eval()) != 0:
+            if np.sum(B_Forget.eval()) != 0: #this checks for restored session
                 print("session restored!")
         else:
             print("session discarded!")
 
-    log_loss = open("2012/v2/GRAPHS_CONTAINED/LOSS.csv", "w")
-    validation = open("2012/v2/GRAPHS_CONTAINED/VALIDATION.csv", "w")
-    test = open("2012/v2/GRAPHS_CONTAINED/TEST.csv", "w")
+    log_loss = open("../Graphs_and_Results/' + NAME + '/GRAPHS_CONTAINED/LOSS.csv", "w")
+    validation = open("../Graphs_and_Results/' + NAME + '/GRAPHS_CONTAINED/VALIDATION.csv", "w")
+    test = open("../Graphs_and_Results/' + NAME + '/GRAPHS_CONTAINED/TEST.csv", "w")
     logger = csv.writer(log_loss, lineterminator="\n")
     validation_logger = csv.writer(validation, lineterminator="\n")
     test_logger = csv.writer(test, lineterminator="\n")
@@ -119,8 +116,8 @@ with tf.Session() as sess:
     sm.create_training_set()
 
 
-    tf.train.write_graph(sess.graph_def, '2012/v2/GRAPHS_CONTAINED/', 'graph.pbtxt')
-    writer = tf.summary.FileWriter("2012/v2/GRAPHS_CONTAINED/", sess.graph)
+    tf.train.write_graph(sess.graph_def, '../Graphs_and_Results/' + NAME + '/GRAPHS_CONTAINED/', 'graph.pbtxt')
+    writer = tf.summary.FileWriter("../Graphs_and_Results/' + NAME + '/GRAPHS_CONTAINED/", sess.graph)
 
     summary = None
     next_state = np.zeros(shape=[2,1,hyp.cell_dim])
@@ -174,7 +171,7 @@ with tf.Session() as sess:
             test_local_.close()
 
         if epoch % 2000 == 0 and epoch > 498:
-            saver.save(sess, "2012/v2/models_CONTAINED/LSTMv2", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/' + NAME + '/models_CONTAINED/LSTMv2", global_step=epoch)
             print("---------------------saved model-------------------------")
 
             next_state_hold = next_state #this "pauses" the training that is happening right now.
