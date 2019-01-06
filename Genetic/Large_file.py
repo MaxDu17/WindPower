@@ -10,7 +10,7 @@ TEST_SIZE = 200
 ACTIVE_HYP = 3
 CROSSOVER = 3
 GENETIC_EPOCHS = 20
-MUTATION_RATE = 0.1
+MUTATION_RATE = 0.3
 
 
 genetic_matrix = []
@@ -25,7 +25,7 @@ def graph(hyperparameters, sess):
     epochs = hyperparameters[3]  # just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
     test_size = hyperparameters[4]
     SERIAL_NUMBER = hyperparameters[5] # this is for telling which instance this is
-    print(hidden_dim)
+
     sm = SetMaker(footprint)
     with tf.name_scope("weights_and_biases"):
         W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="forget_weight")
