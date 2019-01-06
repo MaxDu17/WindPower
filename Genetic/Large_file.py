@@ -9,7 +9,7 @@ TRAINING_EPOCHS = 500 #used to be 500
 TEST_SIZE = 200
 ACTIVE_HYP = 3
 CROSSOVER = 3
-GENETIC_EPOCHS = 20
+GENETIC_EPOCHS = 2
 MUTATION_RATE = 0.3
 
 
@@ -248,6 +248,6 @@ with tf.Session() as sess:
 
     k = open("best.csv", "w")
     best_writer = csv.writer(k, lineterminator = "\n")
-    best_writer.writerow(results[0:2])
+    best_writer.writerows(results[0:2])
 
 
