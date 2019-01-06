@@ -16,7 +16,7 @@ class Hyperparameters: #the class that defines the hyperparameters is here
     #STD = 0.5
     #SEED = 76137
     #MEAN = 0
-    FINALJUMP = 10 #this is how many tests it will spit out during the last portion of training
+    FINALJUMP = 8 #this is how many tests it will spit out during the last portion of training
 
     class Info: #not used in real code, just as metadata
         DATASET_SIZE = 150120

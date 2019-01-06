@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/hyperparameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/hyperparameters.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +20,7 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Genetic/Large_file.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="735">
+                  <state relative-caret-position="4769">
                     <caret line="251" lean-forward="true" selection-start-line="251" selection-end-line="251" />
                     <folding>
                       <element signature="e#0#17#0" expanded="true" />
@@ -46,11 +48,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="195" column="105" lean-forward="true" selection-start-line="195" selection-start-column="105" selection-end-line="195" selection-end-column="105" />
+            <state relative-caret-position="460">
+              <caret line="146" column="8" selection-start-line="146" selection-start-column="8" selection-end-line="146" selection-end-column="8" />
               <folding>
                 <element signature="e#220#243#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pipeline/hyperparameters.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -104,11 +115,12 @@
       <find>' + NAME + '</find>
       <find>hyp.cell_dim</find>
       <find>hyp.FOOTPRINT</find>
+      <find>hyp.LEARNING_RATE</find>
+      <find>inputs</find>
     </findStrings>
     <replaceStrings>
       <replace>hidden_dim</replace>
       <replace>epochs</replace>
-      <replace>learning_rate</replace>
       <replace>footpring</replace>
       <replace>../Graphs_and_Results/v2_c/</replace>
       <replace>TRAINING_EPOCHS</replace>
@@ -120,6 +132,7 @@
       <replace>&quot; + NAME + &quot;</replace>
       <replace>cell_dim</replace>
       <replace>footprint</replace>
+      <replace>learning_rate</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -162,11 +175,11 @@
         <option value="$PROJECT_DIR$/Genetic/Master.py" />
         <option value="$PROJECT_DIR$/Models/Large_file.py" />
         <option value="$PROJECT_DIR$/Genetic/Large_file.py" />
-        <option value="$PROJECT_DIR$/pipeline/hyperparameters.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v2_c_genetic.py" />
         <option value="$USER_HOME$/Miniconda3/Lib/site-packages/tensorflow/python/training/saver.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v2_c.py" />
         <option value="$PROJECT_DIR$/pipeline/dataset_maker.py" />
+        <option value="$PROJECT_DIR$/pipeline/hyperparameters.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py" />
       </list>
     </option>
@@ -613,16 +626,6 @@
     <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/get_all_data_labels.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Genetic/Large_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="251" lean-forward="true" selection-start-line="251" selection-end-line="251" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Genetic/Master.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -660,13 +663,6 @@
     <entry file="file://$PROJECT_DIR$/Models/lstm_v5.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline/hyperparameters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker_cw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -698,13 +694,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Genetic/Large_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4769">
+          <caret line="251" lean-forward="true" selection-start-line="251" selection-end-line="251" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
+        <state relative-caret-position="-2204">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="e#220#243#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline/hyperparameters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -717,8 +730,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="195" column="105" lean-forward="true" selection-start-line="195" selection-start-column="105" selection-end-line="195" selection-end-column="105" />
+        <state relative-caret-position="460">
+          <caret line="146" column="8" selection-start-line="146" selection-start-column="8" selection-end-line="146" selection-end-column="8" />
           <folding>
             <element signature="e#220#243#0" expanded="true" />
           </folding>
