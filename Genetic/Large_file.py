@@ -5,7 +5,7 @@ import tensorflow as tf
 from pipeline.dataset_maker import SetMaker
 import numpy as np
 POPULATION_SIZE = 10
-TRAINING_EPOCHS = 500 #used to be 500
+TRAINING_EPOCHS = 3000 #used to be 500
 TEST_SIZE = 200
 ACTIVE_HYP = 3
 CROSSOVER = 3
