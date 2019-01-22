@@ -1,0 +1,6 @@
+model_checkpoint_path: "V2Genetic-79650"
+all_model_checkpoint_paths: "../models-72000"
+all_model_checkpoint_paths: "../models-74000"
+all_model_checkpoint_paths: "../models-76000"
+all_model_checkpoint_paths: "../models-78000"
+all_model_checkpoint_paths: "V2Genetic-79650"
