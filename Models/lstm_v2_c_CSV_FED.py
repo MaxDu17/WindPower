@@ -158,7 +158,7 @@ with tf.Session() as sess:
             test_local_ = open("../Graphs_and_Results/" + NAME + "/models/" + str(epoch) + ".csv", 'w')
             test_local = csv.writer(test_local_, lineterminator='\n')
 
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic", global_step=epoch)
 
             RMS_loss = 0.0
             next_state_test = np.zeros(shape=[2, 1, cell_dim]) #initializations
