@@ -20,7 +20,7 @@ learning_rate = float(hyp_list[0][1])
 hidden_dim = cell_dim = int(hyp_list[0][2])
 sm = SetMaker(footprint)
 hyp = Hyperparameters() # this is used later for non-changing hyperparameters
-epochs = hyp.EPOCHS
+epochs = hyp.EPOCHS #this is the epochs setting
 
 if len(sys.argv) > 1:
     epochs = int(sys.argv[1]) #this allows us to provide an arbitrary training size
@@ -136,7 +136,7 @@ with tf.Session() as sess:
     summary = None
     next_state = np.zeros(shape=[2,1,cell_dim]) #this initializes the initial "next state"
 
-    for epoch in range(hyp.EPOCHS):
+    for epoch in range(epochs):
         reset, data = sm.next_epoch_waterfall() #this gets you the entire data chunk
         label = sm.get_label() #this is the answer key
         label = np.reshape(label, [1, 1]) #reshaping for data transfer
@@ -155,11 +155,11 @@ with tf.Session() as sess:
 
         if epoch % 200 == 0: #display current error
             writer.add_summary(summary, global_step=epoch)
-            print("I finished epoch ", epoch, " out of ", hyp.EPOCHS, " epochs")
+            print("I finished epoch ", epoch, " out of ", epochs, " epochs")
             print("The absolute value loss for this sample is ", np.sqrt(loss_))
             print("predicted number: ", output_, ", real number: ", label)
 
-        if epoch % 50 == 0 and epoch > hyp.EPOCHS-(50*hyp.FINALJUMP): #this finds entropic local minima at the end and saves them
+        if epoch % 50 == 0 and epoch > epochs-(50*hyp.FINALJUMP): #this finds entropic local minima at the end and saves them
             test_local_ = open("../Graphs_and_Results/" + NAME + "/models/" + str(epoch) + ".csv", 'w')
             test_local = csv.writer(test_local_, lineterminator='\n')
 
