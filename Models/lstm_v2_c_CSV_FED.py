@@ -175,8 +175,8 @@ with tf.Session() as sess:
                 data = sm.next_epoch_test_waterfall()
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
-                data = np.reshape(data, [footprint, 1, 6])
-
+                #data = np.reshape(data, [footprint, 1, 6])
+                data = np.reshape(data, [footprint, 1, 1])
                 next_state_test, output_, loss_ = sess.run([pass_back_state, output, loss],
                                                            # why passback? Because we only shift by one!
                                                            feed_dict={inputs: data, Y: label, init_state: next_state_test})
