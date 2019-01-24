@@ -6,6 +6,7 @@ import numpy as np
 from pipeline.dataset_maker import SetMaker
 from pipeline.hyperparameters import Hyperparameters
 import os
+import sys
 import csv
 
 NAME = "lstm_v2_c_CSV_FED" #this is the name of the python file for logging purposes
@@ -17,10 +18,14 @@ hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv fil
 footprint = int(hyp_list[0][0])
 learning_rate = float(hyp_list[0][1])
 hidden_dim = cell_dim = int(hyp_list[0][2])
-
 sm = SetMaker(footprint)
-
 hyp = Hyperparameters() # this is used later for non-changing hyperparameters
+epochs = hyp.EPOCHS
+
+if len(sys.argv) > 1:
+    epochs = int(sys.argv[1]) #this allows us to provide an arbitrary training size
+
+
 #constructing the big weight now
 with tf.name_scope("weights_and_biases"): #declares the matrices
     W_Forget = tf.Variable(tf.random_normal(shape = [hidden_dim + 1,cell_dim]), name = "forget_weight")
@@ -148,7 +153,7 @@ with tf.Session() as sess:
 
         logger.writerow([loss_])
 
-        if epoch % 50 == 0: #display current error
+        if epoch % 200 == 0: #display current error
             writer.add_summary(summary, global_step=epoch)
             print("I finished epoch ", epoch, " out of ", hyp.EPOCHS, " epochs")
             print("The absolute value loss for this sample is ", np.sqrt(loss_))
@@ -184,7 +189,7 @@ with tf.Session() as sess:
 
 ####################################VALIDATION#######################################
         if epoch % 2000 == 0 and epoch > 498: #this is the validation step
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic", global_step=epoch)
             print("---------------------saved model-------------------------")
 
             next_state_hold = next_state #this "pauses" the training that is happening right now.
