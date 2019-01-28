@@ -59,5 +59,5 @@ with tf.Session(graph=graph) as sess:
         test_logger.writerow(carrier)
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
     print("test: rms loss is ", RMS_loss)
-    test_logger.writerow(["final absolute loss average", RMS_loss])
+    #test_logger.writerow(["final absolute loss average", RMS_loss])
 
