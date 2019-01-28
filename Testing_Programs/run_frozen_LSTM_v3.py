@@ -3,10 +3,10 @@ from pipeline.dataset_maker import SetMaker
 from pipeline.hyperparameters import Hyperparameters
 import numpy as np
 import csv
-
+MODEL_NAME = 'LSTM_v2_genetic_frozen'
 hyp = Hyperparameters()
 sm = SetMaker()
-pbfilename = "2012/v2/models_CONTAINED/LSTM_v2_frozen_CONTAINED.pb"
+pbfilename = '../Graphs_and_Results/lstm_v2_c_CSV_FED/'+MODEL_NAME+'.pb'
 
 
 with tf.gfile.GFile(pbfilename, "rb") as f:
@@ -25,7 +25,7 @@ with tf.Graph().as_default() as graph:
 
 with tf.Session(graph=graph) as sess:
     sm.create_training_set()
-    test = open("2012/v2/GRAPHS_CONTAINED/EVALUATE_TEST.csv", "w")
+    test = open('../Graphs_and_Results/lstm_v2_c_CSV_FED/GRAPHS/EVALUATE_TEST.csv', "w")
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
