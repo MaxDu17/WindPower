@@ -6,6 +6,7 @@ the weather data needed for the location.
 Target.csv is the coordinates that will be matched as closely as possible in the giant csv.
 Results are saved in "best_coordinates_ruc2anl_130.csv"
 """
+import csv
 import pandas as pd
 
 #i is rows, j is columns
