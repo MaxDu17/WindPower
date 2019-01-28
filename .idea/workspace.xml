@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/find_missing.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/find_missing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnostics/step_plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diagnostics/step_plotter.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/find_missing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="304">
+              <caret line="16" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -456,11 +454,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.find_missing" />
       <item itemvalue="Python.lstm_v2_c_CSV_FED" />
+      <item itemvalue="Python.run_frozen_LSTM_v3" />
       <item itemvalue="Python.save_v2" />
       <item itemvalue="Python.step_plotter" />
-      <item itemvalue="Python.run_frozen_LSTM_v3" />
-      <item itemvalue="Python.find_missing" />
     </list>
     <recent_temporary>
       <list>
@@ -503,7 +501,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.38353196" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.112676054" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -814,8 +812,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/find_missing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="304">
+          <caret line="16" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="16" />
         </state>
       </provider>
     </entry>
