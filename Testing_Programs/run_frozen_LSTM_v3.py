@@ -3,9 +3,20 @@ from pipeline.dataset_maker import SetMaker
 from pipeline.hyperparameters import Hyperparameters
 import numpy as np
 import csv
-MODEL_NAME = 'LSTM_v2_genetic_frozen'
+
 hyp = Hyperparameters()
-sm = SetMaker()
+
+MODEL_NAME = 'LSTM_v2_genetic_frozen'
+k = open("../Genetic/best.csv", "r")
+
+hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
+footprint = int(hyp_list[0][0])
+learning_rate = float(hyp_list[0][1])
+hidden_dim = cell_dim = int(hyp_list[0][2])
+sm = SetMaker(footprint)
+hyp = Hyperparameters() # this is used later for non-changing hyperparameters
+epochs = hyp.EPOCHS #this is the epochs setting
+
 pbfilename = '../Graphs_and_Results/lstm_v2_c_CSV_FED/'+MODEL_NAME+'.pb'
 
 
@@ -30,13 +41,13 @@ with tf.Session(graph=graph) as sess:
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
     RMS_loss = 0.0
-    init_state_ = np.zeros(shape=[2, 1, hyp.cell_dim])
+    init_state_ = np.zeros(shape=[2, 1, hidden_dim])
     for i in range(hyp.Info.TEST_SIZE):  # this will be replaced later
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
         print(i)
-        data = np.reshape(data, [hyp.FOOTPRINT, 1, 1])
+        data = np.reshape(data, [footprint, 1, 1])
 
 
         init_state_ , output_= sess.run([pass_back_state, output],
