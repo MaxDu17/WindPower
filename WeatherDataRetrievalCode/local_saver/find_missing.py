@@ -43,6 +43,7 @@ def substitute(copy):
     new_list = list(np.zeros(shape = [8760]))
     for k in copy:
         new_list[int(k[0])] = k[1:]
+    print("I'm here")
     for i in range(len(new_list)):
         range_counter = 1
 
