@@ -1,10 +1,9 @@
 import csv
 import numpy as np
 
-global name
 
-def markup():
-    name = input("total set file name?\n")
+def markup(name):
+
     k = open("../../Training_Sets/" + name+ ".csv")
     rawset = list(csv.reader(k))
     try:
@@ -39,18 +38,21 @@ def markup():
     return copy
 
 def substitute(copy):
+    header = copy[0]
     del copy[0]
     new_list = list(np.zeros(shape = [8760]))
     for k in copy:
-        new_list[int(k[0])] = k[1:]
-    print("I'm here")
+        new_list[int(k[0])] = k #creates a sparse array
+    print(new_list[7])
     for i in range(len(new_list)):
         range_counter = 1
 
         if(not(new_list[i])):
-            while not(new_list[i+1]): #checks if blank is isolated
+            while not(new_list[i+range_counter]): #checks if blank is isolated
                 range_counter +=1
+
             new_list[i] = new_list[i+range_counter]
+    new_list.insert(0, header)
     return new_list
 
 
@@ -58,15 +60,14 @@ def substitute(copy):
 
 
 def main():
-    large_array = markup()
+    name = input("total set file name?\n")
+    large_array = markup(name)
     final_result = substitute(large_array)
-    try:
-        m = open("../../Training_Sets/INTERPOLATED_" + name + ".csv", "w")
-    except:
-        print("please close the file!")
-        quit()
+
+    m = open("../../Training_Sets/INTERPOLATED_" + name + ".csv", "w")
+
     writer = csv.writer(m, lineterminator="\n")
-    writer.write_rows(final_result)
+    writer.writerows(final_result)
 
 
 
