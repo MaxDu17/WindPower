@@ -31,17 +31,18 @@ def markup():
 
         carrier = rawset[j][4:19]
         carrier.insert(0, hours)
+        print(carrier)
         copy.append(carrier)
-
 
     print(len(copy))
     writer.writerows(copy)
     return copy
 
 def substitute(copy):
+
     new_list = list()
     for k in copy:
-        new_list[k[0]] = k[1:]
+        new_list[int(k[0])] = k[1:]
     for i in range(len(new_list)):
         range_counter = 1
 
