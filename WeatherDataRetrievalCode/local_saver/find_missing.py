@@ -40,9 +40,10 @@ def markup(name):
 def substitute(copy):
     header = copy[0]
     del copy[0]
-    new_list = list(np.zeros(shape = [8760]))
+    new_list = [0] * 8760
     for k in copy:
-        new_list[int(k[0])] = k #creates a sparse array
+        new_list[int(k[0])] = k[1:] #creates a sparse array
+
     print(new_list[7])
     for i in range(len(new_list)):
         range_counter = 1
@@ -52,8 +53,19 @@ def substitute(copy):
                 range_counter +=1
 
             new_list[i] = new_list[i+range_counter]
-    new_list.insert(0, header)
-    return new_list
+        final = list()
+
+    for i in range(8760):
+        carrier = list(new_list[i])
+        carrier.insert(0, i)
+        final.append(carrier)
+
+    final.insert(0, header)
+
+
+
+
+    return final
 
 
 
@@ -73,4 +85,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    print("all  done!")
 
