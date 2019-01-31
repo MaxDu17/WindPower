@@ -31,7 +31,7 @@ def markup():
 
         carrier = rawset[j][4:19]
         carrier.insert(0, hours)
-        print(carrier)
+
         copy.append(carrier)
 
     print(len(copy))
@@ -39,8 +39,8 @@ def markup():
     return copy
 
 def substitute(copy):
-
-    new_list = list()
+    del copy[0]
+    new_list = list(np.zeros(shape = [8760]))
     for k in copy:
         new_list[int(k[0])] = k[1:]
     for i in range(len(new_list)):
