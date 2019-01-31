@@ -1,6 +1,8 @@
 import csv
 import numpy as np
 
+global name
+
 def markup():
     name = input("total set file name?\n")
     k = open("../../Training_Sets/" + name+ ".csv")
@@ -9,6 +11,7 @@ def markup():
         m = open("../../Training_Sets/HOUR_" + name + ".csv", "w")
     except:
         print("please close the file!")
+        quit()
     writer = csv.writer(m, lineterminator="\n")
     copy = list()
     print(len(rawset))
@@ -36,10 +39,35 @@ def markup():
     return copy
 
 def substitute(copy):
+    new_list = list()
+    for k in copy:
+        new_list[k[0]] = k[1:]
+    for i in range(len(new_list)):
+        range_counter = 1
+
+        if(not(new_list[i])):
+            while not(new_list[i+1]): #checks if blank is isolated
+                range_counter +=1
+            new_list[i] = new_list[i+range_counter]
+    return new_list
+
+
+
 
 
 def main():
-    pass
+    large_array = markup()
+    final_result = substitute(large_array)
+    try:
+        m = open("../../Training_Sets/INTERPOLATED_" + name + ".csv", "w")
+    except:
+        print("please close the file!")
+        quit()
+    writer = csv.writer(m, lineterminator="\n")
+    writer.write_rows(final_result)
 
 
+
+if __name__ == "__main__":
+    main()
 
