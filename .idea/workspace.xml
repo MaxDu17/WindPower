@@ -4,15 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/interpolate.py" line="26" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Training_Sets/ALL_DATA.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Training_Sets/ALL_DATA.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Training_Sets/INTERPOLATED_SYRACUSE.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Training_Sets/INTERPOLATED_SYRACUSE.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Training_Sets/MINUTE_SYRACUSE.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Training_Sets/MINUTE_SYRACUSE.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Training_Sets/don't use/SYRACUSE.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/interpolate_minute.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/interpolate_minute.py" afterDir="false" />
-    </list>
+    <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,8 +89,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="418">
+              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -831,8 +823,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="418">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
