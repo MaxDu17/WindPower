@@ -11,8 +11,11 @@ def main():
 
     #this code assumes that the weather is read at the begining of the thing
     weather_counter = 1
-    big_list = wind[0]
-    big_list.extend(weather[0])
+    carrier = wind[0]
+    carrier.extend(weather[0])
+    print(carrier)
+    big_list = list()
+    big_list.append(carrier)
 
 
     for i in range(1, len(wind)):
