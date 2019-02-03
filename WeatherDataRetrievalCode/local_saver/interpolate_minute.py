@@ -17,7 +17,7 @@ def markup(name):
     header = rawset[0]
     header[0] = "Minutes"
     del header[1:4]
-    copy.append(rawset[0])
+    copy.append(header)
 
     MONTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     monthhours = [24*k for k in MONTHS]
