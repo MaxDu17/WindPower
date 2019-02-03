@@ -34,8 +34,10 @@ def main():
     final.writerows(big_list)
 
     transposed_list = np.array(big_list[1:]).T.tolist()
-
-    for parameter in transposed_list[1:]:
+    headers = transposed_list[0]
+    del transposed_list[0]
+    print(transposed_list)
+    for parameter in transposed_list:
         print(parameter)
         maximum = max(parameter)
         maximum = float(maximum)
@@ -49,7 +51,7 @@ def main():
     normalized_ = open("../../Training_Sets/ALL_DATA_NORMALIZED.csv", "w")
     normalized = csv.writer(normalized_, lineterminator = "\n")
 
-    normalized.writerows(transposed_list)
+    normalized.writerows(normalized_list)
 
 
 
