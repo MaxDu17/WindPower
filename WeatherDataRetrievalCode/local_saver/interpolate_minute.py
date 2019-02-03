@@ -15,7 +15,7 @@ def markup(name):
     copy = list()
     print(len(rawset))
     header = rawset[0]
-    header[0] = "hours"
+    header[0] = "Minutes"
     del header[1:4]
     copy.append(rawset[0])
 
@@ -41,9 +41,9 @@ def markup(name):
 def substitute(copy):
     header = copy[0]
     del copy[0]
-    new_list = [0] * 8760
+    new_list = [0] * (24*365)
     for k in copy:
-        new_list[int(k[0])] = k[1:] #creates a sparse array
+        new_list[int(int(k[0])/60)] = k[1:] #creates a sparse array. Double cast is ugly, but is the only around
 
     print(new_list[7])
     for i in range(len(new_list)):
@@ -58,7 +58,7 @@ def substitute(copy):
 
     for i in range(8760):
         carrier = list(new_list[i])
-        carrier.insert(0, i)
+        carrier.insert(0, i*60)
         final.append(carrier)
 
     final.insert(0, header)
@@ -72,7 +72,7 @@ def substitute(copy):
 def main():
     name = input("total set file name?\n")
     large_array = markup(name)
-    '''
+
     final_result = substitute(large_array)
 
     m = open("../../Training_Sets/INTERPOLATED_" + name + ".csv", "w")
@@ -80,7 +80,7 @@ def main():
     writer = csv.writer(m, lineterminator="\n")
     writer.writerows(final_result)
 
-'''
+
 
 if __name__ == "__main__":
     main()
