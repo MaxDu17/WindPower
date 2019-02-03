@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/convertwindminute.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/interpolate_minute.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/interpolate_minute.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,20 +89,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="285">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/convertwindminute.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
-              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+              <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -247,9 +245,9 @@
         <option value="$PROJECT_DIR$/diagnostics/step_plotter.py" />
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/find_missing.py" />
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/interpolate.py" />
-        <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py" />
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/interpolate_minute.py" />
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/convertwindminute.py" />
+        <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py" />
       </list>
     </option>
   </component>
@@ -346,7 +344,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.convertwindminute">
+  <component name="RunManager" selected="Python.combineweatherandwind">
     <configuration name="combineweatherandwind" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="WindPower" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -461,9 +459,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.combineweatherandwind" />
         <item itemvalue="Python.convertwindminute" />
         <item itemvalue="Python.interpolate_minute" />
-        <item itemvalue="Python.combineweatherandwind" />
         <item itemvalue="Python.find_missing" />
         <item itemvalue="Python.step_plotter" />
       </list>
@@ -500,14 +498,14 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.93336886" visible="true" weight="0.24918744" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.93336886" visible="true" weight="0.43878657" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4989339" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.06663113" side_tool="true" visible="true" weight="0.24918744" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.06663113" side_tool="true" visible="true" weight="0.43878657" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49946696" weight="0.22751896" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -819,13 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Training_Sets/MINUTE_104686-2010.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -839,7 +830,14 @@
     <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/convertwindminute.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
