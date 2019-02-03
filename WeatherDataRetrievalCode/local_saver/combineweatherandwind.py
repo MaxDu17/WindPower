@@ -36,6 +36,7 @@ def main():
     transposed_list = np.array(big_list[1:]).T.tolist()
     headers = transposed_list[0]
     del transposed_list[0]
+    normalized_list = list()
     for parameter in transposed_list:
         print(parameter[0])
         for k in range(0, len(parameter)):
@@ -47,9 +48,9 @@ def main():
         maximum = max(parameter)
         minimum = min(parameter)
         range_ = maximum-minimum
-        parameter = [(x - minimum)/range_ for x in parameter]
+        normalized_list.append([(x - minimum)/range_ for x in parameter])
 
-    normalized_list = np.array(transposed_list).T.tolist()
+    normalized_list = np.array(normalized_list).T.tolist()
 
     normalized_ = open("../../Training_Sets/ALL_DATA_NORMALIZED.csv", "w")
     normalized = csv.writer(normalized_, lineterminator = "\n")

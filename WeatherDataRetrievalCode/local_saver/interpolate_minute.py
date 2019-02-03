@@ -33,10 +33,21 @@ def markup(name):
         carrier.insert(0, minutes)
 
         copy.append(carrier)
-
+    copy = clean(copy)
     print(len(copy))
     writer.writerows(copy)
     return copy
+
+def clean(copy):
+    new_copy = list() #this isn't the best way to do this, but it works
+    for time in copy:
+        try: #dumb implementation
+            k = [float(m) for m in time]
+            new_copy.append(time)
+        except ValueError:
+            print("partial hole detected")
+
+    return new_copy
 
 def substitute(copy):
     header = copy[0]
@@ -66,13 +77,9 @@ def substitute(copy):
     return final
 
 
-
-
-
 def main():
     name = input("total set file name?\n")
     large_array = markup(name)
-
     final_result = substitute(large_array)
 
     m = open("../../Training_Sets/INTERPOLATED_" + name + ".csv", "w")
