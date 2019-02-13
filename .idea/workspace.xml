@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pipeline/data_feeder_forecast.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipeline/dataset_maker_forecast.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diagnostics/datafeeder_test_program.py" beforeDir="false" afterPath="$PROJECT_DIR$/diagnostics/datafeeder_test_program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pipeline/data_feeder_forecast.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/data_feeder_forecast.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,10 +52,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+            <state relative-caret-position="76">
+              <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2033">
+              <caret line="29" column="58" lean-forward="true" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+              <folding>
+                <element signature="e#86#109#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,48 +86,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
+        <entry file="file://$PROJECT_DIR$/pipeline/data_feeder_forecast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+            <state relative-caret-position="285">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pipeline/data_feeder.py">
+        <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="247">
+              <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pipeline/data_feeder_forecast.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/diagnostics/datafeeder_test_program.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            <state relative-caret-position="570">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="e#0#61#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py">
+        <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker_forecast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="57" column="24" lean-forward="true" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="67" />
+            <state relative-caret-position="494">
+              <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#54#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,15 +132,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="171">
               <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker_cw.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -167,7 +165,6 @@
       <find>_CONTAINED</find>
       <find>' + NAME + '</find>
       <find>hyp.cell_dim</find>
-      <find>hyp.FOOTPRINT</find>
       <find>hyp.LEARNING_RATE</find>
       <find>inputs</find>
       <find>validation</find>
@@ -178,6 +175,7 @@
       <find>rawset</find>
       <find>file_data</find>
       <find>print</find>
+      <find>hyp.FOOTPRINT</find>
     </findStrings>
     <replaceStrings>
       <replace>hidden_dim</replace>
@@ -185,7 +183,6 @@
       <replace>../Graphs_and_Results/v2_c/</replace>
       <replace>TRAINING_EPOCHS</replace>
       <replace>POPULATION_SIZE</replace>
-      <replace>self.FOOTPRINT</replace>
       <replace>../Graphs_and_Results</replace>
       <replace>&quot; + NAME</replace>
       <replace>' + NAME + '</replace>
@@ -195,6 +192,7 @@
       <replace>learning_rate</replace>
       <replace>epochs</replace>
       <replace>wind</replace>
+      <replace>self.FOOTPRINT</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -250,8 +248,9 @@
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/convertwindminute.py" />
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/interpolate_minute.py" />
         <option value="$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py" />
-        <option value="$PROJECT_DIR$/diagnostics/datafeeder_test_program.py" />
         <option value="$PROJECT_DIR$/pipeline/data_feeder_forecast.py" />
+        <option value="$PROJECT_DIR$/pipeline/dataset_maker_forecast.py" />
+        <option value="$PROJECT_DIR$/diagnostics/datafeeder_test_program.py" />
       </list>
     </option>
   </component>
@@ -283,6 +282,11 @@
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
               <item name="WindPower" type="462c0819:PsiDirectoryNode" />
               <item name="Graphs_and_Results" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WindPower" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
@@ -498,19 +502,19 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11940298" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11940298" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9328358" visible="true" weight="0.44203684" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9328358" visible="true" weight="0.53412783" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49946696" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4989339" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.06716418" side_tool="true" visible="true" weight="0.44203684" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.06716418" side_tool="true" visible="true" weight="0.53412783" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49946696" weight="0.22751896" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -520,7 +524,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v2_contained_TanhRelu.py" />
     <entry file="file://$PROJECT_DIR$/Models/lstm_v1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -695,16 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-589">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding>
-            <element signature="e#86#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Miniconda3/Lib/site-packages/numpy/core/numeric.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -773,13 +766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline/hyperparameters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/interpolate_minute.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -794,34 +780,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker_cw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pipeline/data_feeder_cw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="57" column="24" lean-forward="true" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -835,16 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pipeline/data_feeder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -852,17 +804,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diagnostics/datafeeder_test_program.py">
+    <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker_cw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        <state relative-caret-position="684">
+          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WeatherDataRetrievalCode/local_saver/combineweatherandwind.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2033">
+          <caret line="29" column="58" lean-forward="true" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+          <folding>
+            <element signature="e#86#109#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pipeline/data_feeder_forecast.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="285">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline/hyperparameters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker_forecast.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagnostics/datafeeder_test_program.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

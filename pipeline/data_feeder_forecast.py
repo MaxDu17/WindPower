@@ -9,17 +9,13 @@ class DataParser_Forecast:
     """
     def __init__(self):
         self.data = pd.read_csv("../Training_Sets/ALL_DATA_NORMALIZED.csv")  # read file
-        print(self.data.columns)
         self.data.drop(["Minutes"], axis = 1, inplace=True)
         self.combined_data =  self.data
-        print(self.combined_data)
 
     def use_foreign(self, file_name):
         self.data = pd.read_csv(file_name)  # read file
-        print(self.data.columns)
         self.data.drop(["Minutes"], axis = 1, inplace=True)
         self.combined_data =  self.data
-        print(self.combined_data)
 
     def print_from_start(self, number):
         return self.combined_data.head(number) #print everything. Seldom used, but is an option
