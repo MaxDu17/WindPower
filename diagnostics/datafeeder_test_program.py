@@ -1,8 +1,8 @@
-from pipeline import DataParser_Weather
-from pipeline import SetMaker_Weather
-'''
-dp = DataParser_Weather()
+from pipeline.data_feeder_forecast import DataParser_Forecast
+
+dp = DataParser_Forecast()
 print(dp.grab_list_range(0,10))
+
 '''
 SM = SetMaker_Weather()
 
@@ -12,3 +12,4 @@ print(SM.next_epoch_test_waterfall())
 print(SM.get_label())
 print("\n")
 print(SM.next_epoch_test_waterfall())
+'''
