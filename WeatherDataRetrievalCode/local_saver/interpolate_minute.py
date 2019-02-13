@@ -13,17 +13,16 @@ def markup(name):
         quit()
     writer = csv.writer(m, lineterminator="\n")
     copy = list()
-    print(len(rawset))
+    print("This is the length of the raw set " + str(len(rawset)))
     header = rawset[0]
     header[0] = "Minutes"
     del header[1:4]
-    copy.append(header)
 
     MONTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     monthhours = [24*k for k in MONTHS]
     cumulativemonths = [sum(monthhours[0:k]) for k in range(12)]#this will get you the cumulative hours imparted by month
     cumulativeminutes = [60 * k for k in cumulativemonths]
-    print(cumulativeminutes)
+    print("This is the total minutes as a list " + str(cumulativeminutes))
 
     for j in range(1, len(rawset)):
 
@@ -34,7 +33,8 @@ def markup(name):
 
         copy.append(carrier)
     copy = clean(copy)
-    print(len(copy))
+    print("Here is the read list length " + str(len(copy)))
+    copy.insert(0, header)
     writer.writerows(copy)
     return copy
 
@@ -55,8 +55,6 @@ def substitute(copy):
     new_list = [0] * (24*365)
     for k in copy:
         new_list[int(int(k[0])/60)] = k[1:] #creates a sparse array. Double cast is ugly, but is the only around
-
-    print(new_list[7])
     for i in range(len(new_list)):
         range_counter = 1
 

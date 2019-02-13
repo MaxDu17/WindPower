@@ -36,19 +36,21 @@ def main():
     transposed_list = np.array(big_list[1:]).T.tolist()
     headers = transposed_list[0]
     del transposed_list[0]
-    normalized_list = list()
-    for parameter in transposed_list:
+    print(headers)
+    normalized_list = transposed_list[0]
+    for parameter in transposed_list[1:]:
         print(parameter[0])
-        for k in range(0, len(parameter)):
+        for k in range(0, len(parameter)): #this casts each from string to float
             try:
                 parameter[k] = float(parameter[k])
             except:
-                print(k)
+                #print(k)
                 quit()
         maximum = max(parameter)
         minimum = min(parameter)
         range_ = maximum-minimum
         normalized_list.append([(x - minimum)/range_ for x in parameter])
+
 
     normalized_list = np.array(normalized_list).T.tolist()
 
