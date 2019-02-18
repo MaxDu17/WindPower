@@ -1,6 +1,3 @@
-import subprocess
-import random
-import csv
 import tensorflow as tf
 from pipeline.dataset_maker import SetMaker
 import numpy as np

@@ -11,9 +11,8 @@ from pipeline.hyperparameters import Hyperparameters
 import os
 import csv
 
-sm = SetMaker()
 hyp = Hyperparameters()
-
+sm = SetMaker(hyp.FOOTPRINT)
 
 #constructing the big weight now
 with tf.name_scope("weights_and_biases"):
