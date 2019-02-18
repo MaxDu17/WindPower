@@ -6,7 +6,7 @@ class LSTM:
     def __init__(self):
        print("LSTM created")
 
-    def graph(hyperparameters, sess):
+    def graph(self, hyperparameters, sess):
 
         FOOTPRINT = hyperparameters[0]
         LEARNING_RATE = hyperparameters[1]

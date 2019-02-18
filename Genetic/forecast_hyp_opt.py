@@ -108,7 +108,7 @@ with tf.Session() as sess:
                 footprint = int(random.randint(5, 15))
                 cell_hidden_dim = random.randint(10, 100)
                 genetic_matrix = [footprint, learning_rate, cell_hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
-                results.append([genetic_matrix, model.graph(genetic_matrix, sess)])
+                results.append([genetic_matrix, model.graph(hyperparameters = genetic_matrix, sess = sess)])
 
             else:
                 children[i].append(TRAINING_EPOCHS)
