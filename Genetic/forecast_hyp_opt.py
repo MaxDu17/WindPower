@@ -8,7 +8,8 @@ import tensorflow as tf
 
 
 ############# CHANGE ME ###########
-from Models.lstm_v2_c_class import LSTMv2
+from Models.lstm_v5_c_class import LSTM
+name = "lstm_v5_c_class"
 ###################################
 
 
@@ -25,7 +26,8 @@ genetic_matrix = []
 data_dict = {}
 subprocess_array = []
 
-model = LSTMv2()#this makes the entire model for genetic only
+model = LSTM()#this makes the entire model for genetic only
+
 
 def sort_second(val): #sorting function
     return val[1]
@@ -124,7 +126,7 @@ with tf.Session() as sess:
         print(children)
         print("The kept parents are: " + str(results[0:2]))
 
-    k = open("best.csv", "w")
+    k = open(name + "best.csv", "w")
     best_writer = csv.writer(k, lineterminator = "\n")
     best_writer.writerows(results[0:2])
 

@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Graphs_and_Results/HYPERPARAMETER_CLASS_DUMMY/GRAPHS/f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/lstm_v5_c_class.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/lstm_v2_c_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v2_c_class.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,19 +62,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Models/lstm_v5.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="111" column="64" lean-forward="true" selection-start-line="111" selection-start-column="64" selection-end-line="111" selection-end-column="64" />
+            <state relative-caret-position="509">
+              <caret line="173" column="52" selection-start-line="173" selection-start-column="43" selection-end-line="173" selection-end-column="52" />
               <folding>
                 <element signature="e#128#151#0" expanded="true" />
               </folding>
@@ -81,13 +74,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_class.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-              <folding>
-                <element signature="e#1#24#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="133">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -134,13 +133,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+            <state relative-caret-position="684">
+              <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#147#160#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -157,16 +156,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>summary</find>
-      <find>training_epochs</find>
-      <find>population_size</find>
       <find>loss_</find>
       <find>log</find>
       <find>self.FOOTPRINT</find>
       <find>SELF.HYP.</find>
       <find>create</find>
       <find>H_last</find>
-      <find>curr_state</find>
       <find>5</find>
       <find>2012</find>
       <find>v2</find>
@@ -187,9 +182,12 @@
       <find>sess</find>
       <find>graph(</find>
       <find>NAME</find>
+      <find>f</find>
+      <find>hyp.hidden_dim</find>
+      <find>curr_state</find>
+      <find>footprint</find>
     </findStrings>
     <replaceStrings>
-      <replace>hidden_dim</replace>
       <replace>footpring</replace>
       <replace>../Graphs_and_Results/v2_c/</replace>
       <replace>TRAINING_EPOCHS</replace>
@@ -198,13 +196,14 @@
       <replace>&quot; + NAME</replace>
       <replace>' + NAME + '</replace>
       <replace>&quot; + NAME + &quot;</replace>
-      <replace>cell_dim</replace>
       <replace>footprint</replace>
       <replace>learning_rate</replace>
       <replace>epochs</replace>
       <replace>wind</replace>
       <replace>self.FOOTPRINT</replace>
       <replace>model.graph(</replace>
+      <replace>hidden_dim</replace>
+      <replace>cell_dim</replace>
       <replace>hyp.NAME</replace>
     </replaceStrings>
   </component>
@@ -214,7 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Graphs_and_Results/getpbtxt.py" />
         <option value="$PROJECT_DIR$/Models/gru_1.py" />
         <option value="$PROJECT_DIR$/pipeline/data_feeder.py" />
         <option value="$PROJECT_DIR$/pipeline/data_feeder_cw.py" />
@@ -261,10 +259,11 @@
         <option value="$PROJECT_DIR$/pipeline/data_feeder_forecast.py" />
         <option value="$PROJECT_DIR$/pipeline/dataset_maker_forecast.py" />
         <option value="$PROJECT_DIR$/diagnostics/datafeeder_test_program.py" />
-        <option value="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" />
         <option value="$PROJECT_DIR$/pipeline/hyperparameters.py" />
-        <option value="$PROJECT_DIR$/Models/lstm_v2_c_class.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v5_c.py" />
+        <option value="$PROJECT_DIR$/Models/lstm_v5_c_class.py" />
+        <option value="$PROJECT_DIR$/Models/lstm_v2_c_class.py" />
+        <option value="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" />
       </list>
     </option>
   </component>
@@ -313,6 +312,13 @@
               <item name="Graphs_and_Results" type="462c0819:PsiDirectoryNode" />
               <item name="HYPERPARAMETER_CLASS_DUMMY" type="462c0819:PsiDirectoryNode" />
               <item name="GRAPHS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WindPower" type="462c0819:PsiDirectoryNode" />
+              <item name="Graphs_and_Results" type="462c0819:PsiDirectoryNode" />
+              <item name="HYPERPARAMETER_CLASS_DUMMY" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
@@ -369,8 +375,8 @@
       <recent name="C:\Users\wedu\Desktop\Working Repository\WindPower\pipeline" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\wedu\Desktop\Working Repository\WindPower\Graphs_and_Results\HYPERPARAMETER_CLASS_DUMMY\models" />
       <recent name="C:\Users\wedu\Desktop\Working Repository\WindPower\Models" />
+      <recent name="C:\Users\wedu\Desktop\Working Repository\WindPower\Graphs_and_Results\HYPERPARAMETER_CLASS_DUMMY\models" />
       <recent name="C:\Users\wedu\Desktop\Working Repository\WindPower\Models\Unused" />
       <recent name="C:\Users\wedu\Desktop\Working Repository\WindPower\Genetic" />
       <recent name="C:\Users\wedu\Desktop\Working Repository\WindPower\pipeline" />
@@ -580,13 +586,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pipeline/modelv2_contained.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="13" column="46" lean-forward="true" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pipeline/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -849,33 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v5.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="823">
@@ -920,22 +892,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_class.py">
+    <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state relative-caret-position="475">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
-            <element signature="e#1#24#0" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2603">
+          <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="111" column="64" lean-forward="true" selection-start-line="111" selection-start-column="64" selection-end-line="111" selection-end-column="64" />
+        <state relative-caret-position="509">
+          <caret line="173" column="52" selection-start-line="173" selection-start-column="43" selection-end-line="173" selection-end-column="52" />
           <folding>
             <element signature="e#128#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+          <folding>
+            <element signature="e#147#160#0" expanded="true" />
           </folding>
         </state>
       </provider>
