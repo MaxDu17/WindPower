@@ -104,7 +104,7 @@ with tf.name_scope("prediction"):
                         name="BHTO_b_a")  # gets raw output
     output = tf.nn.relu(raw_output, name="output")
 
-with tf.name_scope("loss"):
+with tf.name_scope("loss"): #this is rms..we might want to change this
     loss = tf.square(tf.subtract(output, Y))
     loss = tf.reduce_sum(loss)
 
