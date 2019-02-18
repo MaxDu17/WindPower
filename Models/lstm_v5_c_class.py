@@ -4,7 +4,7 @@ import numpy as np
 
 class LSTM:
     def __init__(self):
-       print("LSTM created")
+       print("LSTM object created")
 
     def graph(self, hyperparameters, sess):
 
