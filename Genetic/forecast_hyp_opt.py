@@ -1,10 +1,17 @@
-import subprocess
+'''
+This code will genetically optimize a class-defined LSTM model
+because of the class structure, there should be no problem with any network
+'''
 import random
 import csv
 import tensorflow as tf
-from pipeline.dataset_maker import SetMaker
-import numpy as np
+
+
+############# CHANGE ME ###########
 from Models.lstm_v2_c_class import LSTMv2
+###################################
+
+
 POPULATION_SIZE = 10
 TRAINING_EPOCHS = 3000 #used to be 500
 TEST_SIZE = 200
@@ -20,10 +27,10 @@ subprocess_array = []
 
 model = LSTMv2()#this makes the entire model for genetic only
 
-def sort_second(val):
+def sort_second(val): #sorting function
     return val[1]
 
-def is_mutate():
+def is_mutate(): #mutuation oracle
     if(random.random() > MUTATION_RATE):
         return True
     else:
