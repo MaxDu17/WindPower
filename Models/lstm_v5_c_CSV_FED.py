@@ -208,6 +208,7 @@ with tf.Session() as sess:
             RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
             print("doing some rapid tests: this one had loss of " + str(RMS_loss))
             test_local_.close()
+            sm.reset_test_counter()
 
 ####################################VALIDATION#######################################
         if epoch % 2000 == 0 and epoch > 498: #this is the validation step
