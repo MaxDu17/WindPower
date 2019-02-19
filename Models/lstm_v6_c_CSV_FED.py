@@ -1,3 +1,9 @@
+"""Maximilian Du 7-2-18
+LSTM implementation with wind data set
+Version 6 changes:
+-trying to concatenate the keep and forget gates into one (see ppt)
+-still holding off on validation for now
+"""
 import tensorflow as tf
 from pipeline.dataset_maker import SetMaker
 from pipeline.dataset_maker import Hyperparameters
@@ -7,7 +13,7 @@ import sys
 import os
 
 
-NAME = "lstm_v5_c_class" #this is the name of the python file for logging purposes
+NAME = "lstm_v6_c_class" #this is the name of the python file for logging purposes
 
 k = open("../Genetic/" + NAME + "best.csv", "r")
 
@@ -24,24 +30,18 @@ if len(sys.argv) > 1:
     epochs = int(sys.argv[1]) #this allows us to provide an arbitrary training size
 
 sm = SetMaker(FOOTPRINT)
-
+#constructing the big weight now
 with tf.name_scope("weights_and_biases"):
-    W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 1, cell_dim]),
-                           name="forget_weight")  # note that the rows are the concatenated cell, hidden, and input states. This is peephole usage
-    W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 1, cell_dim]),
-                           name="output_weight")
-    W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 1, cell_dim]),
-                         name="gate_weight")
-    W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 1, cell_dim]),
-                          name="input_weight")
-    W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim, 1]),
-                                  name="outwards_propagating_weight")
+    W_Forget_and_Input = tf.Variable(tf.random_normal(shape = [hidden_dim +1,cell_dim]), name = "forget_and_input_weight") #note that forget_and_input actually works for forget, and the input is the inverse
+    W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 1,cell_dim]), name="output_weight")
+    W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="gate_weight")
 
-    B_Forget = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="forget_bias")
+    W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim,1]), name = "outwards_propagating_weight")
+
+    B_Forget_and_Input = tf.Variable(tf.zeros(shape=[1, cell_dim]), name = "forget_and_input_bias")
     B_Output = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="output_bias")
     B_Gate = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="gate_bias")
-    B_Input = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="input_bias")
-    B_Hidden_to_Out = tf.Variable(tf.zeros(shape=[1, 1]), name="outwards_propagating_bias")
+    B_Hidden_to_Out = tf.Variable(tf.zeros(shape=[1,1]), name = "outwards_propagating_bias")
 
 with tf.name_scope("placeholders"):
     Y = tf.placeholder(shape=[1, 1], dtype=tf.float32, name="label")  # not used until the last cycle
@@ -50,42 +50,33 @@ with tf.name_scope("placeholders"):
 
 def step(last_state, X):
     with tf.name_scope("to_gates"):
-        # output gate is not here, as it requires the changed cell state, which is not here yet
         C_last, H_last = tf.unstack(last_state)
-        concat_input = tf.concat([X, H_last, C_last], axis=1,
-                                 name="input_concat")  # concatenates the inputs to one vector
-        forget_gate = tf.add(tf.matmul(concat_input, W_Forget, name="f_w_m"), B_Forget,
-                             name="f_b_a")  # decides which to drop from cell
-        gate_gate = tf.add(tf.matmul(concat_input, W_Gate, name="g_w_m"), B_Gate,
-                           name="g_b_a")  # decides which things to change in cell state
-        input_gate = tf.add(tf.matmul(concat_input, W_Input, name="i_w_m"), B_Input,
-                            name="i_b_a")  # decides which of the changes to accept
+        concat_input = tf.concat([X, H_last], axis = 1, name = "input_concat") #concatenates the inputs to one vector
+        forget_gate = tf.add(tf.matmul(concat_input, W_Forget_and_Input, name = "f_w_m"),B_Forget_and_Input, name = "f_b_a") #decides which to drop from cell
 
-    with tf.name_scope("non-linearity"):  # makes the gates into what they should be
-        # output gate is not here for the same reason explained in the previous name scope.
-        forget_gate = tf.sigmoid(forget_gate, name="sigmoid_forget")
+        gate_gate = tf.add(tf.matmul(concat_input, W_Gate, name = "g_w_m"), B_Gate, name = "g_b_a") #decides which things to change in cell state
+        output_gate = tf.add(tf.matmul(concat_input, W_Output, name="o_w_m"), B_Output, name="o_b_a")
+
+    with tf.name_scope("non-linearity"): #makes the gates into what they should be
+        forget_gate = tf.sigmoid(forget_gate, name = "sigmoid_forget")
+
+        forget_gate_negated = tf.scalar_mul(-1, forget_gate) #this has to be here because it is after the nonlin
+        input_gate = tf.add(tf.ones([1, cell_dim]), forget_gate_negated, name="making_input_gate")
         input_gate = tf.sigmoid(input_gate, name="sigmoid_input")
-        gate_gate = tf.tanh(gate_gate, name="tanh_gate")
 
-    with tf.name_scope("forget_gate"):  # forget gate values and propagate
+        gate_gate = tf.tanh(gate_gate, name = "tanh_gate")
+        output_gate = tf.sigmoid(output_gate, name="sigmoid_output")
+    with tf.name_scope("forget_gate"): #forget gate values and propagate
 
-        current_cell = tf.multiply(forget_gate, C_last, name="forget_gating")
+        current_cell = tf.multiply(forget_gate, C_last, name = "forget_gating")
 
-    with tf.name_scope("suggestion_node"):  # suggestion gate
-        suggestion_box = tf.multiply(input_gate, gate_gate, name="input_determiner")
-        current_cell = tf.add(suggestion_box, current_cell, name="input_and_gate_gating")
+    with tf.name_scope("suggestion_node"): #suggestion gate
+        suggestion_box = tf.multiply(input_gate, gate_gate, name = "input_determiner")
+        current_cell = tf.add(suggestion_box, current_cell, name = "input_and_gate_gating")
 
-    with tf.name_scope("output_gate"):  # output gate values to hidden
-        concat_output_input = tf.concat([X, H_last, current_cell], axis=1,
-                                        name="input_concat")  # concatenates the inputs to one vector #here, the processed current cell is concatenated and prepared for output
-        output_gate = tf.add(tf.matmul(concat_output_input, W_Output, name="o_w_m"), B_Output,
-                             name="o_b_a")  # we are making the output gates now, with the peephole.
-        output_gate = tf.sigmoid(output_gate,
-                                 name="sigmoid_output")  # the gate is complete. Note that the two lines were supposed to be back in "to gates" and "non-linearity", but it is necessary to put it here
-        current_cell = tf.tanh(current_cell,
-                               name="cell_squashing")  # squashing the current cell, branching off now. Note the underscore, means saving a copy.
-        current_hidden = tf.multiply(output_gate, current_cell,
-                                     name="next_hidden")  # we are making the hidden by element-wise multiply of the squashed states
+    with tf.name_scope("output_gate"): #output gate values to hidden
+        current_cell = tf.tanh(current_cell, name = "cell_squashing") #squashing the current cell, branching off now. Note the underscore, means saving a copy.
+        current_hidden = tf.multiply(output_gate, current_cell, name="next_hidden") #we are making the hidden by element-wise multiply of the squashed states
 
         states = tf.stack([current_cell, current_hidden])
 
@@ -96,7 +87,7 @@ with tf.name_scope("forward_roll"):
                           name="scan")  # funs step until inputs are gone
     curr_state = states_list[-1]  # used for the next time step
     pass_back_state = tf.add([0.0], states_list[0],
-                             name="pass_back_state")  # this is just making it a compute for tensroboard vis
+                             name="pass_back_state")  # this is just making it a compute for tensorboard vis
 
 with tf.name_scope("prediction"):
     _, current_hidden = tf.unstack(curr_state)  # this gets the current hidden layer
@@ -104,22 +95,20 @@ with tf.name_scope("prediction"):
                         name="BHTO_b_a")  # gets raw output
     output = tf.nn.relu(raw_output, name="output")
 
-with tf.name_scope("loss"): #this is rms..we might want to change this
+with tf.name_scope("loss"):
     loss = tf.square(tf.subtract(output, Y))
     loss = tf.reduce_sum(loss)
 
 with tf.name_scope("optimizer"):
-    optimizer = tf.train.AdamOptimizer(learning_rate=LEARNING_RATE).minimize(loss)
+    optimizer = tf.train.AdamOptimizer(learning_rate=hyp.LEARNING_RATE).minimize(loss)
 
-with tf.name_scope("summaries_and_saver"): #these are for tensorboard display
-    tf.summary.histogram("W_Forget", W_Forget)
-    tf.summary.histogram("W_Input", W_Input)
+with tf.name_scope("summaries_and_saver"):
+    tf.summary.histogram("W_Forget", W_Forget_and_Input)
     tf.summary.histogram("W_Output", W_Output)
     tf.summary.histogram("W_Gate", W_Gate)
     tf.summary.histogram("W_Hidden_to_Out", W_Hidden_to_Out)
 
-    tf.summary.histogram("B_Forget", B_Forget)
-    tf.summary.histogram("B_Input", B_Input)
+    tf.summary.histogram("B_Forget", B_Forget_and_Input)
     tf.summary.histogram("B_Output", B_Output)
     tf.summary.histogram("B_Gate", B_Gate)
     tf.summary.histogram("B_Hidden_to_Out", B_Hidden_to_Out)
@@ -129,7 +118,6 @@ with tf.name_scope("summaries_and_saver"): #these are for tensorboard display
     summary_op = tf.summary.merge_all()
     saver = tf.train.Saver()
 
-
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer()) #this initializes the compute nodes
     ckpt = tf.train.get_checkpoint_state(os.path.dirname('../Graphs_and_Results/' + NAME+ '/models/'))
@@ -137,7 +125,7 @@ with tf.Session() as sess:
         query = input("checkpoint detected! Would you like to restore from <" + ckpt.model_checkpoint_path + "> ?(y or n)\n")
         if query == 'y':
             saver.restore(sess, ckpt.model_checkpoint_path)
-            if np.sum(B_Forget.eval()) != 0: #this checks for restored session
+            if np.sum(B_Forget_and_Input.eval()) != 0: #this checks for restored session
                 print("session restored!")
         else:
             print("session discarded!")
@@ -185,7 +173,7 @@ with tf.Session() as sess:
             test_local_ = open("../Graphs_and_Results/" + NAME + "/models/" + str(epoch) + ".csv", 'w')
             test_local = csv.writer(test_local_, lineterminator='\n')
 
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V5Genetic", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V6Genetic", global_step=epoch)
 
             RMS_loss = 0.0
             next_state_test = np.zeros(shape=[2, 1, cell_dim]) #initializations
@@ -212,7 +200,7 @@ with tf.Session() as sess:
 
 ####################################VALIDATION#######################################
         if epoch % 2000 == 0 and epoch > 498: #this is the validation step
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V5Genetic", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V6Genetic", global_step=epoch)
             print("---------------------saved model-------------------------")
 
             next_state_hold = next_state #this "pauses" the training that is happening right now.
