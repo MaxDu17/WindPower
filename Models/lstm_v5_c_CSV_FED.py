@@ -208,7 +208,7 @@ with tf.Session() as sess:
             RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
             print("doing some rapid tests: this one had loss of " + str(RMS_loss))
             test_local_.close()
-            sm.reset_test_counter()
+
 
 ####################################VALIDATION#######################################
         if epoch % 2000 == 0 and epoch > 498: #this is the validation step
@@ -240,6 +240,7 @@ with tf.Session() as sess:
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1, cell_dim])
     print(np.shape(next_state))
+    sm.reset_test_counter()
     for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
 
         data = sm.next_epoch_test_waterfall()
