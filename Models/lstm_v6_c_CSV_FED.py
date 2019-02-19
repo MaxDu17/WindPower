@@ -1,8 +1,8 @@
-"""Maximilian Du 7-2-18
+"""Maximilian Du 2-18-19
 LSTM implementation with wind data set
 Version 6 changes:
--trying to concatenate the keep and forget gates into one (see ppt)
--still holding off on validation for now
+concatenation of input and forget
+this runs off a csv file
 """
 import tensorflow as tf
 from pipeline.dataset_maker import SetMaker
@@ -48,7 +48,7 @@ with tf.name_scope("placeholders"):
     init_state = tf.placeholder(shape=[2, 1, cell_dim], dtype=tf.float32, name="initial_states")
     inputs = tf.placeholder(shape=[FOOTPRINT, 1, 1], dtype=tf.float32, name="input_data")
 
-def step(last_state, X):
+def step(last_state, X): #this is the function for each node of the LSTM
     with tf.name_scope("to_gates"):
         C_last, H_last = tf.unstack(last_state)
         concat_input = tf.concat([X, H_last], axis = 1, name = "input_concat") #concatenates the inputs to one vector
@@ -100,7 +100,7 @@ with tf.name_scope("loss"):
     loss = tf.reduce_sum(loss)
 
 with tf.name_scope("optimizer"):
-    optimizer = tf.train.AdamOptimizer(learning_rate=hyp.LEARNING_RATE).minimize(loss)
+    optimizer = tf.train.AdamOptimizer(learning_rate=LEARNING_RATE).minimize(loss)
 
 with tf.name_scope("summaries_and_saver"):
     tf.summary.histogram("W_Forget", W_Forget_and_Input)
