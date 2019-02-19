@@ -5,7 +5,7 @@ upper_bound = 500
 lower_bound = 400
 step_length = 1
 
-FILE_NAME = "lstm_v2_c_CSV_FED"
+FILE_NAME = "lstm_v5_c_class"
 x = np.arange(0,step_length*(upper_bound-lower_bound),step_length)
 
 file_name_2 = "../Graphs_and_Results/" + FILE_NAME + "/GRAPHS/EVALUATE_TEST.csv"
@@ -21,8 +21,7 @@ predict2_naive = np.roll(predict2, -1)
 
 
 plt.step(x, true[lower_bound:upper_bound], label='truth')
-#plt.step(x, predict1[lower_bound:upper_bound], label=('predict version ' + str(version_number_1)))
-plt.step(x, predict2_naive[lower_bound:upper_bound], label=('naive simulation'))
+
 plt.step(x, predict2[lower_bound:upper_bound], label=('predict version: ' + FILE_NAME))
 
 title = FILE_NAME + " and naive" + ". " +\
