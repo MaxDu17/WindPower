@@ -5,9 +5,9 @@ import numpy as np
 import csv
 
 hyp = Hyperparameters()
-
-MODEL_NAME = 'LSTM_v5_genetic_frozen'
-CSV_NAME = 'lstm_v5_c_classbest'
+version = 2
+MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
+CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
@@ -17,7 +17,7 @@ sm = SetMaker(footprint)
 labels = list()
 outputs = list()
 
-pbfilename = '../Graphs_and_Results/lstm_v5_c_class/'+MODEL_NAME+'.pb'
+pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class/'+MODEL_NAME+'.pb'
 
 
 with tf.gfile.GFile(pbfilename, "rb") as f:
@@ -36,7 +36,7 @@ with tf.Graph().as_default() as graph:
 
 with tf.Session(graph=graph) as sess:
     sm.create_training_set()
-    test = open('../Graphs_and_Results/lstm_v5_c_class/GRAPHS/EVALUATE_TEST.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/EVALUATE_TEST.csv', "w")
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
@@ -63,6 +63,7 @@ with tf.Session(graph=graph) as sess:
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
     print("test: rms loss is ", RMS_loss)
 
+######finding naive coeficient###########
 big_total_normal = 0
 for i in range(len(outputs)):
     big_total_normal += (np.abs(outputs[i] - labels[i]))
@@ -77,3 +78,8 @@ for i in range(len(outputs)):
 
 print(big_total_shift)
 print(big_total_normal)
+
+naive_coeficient = big_total_normal - big_total_shift
+print("Naive coeficient: " + str(naive_coeficient))
+file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/naivecoeff.txt', 'w')
+file.write(str(naive_coeficient))
