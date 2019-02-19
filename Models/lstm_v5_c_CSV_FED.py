@@ -203,7 +203,7 @@ with tf.Session() as sess:
                                                            # why passback? Because we only shift by one!
                                                            feed_dict={inputs: data, Y: label, init_state: next_state_test})
                 RMS_loss += np.sqrt(loss_)
-                carrier = [label_, output_[0][0], loss_]
+                carrier = [label_, output_[0][0], np.sqrt(loss_)]
                 test_local.writerow(carrier)
             RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
             print("doing some rapid tests: this one had loss of " + str(RMS_loss))

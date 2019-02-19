@@ -1,12 +1,13 @@
 import tensorflow as tf
 from tensorflow.python.tools import freeze_graph
 version = 6
+version_to_keep = 159950
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
 
 # Freeze the graph
 
 input_graph_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/graph.pbtxt'
-checkpoint_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class/models/V' + str(version) + 'Genetic-160000'
+checkpoint_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class/models/V' + str(version) + 'Genetic-' + str(version_to_keep)
 input_saver_def_path = ''
 input_binary = False
 output_node_names = 'prediction/output, forward_roll/pass_back_state'
