@@ -190,7 +190,7 @@ with tf.Session() as sess:
                 next_state_test, output_, loss_ = sess.run([pass_back_state, output, loss],
                                                            # why passback? Because we only shift by one!
                                                            feed_dict={inputs: data, Y: label, init_state: next_state_test})
-                RMS_loss += loss_
+                RMS_loss += np.sqrt(loss_)
                 carrier = [label_, output_[0][0], loss_]
                 test_local.writerow(carrier)
             RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
@@ -216,6 +216,7 @@ with tf.Session() as sess:
                 next_state, loss_ = sess.run([pass_back_state, loss], #why passback? Because we only shift by one!
                                                feed_dict = {inputs:data, Y:label, init_state:next_state})
                 RMS_loss += np.sqrt(loss_)
+
             sm.clear_valid_counter()
 
             RMS_loss = RMS_loss / hyp.VALIDATION_NUMBER

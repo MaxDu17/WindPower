@@ -5,7 +5,7 @@ import numpy as np
 import csv
 
 hyp = Hyperparameters()
-version = 2
+version = 6
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
 CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
