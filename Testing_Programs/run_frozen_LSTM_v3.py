@@ -6,18 +6,18 @@ import csv
 
 hyp = Hyperparameters()
 
-MODEL_NAME = 'LSTM_v2_genetic_frozen'
-k = open("../Genetic/best.csv", "r")
+MODEL_NAME = 'LSTM_v5_genetic_frozen'
+CSV_NAME = 'lstm_v5_c_classbest'
+k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
 footprint = int(hyp_list[0][0])
-learning_rate = float(hyp_list[0][1])
-hidden_dim = cell_dim = int(hyp_list[0][2])
+hidden_dim =  int(hyp_list[0][2])
 sm = SetMaker(footprint)
-hyp = Hyperparameters() # this is used later for non-changing hyperparameters
-epochs = hyp.EPOCHS #this is the epochs setting
+labels = list()
+outputs = list()
 
-pbfilename = '../Graphs_and_Results/lstm_v2_c_CSV_FED/'+MODEL_NAME+'.pb'
+pbfilename = '../Graphs_and_Results/lstm_v5_c_class/'+MODEL_NAME+'.pb'
 
 
 with tf.gfile.GFile(pbfilename, "rb") as f:
@@ -36,7 +36,7 @@ with tf.Graph().as_default() as graph:
 
 with tf.Session(graph=graph) as sess:
     sm.create_training_set()
-    test = open('../Graphs_and_Results/lstm_v2_c_CSV_FED/GRAPHS/EVALUATE_TEST.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v5_c_class/GRAPHS/EVALUATE_TEST.csv', "w")
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
@@ -54,10 +54,26 @@ with tf.Session(graph=graph) as sess:
                                                 feed_dict = {input: data, init_state: init_state_})
 
         loss_ = np.square(output_[0][0] - label_)
+        labels.append(label_)
+        outputs.append(output_[0][0])
         RMS_loss += np.sqrt(loss_)
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
         test_logger.writerow(carrier)
+
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
     print("test: rms loss is ", RMS_loss)
-    #test_logger.writerow(["final absolute loss average", RMS_loss])
 
+big_total_normal = 0
+for i in range(len(outputs)):
+    big_total_normal += (np.abs(outputs[i] - labels[i]))
+
+outputs = list(np.roll(outputs, -1))
+del outputs[-1]
+del labels[-1]
+
+big_total_shift = 0
+for i in range(len(outputs)):
+    big_total_shift += (np.abs(outputs[i] - labels[i]))
+
+print(big_total_shift)
+print(big_total_normal)
