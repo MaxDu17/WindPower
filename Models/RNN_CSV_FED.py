@@ -46,8 +46,8 @@ def step(last_state, X):
         # output gate is not here, as it requires the changed cell state, which is not here yet
         H_last = last_state
 
-        hidden_layer = tf.matmul(X, W_In, name="Current_propagation")
-        last_state_addition = tf.matmul(H_last, W_Hidden, name="Past_propagation")
+        hidden_layer = tf.sigmoid(tf.matmul(X, W_In, name="Current_propagation"))
+        last_state_addition = tf.sigmoid(tf.matmul(H_last, W_Hidden, name="Past_propagation"))
         hidden_layer = tf.add(hidden_layer, last_state_addition, name="Combination")
         hidden_layer = tf.add(hidden_layer, B_Hidden, name="Hidden_Bias_addition")
     return hidden_layer
