@@ -8,8 +8,8 @@ import tensorflow as tf
 
 
 ############# CHANGE ME ###########
-from Models.RNN_class import LSTM
-name = "RNN_class"
+from Models.lstm_v7_c_class import LSTM
+name = "lstm_v7_c_class"
 ###################################
 
 

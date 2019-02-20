@@ -20,7 +20,7 @@ LEARNING_RATE = float(hyp_list[0][1])
 hidden_dim = cell_dim = int(hyp_list[0][2])
 sm = SetMaker(FOOTPRINT)
 hyp = Hyperparameters() # this is used later for non-changing hyperparameters
-epochs = hyp.EPOCHS #this is the epochs setting
+epochs = hyp.EPOCHS_LARGE #this is the epochs setting
 
 if len(sys.argv) > 1:
     epochs = int(sys.argv[1]) #this allows us to provide an arbitrary training size
