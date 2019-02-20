@@ -50,7 +50,7 @@ class LSTM: #ok, this is a GRU
                 input_gate = tf.add(tf.ones([1, hidden_dim]), IF_negated, name="making_input_gate")
                 forget_gate = input_forget_gate #just to make sytax correct
             with tf.name_scope("To_suggestion_rail_and_node"):
-                
+
 
 
             with tf.name_scope("non-linearity"):  # makes the gates into what they should be

@@ -75,7 +75,11 @@ def mutate_float(value):
     if mutation:
         random_shift = random.uniform(-0.002, 0.002)
         #print(random_shift)
-        value += random_shift
+        if(random_shift + value > 0):
+            value += random_shift
+        else:
+            print("exceeds bounds, skipping mutation")
+
     return value
 
 
