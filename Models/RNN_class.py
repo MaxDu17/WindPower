@@ -14,8 +14,6 @@ class LSTM: #this isn't really an LSTM, but for the sake of polymorphism, it is.
         epochs = hyperparameters[3]  # just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
         test_size = hyperparameters[4]
         SERIAL_NUMBER = hyperparameters[5] # this is for telling which instance this is
-        print(FOOTPRINT)
-        print(cell_dim)
 
         sm = SetMaker(FOOTPRINT)
 
@@ -37,10 +35,8 @@ class LSTM: #this isn't really an LSTM, but for the sake of polymorphism, it is.
                 # output gate is not here, as it requires the changed cell state, which is not here yet
                 H_last = last_state
 
-                hidden_layer = tf.multiply(X, W_In, name = "Current_propagation")
-                print(H_last)
-                last_state_addition = tf.multiply(H_last, W_Hidden, name = "Past_propagation")
-                print(last_state_addition)
+                hidden_layer = tf.matmul(X, W_In, name = "Current_propagation")
+                last_state_addition = tf.matmul(H_last, W_Hidden, name = "Past_propagation")
                 hidden_layer = tf.add(hidden_layer, last_state_addition, name = "Combination")
                 hidden_layer = tf.add(hidden_layer, B_Hidden, name = "Hidden_Bias_addition")
             return hidden_layer
@@ -53,7 +49,7 @@ class LSTM: #this isn't really an LSTM, but for the sake of polymorphism, it is.
                                      name="pass_back_state")  # this is just making it a compute for tensroboard vis
 
         with tf.name_scope("prediction"):
-            output = tf.multiply(curr_state, W_Out, name = "Output_propagation")
+            output = tf.matmul(curr_state, W_Out, name = "Output_propagation")
             output = tf.add(output, B_Out, name = "Output_Bias_addition")
             output = tf.nn.relu(output, name="output")
 
