@@ -1,6 +1,6 @@
 import tensorflow as tf
 from tensorflow.python.tools import freeze_graph
-version = 6
+version = 7
 version_to_keep = 160000
 #commented things are for the RNN data
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'

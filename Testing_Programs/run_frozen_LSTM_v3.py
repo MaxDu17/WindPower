@@ -3,13 +3,13 @@ from pipeline.dataset_maker import SetMaker
 from pipeline.hyperparameters import Hyperparameters
 import numpy as np
 import csv
-
+#commented code is for rnn
 hyp = Hyperparameters()
-version = 6
-#MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
-MODEL_NAME = 'RNN_frozen'
-#CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
-CSV_NAME = 'RNN_classbest'
+version = 7
+MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
+#MODEL_NAME = 'RNN_frozen'
+CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
+#CSV_NAME = 'RNN_classbest'
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
@@ -19,8 +19,8 @@ sm = SetMaker(footprint)
 labels = list()
 outputs = list()
 
-#pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class/'+MODEL_NAME+'.pb'
-pbfilename = '../Graphs_and_Results/RNN_class/'+MODEL_NAME+'.pb'
+pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class/'+MODEL_NAME+'.pb'
+#pbfilename = '../Graphs_and_Results/RNN_class/'+MODEL_NAME+'.pb'
 
 with tf.gfile.GFile(pbfilename, "rb") as f:
     graph_def = tf.GraphDef()
@@ -38,13 +38,14 @@ with tf.Graph().as_default() as graph:
 
 with tf.Session(graph=graph) as sess:
     sm.create_training_set()
-    #test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/EVALUATE_TEST.csv', "w")
-    test = open('../Graphs_and_Results/RNN_class/GRAPHS/EVALUATE_TEST.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/EVALUATE_TEST.csv', "w")
+    #test = open('../Graphs_and_Results/RNN_class/GRAPHS/EVALUATE_TEST.csv', "w")
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
     RMS_loss = 0.0
     init_state_ = np.zeros(shape=[2, 1, hidden_dim])
+    #init_state_ = np.zeros(shape=[1, hidden_dim])
     for i in range(hyp.Info.TEST_SIZE):  # this will be replaced later
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
@@ -84,6 +85,6 @@ print(big_total_normal)
 
 naive_coeficient = big_total_normal - big_total_shift
 print("Naive coeficient: " + str(naive_coeficient))
-#file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/naivecoeff.txt', 'w')
-file = open('../Graphs_and_Results/RNN_class/GRAPHS/naivecoeff.txt', 'w')
+file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/naivecoeff.txt', 'w')
+#file = open('../Graphs_and_Results/RNN_class/GRAPHS/naivecoeff.txt', 'w')
 file.write(str(naive_coeficient))
