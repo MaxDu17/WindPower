@@ -38,6 +38,7 @@ class LSTM: #this isn't really an LSTM, but for the sake of polymorphism, it is.
                 H_last = last_state
 
                 hidden_layer = tf.multiply(X, W_In, name = "Current_propagation")
+                print(H_last)
                 last_state_addition = tf.multiply(H_last, W_Hidden, name = "Past_propagation")
                 print(last_state_addition)
                 hidden_layer = tf.add(hidden_layer, last_state_addition, name = "Combination")
