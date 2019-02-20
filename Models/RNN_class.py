@@ -14,6 +14,8 @@ class LSTM: #this isn't really an LSTM, but for the sake of polymorphism, it is.
         epochs = hyperparameters[3]  # just a data issue. No data is being destroyed here. I'm just changing it to a compatible type
         test_size = hyperparameters[4]
         SERIAL_NUMBER = hyperparameters[5] # this is for telling which instance this is
+        print(FOOTPRINT)
+        print(cell_dim)
 
         sm = SetMaker(FOOTPRINT)
 
