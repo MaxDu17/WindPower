@@ -111,7 +111,7 @@ with tf.Session() as sess:
     writer = tf.summary.FileWriter("../Graphs_and_Results/" + NAME + "/GRAPHS/", sess.graph) #this will write summary tensorboard
 
     summary = None
-    next_state = np.zeros(shape=[2,1,cell_dim]) #this initializes the initial "next state"
+    next_state = np.zeros(shape=[1,cell_dim]) #this initializes the initial "next state"
 
     for epoch in range(epochs):
         reset, data = sm.next_epoch_waterfall() #this gets you the entire data chunk
@@ -121,7 +121,7 @@ with tf.Session() as sess:
         loss_ = 0
 
         if reset:  # this allows for hidden states to reset after the training set loops back around
-            next_state = np.zeros(shape=[2,1,cell_dim])
+            next_state = np.zeros(shape=[1,cell_dim])
 
         ################# this is the running command ####################################################
         next_state, output_, loss_, summary, _ = sess.run([curr_state, output, loss, summary_op, optimizer],
@@ -140,10 +140,10 @@ with tf.Session() as sess:
             test_local_ = open("../Graphs_and_Results/" + NAME + "/models/" + str(epoch) + ".csv", 'w')
             test_local = csv.writer(test_local_, lineterminator='\n')
 
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/RNN", global_step=epoch)
 
             RMS_loss = 0.0
-            next_state_test = np.zeros(shape=[2, 1, cell_dim]) #initializations
+            next_state_test = np.zeros(shape=[1, cell_dim]) #initializations
             carrier = ["true_values", "predicted_values", "abs_error"]
             test_local.writerow(carrier)
             sm.reset_test_counter()
@@ -166,13 +166,13 @@ with tf.Session() as sess:
 
 ####################################VALIDATION#######################################
         if epoch % 2000 == 0 and epoch > 498: #this is the validation step
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/RNN", global_step=epoch)
             print("---------------------saved model-------------------------")
 
             next_state_hold = next_state #this "pauses" the training that is happening right now.
             sm.create_validation_set()
             RMS_loss = 0.0
-            next_state = np.zeros(shape=[2, 1, cell_dim])
+            next_state = np.zeros(shape=[1, cell_dim])
             for i in range(hyp.VALIDATION_NUMBER):
                 data = sm.next_epoch_valid_waterfall()
                 label_ = sm.get_label()
@@ -192,7 +192,7 @@ with tf.Session() as sess:
 
 #################################TESTING###############################################
     RMS_loss = 0.0
-    next_state = np.zeros(shape=[2, 1, cell_dim])
+    next_state = np.zeros(shape=[1, cell_dim])
     print(np.shape(next_state))
     for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
 

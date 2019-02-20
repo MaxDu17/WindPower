@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Graphs_and_Results/RNN_class/GRAPHS/f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Graphs_and_Results/RNN_class/models/f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/RNN_CSV_FED.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/RNN_CSV_FED.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RNN_CSV_FED.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,8 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="25" column="57" lean-forward="true" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+            <state relative-caret-position="2020">
+              <caret line="230" column="55" lean-forward="true" selection-start-line="230" selection-start-column="55" selection-end-line="230" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -120,8 +119,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/RNN_CSV_FED.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="32" column="59" lean-forward="true" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+            <state relative-caret-position="388">
+              <caret line="171" column="84" selection-start-line="171" selection-start-column="84" selection-end-line="171" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -158,7 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_CONTAINED</find>
       <find>' + NAME + '</find>
       <find>hyp.cell_dim</find>
       <find>hyp.LEARNING_RATE</find>
@@ -188,6 +186,7 @@
       <find>hyp.</find>
       <find>footprint</find>
       <find>cell_dim</find>
+      <find>2</find>
     </findStrings>
     <replaceStrings>
       <replace>footpring</replace>
@@ -210,6 +209,7 @@
       <replace>'</replace>
       <replace>FOOTPRINT</replace>
       <replace>hidden_dim</replace>
+      <replace>RNN</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -265,9 +265,9 @@
         <option value="$PROJECT_DIR$/Models/RNN_class.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v7_c_class.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py" />
-        <option value="$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py" />
         <option value="$PROJECT_DIR$/Models/gru_1.py" />
         <option value="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" />
+        <option value="$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py" />
         <option value="$PROJECT_DIR$/Models/RNN_CSV_FED.py" />
       </list>
     </option>
@@ -294,6 +294,12 @@
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
               <item name="WindPower" type="462c0819:PsiDirectoryNode" />
               <item name="Graphs_and_Results" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WindPower" type="462c0819:PsiDirectoryNode" />
+              <item name="Graphs_and_Results" type="462c0819:PsiDirectoryNode" />
+              <item name="lstm_v6_c_class" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
@@ -881,13 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="25" column="57" lean-forward="true" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -922,10 +921,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2020">
+          <caret line="230" column="55" lean-forward="true" selection-start-line="230" selection-start-column="55" selection-end-line="230" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Models/RNN_CSV_FED.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="32" column="59" lean-forward="true" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+        <state relative-caret-position="388">
+          <caret line="171" column="84" selection-start-line="171" selection-start-column="84" selection-end-line="171" selection-end-column="84" />
         </state>
       </provider>
     </entry>
