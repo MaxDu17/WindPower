@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v6_c_class/LSTM_v6_genetic_frozen.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v6_c_class/LSTM_v6_genetic_frozen.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/RNN_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/RNN_class.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/RNN_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+            <state relative-caret-position="685">
+              <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -121,7 +122,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
+            <state relative-caret-position="2413">
               <caret line="127" selection-start-line="127" selection-end-line="127" />
               <folding>
                 <element signature="e#147#160#0" expanded="true" />
@@ -130,11 +131,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+            <state relative-caret-position="570">
+              <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -268,10 +269,10 @@
         <option value="$PROJECT_DIR$/pipeline/hyperparameters.py" />
         <option value="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py" />
         <option value="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" />
-        <option value="$PROJECT_DIR$/Models/RNN_class.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v6_c_CSV_FED.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED.py" />
         <option value="$PROJECT_DIR$/Freeze_Programs/save_v4.py" />
+        <option value="$PROJECT_DIR$/Models/RNN_class.py" />
       </list>
     </option>
   </component>
@@ -501,12 +502,12 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120469086" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.120469086" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9323028" visible="true" weight="0.219935" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9323028" weight="0.219935" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -522,7 +523,7 @@
       <window_info anchor="right" id="R Packages" order="4" weight="0.015991472" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.120469086" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120469086" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -846,37 +847,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_class_FORE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="69" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pipeline/dataset_maker.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-          <folding>
-            <element signature="e#147#160#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/RNN_class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -916,11 +890,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
+        <state relative-caret-position="570">
+          <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_class_FORE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="69" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2413">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
+          <folding>
+            <element signature="e#147#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/RNN_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="685">
+          <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
         </state>
       </provider>
     </entry>

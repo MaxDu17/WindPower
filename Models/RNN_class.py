@@ -27,7 +27,7 @@ class LSTM: #this isn't really an LSTM, but for the sake of polymorphism, it is.
         with tf.name_scope("placeholders"):
             Y = tf.placeholder(shape=[1, 1], dtype=tf.float32, name="label")  # not used until the last cycle
             init_state = tf.placeholder(shape=[1, hidden_dim], dtype=tf.float32, name="initial_states")
-            inputs = tf.placeholder(shape=[FOOTPRINT, 1, 1], dtype=tf.float32, name="input_data")
+            inputs = tf.placeholder(shape=[FOOTPRINT, 1], dtype=tf.float32, name="input_data")
 
         def step(last_state, X):
             with tf.name_scope("propagation"):
@@ -63,23 +63,23 @@ class LSTM: #this isn't really an LSTM, but for the sake of polymorphism, it is.
         sm.create_training_set()
         summary = None  # this is just because it was used before
 
-        next_state = np.zeros(shape=[2, 1, cell_dim])
+        next_state = np.zeros(shape=[1, cell_dim])
 
         for epoch in range(epochs):
             reset, data = sm.next_epoch_waterfall()  # this gets you the entire cow, so to speak
             label = sm.get_label()
             label = np.reshape(label, [1, 1])
-            data = np.reshape(data, [FOOTPRINT, 1, 1])
+            data = np.reshape(data, [FOOTPRINT, 1])
             loss_ = 0
 
             if reset:  # this allows for hidden states to reset after the training set loops back around
-                next_state = np.zeros(shape=[2,1,cell_dim])
+                next_state = np.zeros(shape=[1,cell_dim])
 
             next_state, loss_, _ = sess.run([curr_state, loss, optimizer],
                                             feed_dict={inputs: data, Y: label, init_state: next_state})
 
         RMS_loss = 0.0
-        next_state = np.zeros(shape=[2, 1, cell_dim])
+        next_state = np.zeros(shape=[1, cell_dim])
         # print(np.shape(next_state))
         sm.reset_test_counter()
         for test in range(test_size):  # this will be replaced later
@@ -87,7 +87,7 @@ class LSTM: #this isn't really an LSTM, but for the sake of polymorphism, it is.
             data = sm.next_epoch_test_waterfall()
             label_ = sm.get_label()
             label = np.reshape(label_, [1, 1])
-            data = np.reshape(data, [FOOTPRINT, 1, 1])
+            data = np.reshape(data, [FOOTPRINT, 1])
 
             next_state, output_, loss_ = sess.run([pass_back_state, output, loss],
                                                   # why passback? Because we only shift by one!
