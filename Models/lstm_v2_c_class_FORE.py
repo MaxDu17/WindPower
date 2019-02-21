@@ -104,8 +104,6 @@ class LSTM:
             label = sm.get_label()
             label = np.reshape(label, [1, 1])
             data = np.reshape(data, [footprint, 1, 21])
-            print(data)
-            input()
             loss_ = 0
 
             if reset:  # this allows for hidden states to reset after the training set loops back around
