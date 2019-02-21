@@ -1,7 +1,7 @@
 import tensorflow as tf
 from pipeline.dataset_maker_forecast import SetMaker_Forecast
 import numpy as np
-
+#this is not really an autoencoder, but it's a variant that I want to try out
 class LSTM:
     def __init__(self):
        print("LSTM created")
@@ -18,13 +18,15 @@ class LSTM:
 
         sm = SetMaker_Forecast(footprint)
         with tf.name_scope("weights_and_biases"):
-            W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="forget_weight")
+            W_Compression = tf.Variable(tf.random_normal(shape = [21, 1]), name = "Compression_weight")
+            W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim +1, cell_dim]), name="forget_weight")
             #W_Forget = tf.Variable(tf.random_normal(shape=[cell_dim, hidden_dim + 1]), name="forget_weight")
-            W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="output_weight")
-            W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="gate_weight")
-            W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="input_weight")
+            W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="output_weight")
+            W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim +1, cell_dim]), name="gate_weight")
+            W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="input_weight")
             W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim, 1]), name="outwards_propagating_weight")
 
+            B_Compression = tf.Variable(tf.zeros(shape = [1, 1]), name = "compression_bias")
             B_Forget = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="forget_bias")
             B_Output = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="output_bias")
             B_Gate = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="gate_bias")
@@ -36,13 +38,15 @@ class LSTM:
             init_state = tf.placeholder(shape=[2, 1, cell_dim], dtype=tf.float32, name="initial_states") #problem here
             #init_state_cell = tf.placeholder(shape=[1, 1, cell_dim], dtype=tf.float32, name="initial_states_cell")
             #init_state_hidden = tf.placeholder(shape=[1, 1, hidden_dim], dtype=tf.float32, name="initial_states_hidden")
-            inputs = tf.placeholder(shape=[footprint, 21, 1], dtype=tf.float32, name="input_data")
+            inputs = tf.placeholder(shape=[footprint, 1, 21], dtype=tf.float32, name="input_data")
 
 
         def step(last_state, X):
             with tf.name_scope("to_gates"):
                 C_last, H_last = tf.unstack(last_state)
-                concat_input = tf.concat([X, H_last], axis=1,
+                compressed_input = tf.add(tf.matmul(X, W_Compression, name = "compression_mult"), B_Compression, name = "compression_bias")
+                #note: no sigmoid
+                concat_input = tf.concat([compressed_input, H_last], axis=1,
                                          name="input_concat")  # concatenates the inputs to one vector
                 forget_gate = tf.add(tf.matmul(concat_input, W_Forget, name="f_w_m"), B_Forget,
                                      name="f_b_a")  # decides which to drop from cell

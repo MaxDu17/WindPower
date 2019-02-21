@@ -116,7 +116,7 @@ with tf.name_scope("summaries_and_saver"):
     tf.summary.scalar("Loss", loss)
 
     summary_op = tf.summary.merge_all()
-    saver = tf.train.Saver()
+    saver = tf.train.Saver(max_to_keep=9)
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer()) #this initializes the compute nodes
