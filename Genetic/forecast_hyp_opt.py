@@ -110,7 +110,7 @@ with tf.Session() as sess:
             if first:
                 learning_rate = round(random.randrange(1, 20) * 0.0005, 6)
                 footprint = int(random.randint(5, 15))
-                cell_hidden_dim = random.randint(10, 100)
+                cell_hidden_dim = random.randint(10, 150)
                 genetic_matrix = [footprint, learning_rate, cell_hidden_dim, TRAINING_EPOCHS, TEST_SIZE, i]
                 results.append([genetic_matrix, model.graph(hyperparameters = genetic_matrix, sess = sess)])
 

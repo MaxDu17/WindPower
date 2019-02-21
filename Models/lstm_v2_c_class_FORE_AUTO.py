@@ -107,7 +107,7 @@ class LSTM:
             reset, data = sm.next_epoch_waterfall()  # this gets you the entire cow, so to speak
             label = sm.get_label()
             label = np.reshape(label, [1, 1])
-            data = np.reshape(data, [footprint, 1, 1])
+            data = np.reshape(data, [footprint, 1, 21])
             loss_ = 0
 
             if reset:  # this allows for hidden states to reset after the training set loops back around
@@ -124,7 +124,7 @@ class LSTM:
             data = sm.next_epoch_test_waterfall()
             label_ = sm.get_label()
             label = np.reshape(label_, [1, 1])
-            data = np.reshape(data, [footprint, 1, 1])
+            data = np.reshape(data, [footprint, 1, 21])
 
             next_state, output_, loss_ = sess.run([pass_back_state, output, loss],
                                                   # why passback? Because we only shift by one!
