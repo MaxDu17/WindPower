@@ -44,7 +44,7 @@ class LSTM: #ok, this is a GRU
             with tf.name_scope("To_suggestion_gate"):
                 insertion_gate = tf.sigmoid(insertion_gate, name = "sigmoid_insertion_gate") #this makes non-linear stuff
                 input_forget_gate = tf.sigmoid(input_forget_gate, name = "sigmoid_IF")
-                IF_negated = tf.scalar_mul(-1,input_forget_gate, name = "negation_for_inversion")  # this has to be here because it is after the nonlin
+                IF_negated = tf.scalar_mul(-1,input_forget_gate)  # this has to be here because it is after the nonlin
                 input_gate = tf.add(tf.ones([1, hidden_dim]), IF_negated, name="making_input_gate") #making the two other gate states
                 forget_gate = input_forget_gate #just to make sytax correct
             with tf.name_scope("To_suggestion_rail_and_node"):
