@@ -36,7 +36,7 @@ class LSTM:
             init_state = tf.placeholder(shape=[2, 1, cell_dim], dtype=tf.float32, name="initial_states") #problem here
             #init_state_cell = tf.placeholder(shape=[1, 1, cell_dim], dtype=tf.float32, name="initial_states_cell")
             #init_state_hidden = tf.placeholder(shape=[1, 1, hidden_dim], dtype=tf.float32, name="initial_states_hidden")
-            inputs = tf.placeholder(shape=[footprint, 21, 1], dtype=tf.float32, name="input_data")
+            inputs = tf.placeholder(shape=[footprint, 1, 21], dtype=tf.float32, name="input_data")
 
 
         def step(last_state, X):
