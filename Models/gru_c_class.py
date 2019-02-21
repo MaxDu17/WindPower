@@ -31,7 +31,7 @@ class LSTM: #ok, this is a GRU
 
         with tf.name_scope("placeholders"):
             Y = tf.placeholder(shape=[1, 1], dtype=tf.float32, name="label")  # not used until the last cycle
-            init_state = tf.placeholder(shape=[1, 1, hidden_dim], dtype=tf.float32, name="initial_states") #problem here
+            init_state = tf.placeholder(shape=[1, hidden_dim], dtype=tf.float32, name="initial_states") #problem here
             inputs = tf.placeholder(shape=[footprint, 1, 1], dtype=tf.float32, name="input_data")
 
 
@@ -84,7 +84,7 @@ class LSTM: #ok, this is a GRU
         sm.create_training_set()
         summary = None  # this is just because it was used before
 
-        next_state = np.zeros(shape=[1, 1, hidden_dim])
+        next_state = np.zeros(shape=[1, hidden_dim])
 
         for epoch in range(epochs):
             reset, data = sm.next_epoch_waterfall()  # this gets you the entire cow, so to speak
@@ -94,13 +94,13 @@ class LSTM: #ok, this is a GRU
             loss_ = 0
 
             if reset:  # this allows for hidden states to reset after the training set loops back around
-                next_state = np.zeros(shape=[1,1,hidden_dim])
+                next_state = np.zeros(shape=[1,hidden_dim])
 
             next_state, loss_, _ = sess.run([curr_state, loss, optimizer],
                                             feed_dict={inputs: data, Y: label, init_state: next_state})
 
         RMS_loss = 0.0
-        next_state = np.zeros(shape=[1, 1, hidden_dim])
+        next_state = np.zeros(shape=[1, hidden_dim])
         # print(np.shape(next_state))
         for test in range(test_size):  # this will be replaced later
 
