@@ -3,7 +3,7 @@ this takes in a csv and trains the FIRST data point on it
 """
 import tensorflow as tf
 import numpy as np
-from pipeline.dataset_maker import SetMaker
+from pipeline.dataset_maker_forecast import SetMaker_Forecast
 from pipeline.hyperparameters import Hyperparameters
 import os
 import sys
@@ -18,7 +18,7 @@ hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv fil
 FOOTPRINT = int(hyp_list[0][0])
 LEARNING_RATE = float(hyp_list[0][1])
 hidden_dim = cell_dim = int(hyp_list[0][2])
-sm = SetMaker(FOOTPRINT)
+sm = SetMaker_Forecast(FOOTPRINT)
 hyp = Hyperparameters() # this is used later for non-changing hyperparameters
 epochs = hyp.EPOCHS_LARGE #this is the epochs setting
 
