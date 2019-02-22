@@ -11,7 +11,7 @@ import csv
 
 NAME = "lstm_v2_c_class" #this is the name of the python file for logging purposes
 
-k = open("../Genetic/best.csv", "r")
+k = open("../Genetic/" + str(NAME) + "best.csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
 
