@@ -8,10 +8,10 @@ from statsmodels.tsa.arima_model import ARIMA
 def parser(x):
     return datetime.strptime('190' + x, '%Y-%m')
 
-def mean_squared_error(test, prediction):
+def abs_error(test, prediction):
     big_error = 0
     for i in range(len(test)):
-        big_error += (prediction[i] - test[i])**2
+        big_error += abs(prediction[i] - test[i])
     big_error = big_error/len(test)
     return big_error
 
@@ -33,8 +33,8 @@ for t in range(len(test)):
     obs = test[t]
     history.append(obs)
     print('predicted=%f, expected=%f' % (yhat, obs))
-error = mean_squared_error(test, predictions)
-print('Test MSE: %.3f' % error)
+error = abs_error(test, predictions)
+print('Test AE: %.3f' % error)
 # plot
 pyplot.plot(test)
 pyplot.plot(predictions, color='red')

@@ -5,11 +5,9 @@ import numpy as np
 import csv
 
 hyp = Hyperparameters()
-version = 7
+version = 2
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
-#MODEL_NAME = 'gru_c_genetic_frozen'
 CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
-#CSV_NAME = 'gru_c_classbest - saved'
 
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
@@ -21,7 +19,6 @@ labels = list()
 outputs = list()
 
 pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class/'+MODEL_NAME+'.pb'
-#pbfilename = '../Graphs_and_Results/gru_c_class/'+MODEL_NAME+'.pb'
 
 with tf.gfile.GFile(pbfilename, "rb") as f:
     graph_def = tf.GraphDef()
@@ -40,7 +37,6 @@ with tf.Graph().as_default() as graph:
 with tf.Session(graph=graph) as sess:
     sm.create_training_set()
     test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/EVALUATE_TEST.csv', "w")
-    test = open('../Graphs_and_Results/gru_c_class/GRAPHS/EVALUATE_TEST.csv', "w")
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
@@ -86,6 +82,6 @@ print(big_total_normal)
 
 naive_coeficient = big_total_normal - big_total_shift
 print("Naive coeficient: " + str(naive_coeficient))
-file = open('../Graphs_and_Results/gru_c_class/GRAPHS/naivecoeff.txt', 'w')
+file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/naivecoeff.txt', 'w')
 
 file.write(str(naive_coeficient))
