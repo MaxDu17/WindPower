@@ -20,7 +20,7 @@ learning_rate = float(hyp_list[0][1])
 hidden_dim = cell_dim = int(hyp_list[0][2])
 sm = SetMaker(footprint)
 hyp = Hyperparameters() # this is used later for non-changing hyperparameters
-epochs = hyp.EPOCHS #this is the epochs setting
+epochs = hyp.EPOCHS_LARGE #this is the epochs setting
 
 if len(sys.argv) > 1:
     epochs = int(sys.argv[1]) #this allows us to provide an arbitrary training size
@@ -217,6 +217,7 @@ with tf.Session() as sess:
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1, cell_dim])
     print(np.shape(next_state))
+    sm.reset_test_counter()
     for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
 
         data = sm.next_epoch_test_waterfall()
