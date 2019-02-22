@@ -17,11 +17,11 @@ def abs_error(test, prediction):
     return big_error
 
 
-data = read_csv("../Training_Sets/104686-2010.csv", skiprows=3)  # read file
+data = read_csv("../Training_Sets/ARIMA.csv", skiprows=3)  # read file
 power_ds = data[["power (MW)"]]
 
 X = power_ds.values
-size = int(len(X) * 0.99)
+size = 2000 #this is meant to be a fair comparison
 train, test = X[0:size], X[size:len(X)]
 history = [x for x in train]
 predictions = list()
@@ -36,7 +36,7 @@ for t in range(len(test)):
     predictions.append(yhat)
     obs = test[t]
     history.append(obs)
-    test_logger.writerow([yhat, obs])
+    test_logger.writerow([yhat[0], obs[0]])
     print('predicted=%f, real=%f' % (yhat, obs))
 error = abs_error(test, predictions)
 print('Test AE: %.3f' % error)
