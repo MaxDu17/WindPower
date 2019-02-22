@@ -2,6 +2,7 @@ from pandas import read_csv
 from pandas import datetime
 from matplotlib import pyplot
 from statsmodels.tsa.arima_model import ARIMA
+import csv
 #from sklearn.metrics import mean_squared_error
 
 
@@ -16,7 +17,7 @@ def abs_error(test, prediction):
     return big_error
 
 
-data = read_csv("../Training_Sets/104686-2010.csv", skiprows=3)  # read file
+data = read_csv("../Training_Sets/ARIMA_SET.csv", skiprows=3)  # read file
 power_ds = data[["power (MW)"]]
 
 X = power_ds.values
@@ -24,6 +25,9 @@ size = int(len(X) * 0.66)
 train, test = X[0:size], X[size:len(X)]
 history = [x for x in train]
 predictions = list()
+test_ = open('../Graphs_and_Results/ARIMA/data.csv', "w")
+test_logger = csv.writer(test_, lineterminator="\n")
+print(len(test))
 for t in range(len(test)):
     model = ARIMA(history, order=(5, 1, 0))
     model_fit = model.fit(disp=0)
@@ -32,7 +36,8 @@ for t in range(len(test)):
     predictions.append(yhat)
     obs = test[t]
     history.append(obs)
-    print('predicted=%f, expected=%f' % (yhat, obs))
+    test_logger.writerow([yhat, obs])
+    print('predicted=%f, real=%f' % (yhat, obs))
 error = abs_error(test, predictions)
 print('Test AE: %.3f' % error)
 # plot
