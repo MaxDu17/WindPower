@@ -17,11 +17,11 @@ def abs_error(test, prediction):
     return big_error
 
 
-data = read_csv("../Training_Sets/ARIMA_SET.csv", skiprows=3)  # read file
+data = read_csv("../Training_Sets/104686-2010.csv", skiprows=3)  # read file
 power_ds = data[["power (MW)"]]
 
 X = power_ds.values
-size = int(len(X) * 0.66)
+size = int(len(X) * 0.99)
 train, test = X[0:size], X[size:len(X)]
 history = [x for x in train]
 predictions = list()
