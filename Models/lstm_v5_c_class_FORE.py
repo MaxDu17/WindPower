@@ -125,6 +125,7 @@ class LSTM:
         RMS_loss = 0.0
         next_state = np.zeros(shape=[2, 1, cell_dim])
         # print(np.shape(next_state))
+
         sm.reset_test_counter()
         for test in range(test_size):  # this will be replaced later
 

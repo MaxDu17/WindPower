@@ -7,9 +7,9 @@ import sys
 import os
 
 
-NAME = "lstm_v5_c_class_FORE" #this is the name of the python file for logging purposes
+NAME = "lstm_v5_c_class_FORE_9" #this is the name of the python file for logging purposes
 
-k = open("../Genetic/" + NAME + "best.csv", "r")
+k = open("../Genetic/lstm_v5_c_class_FOREbest.csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
 
