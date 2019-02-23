@@ -1,0 +1,4 @@
+model_checkpoint_path: "V1Genetic-6000"
+all_model_checkpoint_paths: "V1Genetic-2000"
+all_model_checkpoint_paths: "V1Genetic-4000"
+all_model_checkpoint_paths: "V1Genetic-6000"
