@@ -5,9 +5,10 @@ import numpy as np
 import csv
 
 hyp = Hyperparameters()
-version = 2
+version = 1
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
 CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
+CSV_NAME = 'lstm_v' + str(2) + '_c_classbest'
 
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
@@ -19,7 +20,6 @@ labels = list()
 outputs = list()
 
 pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class/'+MODEL_NAME+'.pb'
-
 with tf.gfile.GFile(pbfilename, "rb") as f:
     graph_def = tf.GraphDef()
     graph_def.ParseFromString(f.read())
@@ -54,11 +54,18 @@ with tf.Session(graph=graph) as sess:
         init_state_ , output_= sess.run([pass_back_state, output],
                                                 feed_dict = {input: data, init_state: init_state_})
 
+        '''
         loss_ = np.square(output_[0][0] - label_)
         labels.append(label_)
         outputs.append(output_[0][0])
         RMS_loss += np.sqrt(loss_)
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
+        '''
+        loss_ = np.square(output_ - label_)
+        labels.append(label_)
+        outputs.append(output_)
+        RMS_loss += np.sqrt(loss_)
+        carrier = [label_, output_, np.sqrt(loss_)]
         test_logger.writerow(carrier)
 
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE

@@ -25,13 +25,13 @@ if len(sys.argv) > 1:
 
 
 with tf.name_scope("weights_and_biases"):
-    W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 1, cell_dim]),
+    W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 21, cell_dim]),
                            name="forget_weight")  # note that the rows are the concatenated cell, hidden, and input states. This is peephole usage
-    W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 1, cell_dim]),
+    W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 21, cell_dim]),
                            name="output_weight")
-    W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 1, cell_dim]),
+    W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 21, cell_dim]),
                          name="gate_weight")
-    W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 1, cell_dim]),
+    W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 21, cell_dim]),
                           name="input_weight")
     W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim, 1]),
                                   name="outwards_propagating_weight")
@@ -45,7 +45,7 @@ with tf.name_scope("weights_and_biases"):
 with tf.name_scope("placeholders"):
     Y = tf.placeholder(shape=[1, 1], dtype=tf.float32, name="label")  # not used until the last cycle
     init_state = tf.placeholder(shape=[2, 1, cell_dim], dtype=tf.float32, name="initial_states")
-    inputs = tf.placeholder(shape=[FOOTPRINT, 1, 1], dtype=tf.float32, name="input_data")
+    inputs = tf.placeholder(shape=[FOOTPRINT, 1, 21], dtype=tf.float32, name="input_data")
 
 def step(last_state, X):
     with tf.name_scope("to_gates"):
@@ -161,7 +161,7 @@ with tf.Session() as sess:
         reset, data = sm.next_epoch_waterfall() #this gets you the entire data chunk
         label = sm.get_label() #this is the answer key
         label = np.reshape(label, [1, 1]) #reshaping for data transfer
-        data = np.reshape(data, [FOOTPRINT,1,1])
+        data = np.reshape(data, [FOOTPRINT,1,21])
         loss_ = 0
 
         if reset:  # this allows for hidden states to reset after the training set loops back around
@@ -197,7 +197,7 @@ with tf.Session() as sess:
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
                 #data = np.reshape(data, [footprint, 1, 6])
-                data = np.reshape(data, [FOOTPRINT, 1, 1])
+                data = np.reshape(data, [FOOTPRINT, 1, 21])
                 next_state_test, output_, loss_ = sess.run([pass_back_state, output, loss],
                                                            # why passback? Because we only shift by one!
                                                            feed_dict={inputs: data, Y: label, init_state: next_state_test})
@@ -222,7 +222,7 @@ with tf.Session() as sess:
                 data = sm.next_epoch_valid_waterfall()
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
-                data = np.reshape(data, [FOOTPRINT, 1, 1])
+                data = np.reshape(data, [FOOTPRINT, 1, 21])
 
                 next_state, loss_ = sess.run([pass_back_state, loss], #why passback? Because we only shift by one!
                                                feed_dict = {inputs:data, Y:label, init_state:next_state})
@@ -245,7 +245,7 @@ with tf.Session() as sess:
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
-        data = np.reshape(data, [FOOTPRINT, 1, 1])
+        data = np.reshape(data, [FOOTPRINT, 1, 21])
 
         next_state, output_, loss_ = sess.run([pass_back_state, output, loss],  # why passback? Because we only shift by one!
                                      feed_dict={inputs: data, Y: label, init_state: next_state})
