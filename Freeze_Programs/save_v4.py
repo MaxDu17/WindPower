@@ -1,5 +1,5 @@
 from tensorflow.python.tools import freeze_graph
-version = 2
+version = 1
 version_to_keep = 160000
 
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
