@@ -6,7 +6,7 @@ class Hyperparameters: #the class that defines the hyperparameters is here
     EPOCHS = 20001
     EPOCHS_LARGE = 160001
     #TRAIN_PERCENT = 0.6
-    TRAIN_PERCENT = 0.9
+    TRAIN_PERCENT = 0.6
     VALIDATION_PERCENT = 0.002 #nullifies for now
     VALIDATION_NUMBER = 60
     cell_dim = 75

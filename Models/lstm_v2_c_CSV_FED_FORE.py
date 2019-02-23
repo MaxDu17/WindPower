@@ -9,9 +9,9 @@ import os
 import sys
 import csv
 
-NAME = "lstm_v2_c_class_FORE" #this is the name of the python file for logging purposes
+NAME = "lstm_v2_c_class_FORE_9" #this is the name of the python file for logging purposes
 
-k = open("../Genetic/" + str(NAME) + "best.csv", "r")
+k = open("../Genetic/lstm_v2_c_class_FOREbest.csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
 
@@ -229,7 +229,7 @@ with tf.Session() as sess:
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1, cell_dim])
     print(np.shape(next_state))
-    sm.reset_test_counter()
+    #sm.reset_test_counter()
     for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
 
         data = sm.next_epoch_test_waterfall()
