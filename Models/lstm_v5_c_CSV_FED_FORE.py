@@ -1,5 +1,5 @@
 import tensorflow as tf
-from pipeline.dataset_maker import SetMaker
+from pipeline.dataset_maker_forecast import SetMaker_Forecast
 from pipeline.dataset_maker import Hyperparameters
 import numpy as np
 import csv
@@ -7,7 +7,7 @@ import sys
 import os
 
 
-NAME = "lstm_v5_c_class" #this is the name of the python file for logging purposes
+NAME = "lstm_v5_c_class_FORE" #this is the name of the python file for logging purposes
 
 k = open("../Genetic/" + NAME + "best.csv", "r")
 
@@ -16,12 +16,13 @@ hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv fil
 FOOTPRINT = int(hyp_list[0][0])
 LEARNING_RATE = float(hyp_list[0][1])
 hidden_dim = cell_dim = int(hyp_list[0][2])
-sm = SetMaker(FOOTPRINT)
+sm = SetMaker_Forecast(FOOTPRINT)
 hyp = Hyperparameters() # this is used later for non-changing hyperparameters
 epochs = hyp.EPOCHS_LARGE #this is the epochs setting
 
 if len(sys.argv) > 1:
     epochs = int(sys.argv[1]) #this allows us to provide an arbitrary training size
+
 
 with tf.name_scope("weights_and_biases"):
     W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + cell_dim + 1, cell_dim]),
@@ -183,7 +184,7 @@ with tf.Session() as sess:
             test_local_ = open("../Graphs_and_Results/" + NAME + "/models/" + str(epoch) + ".csv", 'w')
             test_local = csv.writer(test_local_, lineterminator='\n')
 
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V5Genetic", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V5Genetic_FORE", global_step=epoch)
 
             RMS_loss = 0.0
             next_state_test = np.zeros(shape=[2, 1, cell_dim]) #initializations
@@ -210,7 +211,7 @@ with tf.Session() as sess:
 
 ####################################VALIDATION#######################################
         if epoch % 2000 == 0 and epoch > 498: #this is the validation step
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V5Genetic", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V5Genetic_FORE", global_step=epoch)
             print("---------------------saved model-------------------------")
 
             next_state_hold = next_state #this "pauses" the training that is happening right now.
