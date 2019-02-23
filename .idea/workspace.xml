@@ -5,11 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Genetic/lstm_v5_c_class_FOREbest.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/lstm_v5_c_class_FOREbest.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED_FORE.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED_FORE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED_FORE.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED_FORE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipeline/hyperparameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/pipeline/hyperparameters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v2_c_class_FORE_9/GRAPHS/f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v2_c_class_FORE_9/models/f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Freeze_Programs/save_v4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Freeze_Programs/save_v4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/GRAPHS/LOSS.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/GRAPHS/LOSS.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/GRAPHS/TEST.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/GRAPHS/TEST.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/GRAPHS/VALIDATION.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/GRAPHS/VALIDATION.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/159650.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/159650.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-144000.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-144000.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-144000.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-146000.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-146000.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-146000.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-148000.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-148000.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-148000.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-150000.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-150000.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-150000.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-152000.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-152000.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-152000.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-154000.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-154000.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-154000.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-156000.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-156000.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-156000.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-158000.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-158000.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-158000.index" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-158000.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-158000.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-158000.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-159650.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-159650.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-159650.index" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-159650.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-159650.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/V1Genetic-159650.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v1_c_class/models/checkpoint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/lstm_v1_c_CSV_FED.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v1_c_CSV_FED.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,8 +75,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED_FORE.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="266">
-                    <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+                  <state relative-caret-position="-3135">
+                    <caret line="27" selection-start-line="27" selection-end-line="27" />
                     <folding>
                       <element signature="e#86#109#0" expanded="true" />
                     </folding>
@@ -59,11 +91,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Freeze_Programs/save_v4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="95">
+              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -72,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_class_FORE.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -84,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="551">
-              <caret line="134" column="39" lean-forward="true" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
+              <caret line="134" column="39" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
               <folding>
                 <element signature="e#147#160#0" expanded="true" />
               </folding>
@@ -92,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED_FORE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="49" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="49" />
+            <state relative-caret-position="117">
+              <caret line="239" column="42" selection-start-line="239" selection-start-column="42" selection-end-line="239" selection-end-column="42" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -107,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_class_FORE_AUTO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+            <state relative-caret-position="342">
+              <caret line="20" column="100" selection-start-line="20" selection-start-column="100" selection-end-line="20" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -128,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v1_c_CSV_FED.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="229" column="41" selection-start-line="229" selection-start-column="41" selection-end-line="229" selection-end-column="41" />
+            <state relative-caret-position="190">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -138,7 +170,7 @@
         <entry file="file://$PROJECT_DIR$/pipeline/hyperparameters.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
-              <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+              <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -273,14 +305,14 @@
         <option value="$PROJECT_DIR$/Models/ARIMA.py" />
         <option value="$PROJECT_DIR$/diagnostics/step_plotter.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED.py" />
-        <option value="$PROJECT_DIR$/Models/lstm_v1_c_CSV_FED.py" />
-        <option value="$PROJECT_DIR$/Freeze_Programs/save_v4.py" />
         <option value="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v5_c_class_FORE.py" />
         <option value="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" />
         <option value="$PROJECT_DIR$/pipeline/hyperparameters.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED_FORE.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED_FORE.py" />
+        <option value="$PROJECT_DIR$/Models/lstm_v1_c_CSV_FED.py" />
+        <option value="$PROJECT_DIR$/Freeze_Programs/save_v4.py" />
       </list>
     </option>
   </component>
@@ -321,12 +353,6 @@
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
               <item name="WindPower" type="462c0819:PsiDirectoryNode" />
               <item name="Graphs_and_Results" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WindPower" type="462c0819:PsiDirectoryNode" />
-              <item name="Graphs_and_Results" type="462c0819:PsiDirectoryNode" />
-              <item name="lstm_v5_c_class_FORE_9" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
@@ -381,7 +407,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.run_frozen_LSTM_v3">
+  <component name="RunManager" selected="Python.save_v4">
     <configuration name="datafeeder_test_program" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="WindPower" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -496,9 +522,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run_frozen_LSTM_v3" />
         <item itemvalue="Python.save_v4" />
         <item itemvalue="Python.lstm_v1_c_CSV_FED" />
+        <item itemvalue="Python.run_frozen_LSTM_v3" />
         <item itemvalue="Python.step_plotter" />
         <item itemvalue="Python.datafeeder_test_program" />
       </list>
@@ -530,12 +556,12 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.120469086" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120469086" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.9323028" visible="true" weight="0.34777898" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.9323028" visible="true" weight="0.34777898" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -573,18 +599,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Freeze_Programs/save_v1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Genetic/lstm_v5_c_classbest.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/Unused/lstm_v6.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -857,13 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Freeze_Programs/save_v4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v4.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-98">
@@ -874,32 +881,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v1_c_CSV_FED.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="229" column="41" selection-start-line="229" selection-start-column="41" selection-end-line="229" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Graphs_and_Results/lstm_v5_c_class_FORE_9/GRAPHS/f">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_class_FORE_AUTO.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_class_FORE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -914,14 +897,14 @@
     <entry file="file://$PROJECT_DIR$/pipeline/hyperparameters.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+          <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
-          <caret line="134" column="39" lean-forward="true" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
+          <caret line="134" column="39" selection-start-line="134" selection-start-column="39" selection-end-line="134" selection-end-column="39" />
           <folding>
             <element signature="e#147#160#0" expanded="true" />
           </folding>
@@ -938,10 +921,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED_FORE.py">
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v1_c_CSV_FED.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="49" />
+        <state relative-caret-position="190">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_class_FORE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -950,11 +940,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED_FORE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="-3135">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#86#109#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_class_FORE_AUTO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="20" column="100" selection-start-line="20" selection-start-column="100" selection-end-line="20" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphs_and_Results/lstm_v2_c_class_FORE_9/GRAPHS/f">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphs_and_Results/lstm_v2_c_class_FORE_9/models/f">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED_FORE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="239" column="42" selection-start-line="239" selection-start-column="42" selection-end-line="239" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Freeze_Programs/save_v4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
         </state>
       </provider>
     </entry>
