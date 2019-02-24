@@ -231,7 +231,8 @@ with tf.Session() as sess:
         if epoch % 1000 == 0 and epoch > 119999: #test for threshold, breaks when we hit it
             RMS_loss = 0.0
             next_state = np.zeros(shape=[2, 1, cell_dim])
-            sm.reset_test_counter()
+
+            #sm.reset_test_counter()
             for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
                 data = sm.next_epoch_test_waterfall()
                 label_ = sm.get_label()

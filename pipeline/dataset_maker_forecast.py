@@ -52,6 +52,9 @@ class SetMaker_Forecast:
         input_data = [k for k in self.master_list[:-1]]
         return input_data
 
+    def set_test_number(self, number):
+        self.test_counter = number
+
     def get_test_number(self):
         return self.test_counter
 
