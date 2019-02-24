@@ -28,6 +28,7 @@ if len(sys.argv) > 1:
     epochs = int(sys.argv[1]) #this allows us to provide an arbitrary training size
 
 
+
 #constructing the big weight now
 with tf.name_scope("weights_and_biases"):
     W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="forget_weight")
@@ -227,7 +228,7 @@ with tf.Session() as sess:
 
             next_state = next_state_hold #restoring past point...
 
-        if epoch % 5000 == 0 and epoch > 14999: #test for threshold
+        if epoch % 1000 == 0 and epoch > 119999: #test for threshold, breaks when we hit it
             RMS_loss = 0.0
             next_state = np.zeros(shape=[2, 1, cell_dim])
             sm.reset_test_counter()
@@ -244,6 +245,7 @@ with tf.Session() as sess:
             RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
             print("test: rms loss is ", RMS_loss)
             if(RMS_loss < THRESHOLD):
+                print(sm.get_test_number())
                 print("saving and and doing actual test now")
                 saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic_FORE", global_step=epoch)
                 break

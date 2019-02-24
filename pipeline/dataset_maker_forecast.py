@@ -43,12 +43,17 @@ class SetMaker_Forecast:
         if self.test_counter == 0:
             raise Exception("you forgot to initialize the test_counter! Execute create_training_set")
         if self.test_counter + self.FOOTPRINT + 1 > self.dp.dataset_size():
-            raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
+            self.reset_test_counter()
+            print("test counter has reset")
+            #raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
         self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter+self.FOOTPRINT+1)
         self.test_counter += 1
         self.batch_counter = 0
         input_data = [k for k in self.master_list[:-1]]
         return input_data
+
+    def get_test_number(self):
+        return self.test_counter
 
     def reset_test_counter(self):
         self.test_counter = self.training_set_size
