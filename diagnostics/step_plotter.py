@@ -5,10 +5,10 @@ upper_bound = 500
 lower_bound = 400
 step_length = 1
 
-FILE_NAME = "RNN_class"
+FILE_NAME = "lstm_v2_c_class_FORE"
 x = np.arange(0,step_length*(upper_bound-lower_bound),step_length)
 
-file_name_2 = "../Graphs_and_Results/" + FILE_NAME + "/GRAPHS/EVALUATE_TEST.csv"
+file_name_2 = "../Graphs_and_Results/" + FILE_NAME + "/GRAPHS/EVALUATE_TEST__.csv"
 #file_name_2 = "../Graphs_and_Results/" + FILE_NAME + "/data.csv"
 data2 = pd.read_csv(file_name_2)
 

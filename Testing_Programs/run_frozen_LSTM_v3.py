@@ -5,17 +5,16 @@ import numpy as np
 import csv
 
 hyp = Hyperparameters()
-version = 1
+
+version = 2
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
 CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
-CSV_NAME = 'lstm_v' + str(2) + '_c_classbest'
 
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
 footprint = int(hyp_list[0][0])
 hidden_dim =  int(hyp_list[0][2])
-sm = SetMaker(footprint)
 labels = list()
 outputs = list()
 

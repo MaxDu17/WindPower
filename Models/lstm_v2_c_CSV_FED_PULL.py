@@ -1,110 +1,95 @@
 """Maximilian Du 1-5-19
 this takes in a csv and trains the FIRST data point on it
+this is a pullup test
 """
 import tensorflow as tf
 import numpy as np
-from pipeline.dataset_maker_forecast import SetMaker_Forecast
+from pipeline.dataset_maker import SetMaker
 from pipeline.hyperparameters import Hyperparameters
 import os
 import sys
 import csv
 
-NAME = "lstm_v2_c_class_FORE_9" #this is the name of the python file for logging purposes
+NAME = "lstm_v2_c_class" #this is the name of the python file for logging purposes
 
-k = open("../Genetic/lstm_v2_c_class_FOREbest.csv", "r")
+k = open("../Genetic/" + str(NAME) + "best.csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
 
-FOOTPRINT = int(hyp_list[0][0])
-LEARNING_RATE = float(hyp_list[0][1])
+footprint = int(hyp_list[0][0])
+learning_rate = float(hyp_list[0][1])
 hidden_dim = cell_dim = int(hyp_list[0][2])
-sm = SetMaker_Forecast(FOOTPRINT)
+sm = SetMaker(footprint)
 hyp = Hyperparameters() # this is used later for non-changing hyperparameters
 epochs = hyp.EPOCHS_LARGE #this is the epochs setting
-
-THRESHOLD = 0.15
-SAFETY = 0.12
 
 if len(sys.argv) > 1:
     epochs = int(sys.argv[1]) #this allows us to provide an arbitrary training size
 
 
-
 #constructing the big weight now
-with tf.name_scope("weights_and_biases"):
-    W_Forget = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="forget_weight")
-    # W_Forget = tf.Variable(tf.random_normal(shape=[cell_dim, hidden_dim + 1]), name="forget_weight")
-    W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="output_weight")
-    W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="gate_weight")
-    W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="input_weight")
-    W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim, 1]), name="outwards_propagating_weight")
+with tf.name_scope("weights_and_biases"): #declares the matrices
+    W_Forget = tf.Variable(tf.random_normal(shape = [hidden_dim + 1,cell_dim]), name = "forget_weight")
+    W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 1,cell_dim]), name="output_weight")
+    W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="gate_weight")
+    W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="input_weight")
+    W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim,1]), name = "outwards_propagating_weight")
 
-    B_Forget = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="forget_bias")
+    B_Forget = tf.Variable(tf.fill(shape=[1, cell_dim], value = 20), name = "forget_bias")
     B_Output = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="output_bias")
     B_Gate = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="gate_bias")
-    B_Input = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="input_bias")
-    B_Hidden_to_Out = tf.Variable(tf.zeros(shape=[1, 1]), name="outwards_propagating_bias")
+    B_Input = tf.Variable(tf.zeros(shape=[1,cell_dim]), name="input_bias")
+    B_Hidden_to_Out = tf.Variable(tf.zeros(shape=[1,1]), name = "outwards_propagating_bias")
 
-with tf.name_scope("placeholders"):
-    Y = tf.placeholder(shape=[1, 1], dtype=tf.float32, name="label")  # not used until the last cycle
-    init_state = tf.placeholder(shape=[2, 1, cell_dim], dtype=tf.float32, name="initial_states")  # problem here
-    # init_state_cell = tf.placeholder(shape=[1, 1, cell_dim], dtype=tf.float32, name="initial_states_cell")
-    # init_state_hidden = tf.placeholder(shape=[1, 1, hidden_dim], dtype=tf.float32, name="initial_states_hidden")
-    inputs = tf.placeholder(shape=[FOOTPRINT, 1, 21], dtype=tf.float32, name="input_data")
+with tf.name_scope("placeholders"): #placeholders for data
+    Y = tf.placeholder(shape = [1,1], dtype = tf.float32, name = "label") #not used until the last cycle
+    init_state = tf.placeholder(shape = [2,1,cell_dim], dtype = tf.float32, name = "initial_states")
+    inputs = tf.placeholder(shape = [footprint,1,1], dtype = tf.float32,  name = "input_data")
 
-
-def step(last_state, X):
-    with tf.name_scope("to_gates"):
+def step(last_state, X): #step is a function used by tf.scan()
+    with tf.name_scope("to_gates"): #propagates forward to gate values
         C_last, H_last = tf.unstack(last_state)
-        concat_input = tf.concat([X, H_last], axis=1,
-                                 name="input_concat")  # concatenates the inputs to one vector
-        forget_gate = tf.add(tf.matmul(concat_input, W_Forget, name="f_w_m"), B_Forget,
-                             name="f_b_a")  # decides which to drop from cell
-        output_gate = tf.add(tf.matmul(concat_input, W_Output, name="o_w_m"), B_Output,
-                             name="o_b_a")  # decides which to reveal to next_hidd/output
-        gate_gate = tf.add(tf.matmul(concat_input, W_Gate, name="g_w_m"), B_Gate,
-                           name="g_b_a")  # decides which things to change in cell state
-        input_gate = tf.add(tf.matmul(concat_input, W_Input, name="i_w_m"), B_Input,
-                            name="i_b_a")  # decides which of the changes to accept
+        concat_input = tf.concat([X, H_last], axis = 1, name = "input_concat") #concatenates the inputs to one vector
+        forget_gate = tf.add(tf.matmul(concat_input, W_Forget, name = "f_w_m"),B_Forget, name = "f_b_a") #decides which to drop from cell
+        output_gate = tf.add(tf.matmul(concat_input, W_Output, name = "o_w_m"), B_Output, name = "o_b_a") #decides which to reveal to next_hidd/output
+        gate_gate = tf.add(tf.matmul(concat_input, W_Gate, name = "g_w_m"), B_Gate, name = "g_b_a") #decides which things to change in cell state
+        input_gate = tf.add(tf.matmul(concat_input, W_Input, name = "i_w_m"), B_Input, name = "i_b_a") #decides which of the changes to accept
 
-    with tf.name_scope("non-linearity"):  # makes the gates into what they should be
-        forget_gate = tf.sigmoid(forget_gate, name="sigmoid_forget")
+    with tf.name_scope("non-linearity"): #makes the gates into what they should be
+        forget_gate = tf.sigmoid(forget_gate, name = "sigmoid_forget")
         output_gate = tf.sigmoid(output_gate, name="sigmoid_output")
         input_gate = tf.sigmoid(input_gate, name="sigmoid_input")
-        gate_gate = tf.tanh(gate_gate, name="tanh_gate")
+        gate_gate = tf.tanh(gate_gate, name = "tanh_gate")
 
-    with tf.name_scope("forget_gate"):  # forget gate values and propagate
-        current_cell = tf.multiply(forget_gate, C_last, name="forget_gating")
+    with tf.name_scope("forget_gate"): #forget gate values and propagate
+        current_cell = tf.multiply(forget_gate, C_last, name = "forget_gating")
 
-    with tf.name_scope("suggestion_node"):  # suggestion gate
-        suggestion_box = tf.multiply(input_gate, gate_gate, name="input_determiner")
-        current_cell = tf.add(suggestion_box, current_cell, name="input_and_gate_gating")
+    with tf.name_scope("suggestion_node"): #suggestion gate
+        suggestion_box = tf.multiply(input_gate, gate_gate, name = "input_determiner")
+        current_cell = tf.add(suggestion_box, current_cell, name = "input_and_gate_gating")
 
-    with tf.name_scope("output_gate"):  # output gate values to hidden
-        current_cell = tf.tanh(current_cell, name="output_presquashing")
+    with tf.name_scope("output_gate"): #output gate values to hidden
+        current_cell = tf.tanh(current_cell, name = "output_presquashing")
         current_hidden = tf.multiply(output_gate, current_cell, name="next_hidden")
         states = tf.stack([current_cell, current_hidden])
-    return states
-
+    return states #states consists of the new values, gets stacked into states_list
 
 with tf.name_scope("forward_roll"):
-    # init_state = np.stack([init_state_cell, init_state_hidden])
-    states_list = tf.scan(fn=step, elems=inputs, initializer=init_state, name="scan")
-    curr_state = states_list[-1]
-    pass_back_state = tf.add([0.0], states_list[0], name="pass_back_state")
+    states_list = tf.scan(fn = step, elems = inputs, initializer = init_state, name = "scan") #funs step until inputs are gone
+    curr_state = states_list[-1] #used for the next time step
+    pass_back_state = tf.add([0.0], states_list[0], name = "pass_back_state") #this is just making it a compute for tensroboard vis
 
 with tf.name_scope("prediction"):
-    _, current_hidden = tf.unstack(curr_state)
-    raw_output = tf.add(tf.matmul(current_hidden, W_Hidden_to_Out, name="WHTO_w_m"), B_Hidden_to_Out,
-                        name="BHTO_b_a")
-    output = tf.nn.relu(raw_output, name="output")
+    _, current_hidden = tf.unstack(curr_state)#this gets the current hidden layer
+    raw_output = tf.add(tf.matmul(current_hidden, W_Hidden_to_Out, name="WHTO_w_m"), B_Hidden_to_Out, name="BHTO_b_a") #gets raw output
+    output = tf.nn.relu(raw_output, name="output") #final RELU step to get output node
 
 with tf.name_scope("loss"):
-    loss = tf.square(tf.subtract(output, Y))
-    loss = tf.reshape(loss, [], name="loss")
+    loss = tf.square(tf.subtract(output, Y)) #going for square loss
+    loss = tf.reshape(loss, [], name = "loss") #shaping into scalar as a comput node
 
 with tf.name_scope("optimizer"):
-    optimizer = tf.train.AdamOptimizer(learning_rate=LEARNING_RATE).minimize(loss)
+    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss) #using adam optimizer to train
 
 with tf.name_scope("summaries_and_saver"): #these are for tensorboard display
     tf.summary.histogram("W_Forget", W_Forget)
@@ -156,7 +141,7 @@ with tf.Session() as sess:
         reset, data = sm.next_epoch_waterfall() #this gets you the entire data chunk
         label = sm.get_label() #this is the answer key
         label = np.reshape(label, [1, 1]) #reshaping for data transfer
-        data = np.reshape(data, [FOOTPRINT,1,21])
+        data = np.reshape(data, [footprint,1,1])
         loss_ = 0
 
         if reset:  # this allows for hidden states to reset after the training set loops back around
@@ -179,7 +164,7 @@ with tf.Session() as sess:
             test_local_ = open("../Graphs_and_Results/" + NAME + "/models/" + str(epoch) + ".csv", 'w')
             test_local = csv.writer(test_local_, lineterminator='\n')
 
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic_FORE", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic", global_step=epoch)
 
             RMS_loss = 0.0
             next_state_test = np.zeros(shape=[2, 1, cell_dim]) #initializations
@@ -191,8 +176,8 @@ with tf.Session() as sess:
                 data = sm.next_epoch_test_waterfall()
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
-                #data = np.reshape(data, [FOOTPRINT, 1, 6])
-                data = np.reshape(data, [FOOTPRINT, 1, 21])
+                #data = np.reshape(data, [footprint, 1, 6])
+                data = np.reshape(data, [footprint, 1, 1])
                 next_state_test, output_, loss_ = sess.run([pass_back_state, output, loss],
                                                            # why passback? Because we only shift by one!
                                                            feed_dict={inputs: data, Y: label, init_state: next_state_test})
@@ -205,7 +190,7 @@ with tf.Session() as sess:
 
 ####################################VALIDATION#######################################
         if epoch % 2000 == 0 and epoch > 498: #this is the validation step
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic_FORE", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic", global_step=epoch)
             print("---------------------saved model-------------------------")
 
             next_state_hold = next_state #this "pauses" the training that is happening right now.
@@ -216,7 +201,7 @@ with tf.Session() as sess:
                 data = sm.next_epoch_valid_waterfall()
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
-                data = np.reshape(data, [FOOTPRINT, 1, 21])
+                data = np.reshape(data, [footprint, 1, 1])
 
                 next_state, loss_ = sess.run([pass_back_state, loss], #why passback? Because we only shift by one!
                                                feed_dict = {inputs:data, Y:label, init_state:next_state})
@@ -229,41 +214,17 @@ with tf.Session() as sess:
 
             next_state = next_state_hold #restoring past point...
 
-        if epoch % 1000 == 0 and epoch > 119999: #test for threshold, breaks when we hit it
-            RMS_loss = 0.0
-            next_state = np.zeros(shape=[2, 1, cell_dim])
-
-            #sm.reset_test_counter()
-            for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
-                data = sm.next_epoch_test_waterfall()
-                label_ = sm.get_label()
-                label = np.reshape(label_, [1, 1])
-                data = np.reshape(data, [FOOTPRINT, 1, 21])
-
-                next_state, output_, loss_ = sess.run([pass_back_state, output, loss],
-                                                      # why passback? Because we only shift by one!
-                                                      feed_dict={inputs: data, Y: label, init_state: next_state})
-                RMS_loss += np.sqrt(loss_)
-            RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
-            print("test: rms loss is ", RMS_loss)
-            if(RMS_loss < THRESHOLD and RMS_loss > SAFETY):
-                print(sm.get_test_number())
-                print("saving and and doing actual test now")
-                saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V2Genetic_FORE", global_step=epoch)
-                break
-
-
-
 #################################TESTING###############################################
     RMS_loss = 0.0
     next_state = np.zeros(shape=[2, 1, cell_dim])
+    print(np.shape(next_state))
     sm.reset_test_counter()
     for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
 
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
-        data = np.reshape(data, [FOOTPRINT, 1, 21])
+        data = np.reshape(data, [footprint, 1, 1])
 
         next_state, output_, loss_ = sess.run([pass_back_state, output, loss],  # why passback? Because we only shift by one!
                                      feed_dict={inputs: data, Y: label, init_state: next_state})

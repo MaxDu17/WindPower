@@ -56,7 +56,7 @@ class SetMaker_Forecast:
         self.test_counter = number
 
     def get_test_number(self):
-        return self.test_counter
+        return self.test_counter-1000
 
     def reset_test_counter(self):
         self.test_counter = self.training_set_size
