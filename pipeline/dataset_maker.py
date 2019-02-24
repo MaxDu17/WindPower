@@ -15,6 +15,7 @@ class SetMaker:
         self.running_list = list()
         self.label_list = list()
         self.FOOTPRINT = FOOTPRINT #this will allow genetic feeding
+        self.custom_test = 81072  # for recording purposes
 
     def use_foreign(self, file_name): #wrapper function used to load a different-than-normal dataset, for foreign testing
         self.dp.use_foreign(file_name)
@@ -25,6 +26,13 @@ class SetMaker:
 
     def create_validation_set(self): #initializing phrase for validation
         self.validation_set_size = int(self.hyp.VALIDATION_PERCENT * self.dp.dataset_size()) #just casting to whole #
+
+    def set_test_number(self, number):
+        self.test_counter = number
+
+
+    def get_test_number(self):
+        return self.test_counter-1000
 
     def next_epoch(self): #this gets a new training epoch, retrns status on resetting the states
         carrier = False

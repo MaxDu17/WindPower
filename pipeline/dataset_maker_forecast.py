@@ -15,6 +15,7 @@ class SetMaker_Forecast:
         self.running_list = list()
         self.label_list = list()
         self.FOOTPRINT = FOOTPRINT #this will allow genetic feeding
+        self.custom_test = 81072 #for recording purposes
 
     def use_foreign(self, file_name): #wrapper function used to load a different-than-normal dataset, for foreign testing
         self.dp.use_foreign(file_name)

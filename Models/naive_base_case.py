@@ -6,7 +6,9 @@ hyp = Hyperparameters()
 sm = SetMaker(9)
 
 sm.create_training_set()
-test = open("../Graphs_and_Results/Naive_case.csv", "w")
+
+sm.set_test_number(81072)
+test = open("../Graphs_and_Results/Naive_case_.csv", "w")
 test_logger = csv.writer(test, lineterminator="\n")
 test_logger.writerow(["true_values", "predicted_values", "abs_loss"])
 for i in range(hyp.Info.EVAULATE_TEST_SIZE):
