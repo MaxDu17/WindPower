@@ -21,8 +21,8 @@ hidden_dim = cell_dim = int(hyp_list[0][2])
 sm = SetMaker_Forecast(FOOTPRINT)
 hyp = Hyperparameters() # this is used later for non-changing hyperparameters
 epochs = hyp.EPOCHS_LARGE #this is the epochs setting
-
-THRESHOLD = 0.15
+epochs = 1000000 #this is to get "lucky"
+THRESHOLD = 0.18
 SAFETY = 0.12
 
 if len(sys.argv) > 1:
@@ -167,7 +167,7 @@ with tf.Session() as sess:
                                                           feed_dict = {inputs:data, Y:label, init_state:next_state})
         #########################################################################################################
 
-        logger.writerow([loss_])
+        #logger.writerow([loss_])
 
         if epoch % 200 == 0: #display current error
             writer.add_summary(summary, global_step=epoch)
