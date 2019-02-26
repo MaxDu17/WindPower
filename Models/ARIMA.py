@@ -30,7 +30,7 @@ test_logger = csv.writer(test_, lineterminator="\n")
 print(len(test))
 for t in range(len(test)):
     #model = ARIMA(history, order=(5, 1, 0))
-    model = ARIMA(history, order=(1, 2, 5))
+    model = ARIMA(history, order=(3, 2, 0))
     model_fit = model.fit(disp=0)
     output = model_fit.forecast()
     yhat = output[0]
