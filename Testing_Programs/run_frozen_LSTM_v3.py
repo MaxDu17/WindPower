@@ -6,7 +6,7 @@ import csv
 
 hyp = Hyperparameters()
 
-version = 5
+version = 7
 
 custom_test = True
 test_number = 81072
