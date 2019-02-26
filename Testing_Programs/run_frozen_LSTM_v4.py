@@ -10,7 +10,7 @@ version = 5
 custom_test = True
 test_number = 81072
 
-MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE_9'
+MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE'
 
 CSV_NAME = 'lstm_v' + str(version) + '_c_class_FOREbest'
 

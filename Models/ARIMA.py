@@ -29,7 +29,8 @@ test_ = open('../Graphs_and_Results/ARIMA/data.csv', "w")
 test_logger = csv.writer(test_, lineterminator="\n")
 print(len(test))
 for t in range(len(test)):
-    model = ARIMA(history, order=(5, 1, 0))
+    #model = ARIMA(history, order=(5, 1, 0))
+    model = ARIMA(history, order=(2, 3, 0))
     model_fit = model.fit(disp=0)
     output = model_fit.forecast()
     yhat = output[0]
