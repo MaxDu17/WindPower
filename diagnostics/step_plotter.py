@@ -1,11 +1,11 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-upper_bound = 1000
-lower_bound = 0
+upper_bound = 500
+lower_bound = 400
 step_length = 1
 
-FILE_NAME = "lstm_v5_c_class"
+FILE_NAME = "lstm_v2_c_class_FORE"
 x = np.arange(0,step_length*(upper_bound-lower_bound),step_length)
 
 file_name_2 = "../Graphs_and_Results/" + FILE_NAME + "/GRAPHS/EVALUATE_TEST__.csv"
