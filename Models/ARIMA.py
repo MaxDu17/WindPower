@@ -28,6 +28,7 @@ predictions = list()
 test_ = open('../Graphs_and_Results/ARIMA/data.csv', "w")
 test_logger = csv.writer(test_, lineterminator="\n")
 print(len(test))
+test_logger.writerow(["predicted_values", "true_values"])
 for t in range(len(test)):
     #model = ARIMA(history, order=(5, 1, 0))
     model = ARIMA(history, order=(1, 1, 0))
