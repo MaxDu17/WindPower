@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-upper_bound = 500
-lower_bound = 400
+upper_bound = 400
+lower_bound = 300
 step_length = 1
 
 FILE_NAME = "ARIMA"
