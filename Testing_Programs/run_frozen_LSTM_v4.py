@@ -26,7 +26,7 @@ outputs = list()
 
 
 
-pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/'+MODEL_NAME+'.pb'
+pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_9/'+MODEL_NAME+'.pb'
 
 
 with tf.gfile.GFile(pbfilename, "rb") as f:
@@ -49,7 +49,7 @@ with tf.Session(graph=graph) as sess:
     if (custom_test):
         sm.set_test_number(test_number)
 
-    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/GRAPHS/EVALUATE_TEST__.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_9/GRAPHS/EVALUATE_TEST__.csv', "w")
 
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
@@ -95,7 +95,10 @@ print(big_total_shift)
 print(big_total_normal)
 
 naive_coeficient = big_total_normal - big_total_shift
+naive_ratio = big_total_shift/big_total_normal
 print("Naive coeficient: " + str(naive_coeficient))
-file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/GRAPHS/naivecoeff.txt', 'w')
+print("Naive ratio: " + str(naive_ratio))
+file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_9/GRAPHS/naivecoeff.txt', 'w')
 
 file.write(str(naive_coeficient))
+file.write(str(naive_ratio))
