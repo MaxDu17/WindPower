@@ -5,7 +5,7 @@ import numpy as np
 import csv
 #THIS RUNS WEATHER FORECAST MODELS
 hyp = Hyperparameters()
-version = 5
+version = 2
 
 custom_test = True
 test_number = 81072
@@ -26,7 +26,7 @@ outputs = list()
 
 
 
-pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_9/'+MODEL_NAME+'.pb'
+pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/'+MODEL_NAME+'.pb'
 
 
 with tf.gfile.GFile(pbfilename, "rb") as f:
@@ -49,7 +49,7 @@ with tf.Session(graph=graph) as sess:
     if (custom_test):
         sm.set_test_number(test_number)
 
-    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_9/GRAPHS/EVALUATE_TEST__.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/GRAPHS/EVALUATE_TEST__.csv', "w")
 
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
