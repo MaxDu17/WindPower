@@ -98,7 +98,8 @@ naive_coeficient = big_total_normal - big_total_shift
 naive_ratio = big_total_shift/big_total_normal
 print("Naive coeficient: " + str(naive_coeficient))
 print("Naive ratio: " + str(naive_ratio))
-file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_9/GRAPHS/naivecoeff.txt', 'w')
+file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/GRAPHS/naivecoeff.txt', 'w')
 
 file.write(str(naive_coeficient))
+file.write("\n")
 file.write(str(naive_ratio))

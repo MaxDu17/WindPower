@@ -65,7 +65,7 @@ def mutate_int(value):
         elif random_result == 2:  # this arbitrary case means we decrement
             value -= 1
 
-        if value == 6: #this is a "dumb" way to prevent prevent divergence to zero
+        if value == 0: #this is a "dumb" way to prevent prevent divergence to zero
             value += 1
 
     return value  # returns the modified value
