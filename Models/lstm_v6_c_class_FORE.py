@@ -5,7 +5,7 @@ Version 6 changes:
 -still holding off on validation for now
 """
 import tensorflow as tf
-from pipeline.dataset_maker import SetMaker
+from pipeline.dataset_maker_forecast import SetMaker_Forecast
 from pipeline.dataset_maker import Hyperparameters
 import numpy as np
 import csv
@@ -26,7 +26,7 @@ class LSTM:
         test_size = hyperparameters[4]
         SERIAL_NUMBER = hyperparameters[5] # this is for telling which instance this is
 
-        sm = SetMaker(FOOTPRINT)
+        sm = SetMaker_Forecast(FOOTPRINT)
         with tf.name_scope("weights_and_biases"):
             W_Forget_and_Input = tf.Variable(tf.random_normal(shape = [hidden_dim +21,cell_dim]), name = "forget_and_input_weight") #note that forget_and_input actually works for forget, and the input is the inverse
             W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 21,cell_dim]), name="output_weight")
