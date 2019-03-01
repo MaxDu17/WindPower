@@ -13,7 +13,7 @@ import sys
 import os
 
 
-NAME = "lstm_v6_c_class" #this is the name of the python file for logging purposes
+NAME = "lstm_v6_c_class_FORE" #this is the name of the python file for logging purposes
 
 k = open("../Genetic/" + NAME + "best.csv", "r")
 
@@ -32,16 +32,17 @@ if len(sys.argv) > 1:
 sm = SetMaker(FOOTPRINT)
 #constructing the big weight now
 with tf.name_scope("weights_and_biases"):
-    W_Forget_and_Input = tf.Variable(tf.random_normal(shape = [hidden_dim +1,cell_dim]), name = "forget_and_input_weight") #note that forget_and_input actually works for forget, and the input is the inverse
-    W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 1,cell_dim]), name="output_weight")
-    W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="gate_weight")
+    W_Forget_and_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]),
+                                     name="forget_and_input_weight")  # note that forget_and_input actually works for forget, and the input is the inverse
+    W_Output = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="output_weight")
+    W_Gate = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]), name="gate_weight")
 
-    W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim,1]), name = "outwards_propagating_weight")
+    W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim, 1]), name="outwards_propagating_weight")
 
-    B_Forget_and_Input = tf.Variable(tf.zeros(shape=[1, cell_dim]), name = "forget_and_input_bias")
+    B_Forget_and_Input = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="forget_and_input_bias")
     B_Output = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="output_bias")
     B_Gate = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="gate_bias")
-    B_Hidden_to_Out = tf.Variable(tf.zeros(shape=[1,1]), name = "outwards_propagating_bias")
+    B_Hidden_to_Out = tf.Variable(tf.zeros(shape=[1, 1]), name="outwards_propagating_bias")
 
 with tf.name_scope("placeholders"):
     Y = tf.placeholder(shape=[1, 1], dtype=tf.float32, name="label")  # not used until the last cycle
@@ -150,7 +151,7 @@ with tf.Session() as sess:
         reset, data = sm.next_epoch_waterfall() #this gets you the entire data chunk
         label = sm.get_label() #this is the answer key
         label = np.reshape(label, [1, 1]) #reshaping for data transfer
-        data = np.reshape(data, [FOOTPRINT,1,1])
+        data = np.reshape(data, [FOOTPRINT,1,21])
         loss_ = 0
 
         if reset:  # this allows for hidden states to reset after the training set loops back around
@@ -173,7 +174,7 @@ with tf.Session() as sess:
             test_local_ = open("../Graphs_and_Results/" + NAME + "/models/" + str(epoch) + ".csv", 'w')
             test_local = csv.writer(test_local_, lineterminator='\n')
 
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V6Genetic", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V6Genetic_FORE", global_step=epoch)
 
             RMS_loss = 0.0
             next_state_test = np.zeros(shape=[2, 1, cell_dim]) #initializations
@@ -186,7 +187,7 @@ with tf.Session() as sess:
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
                 #data = np.reshape(data, [footprint, 1, 6])
-                data = np.reshape(data, [FOOTPRINT, 1, 1])
+                data = np.reshape(data, [FOOTPRINT, 1, 21])
                 next_state_test, output_, loss_ = sess.run([pass_back_state, output, loss],
                                                            # why passback? Because we only shift by one!
                                                            feed_dict={inputs: data, Y: label, init_state: next_state_test})
@@ -200,7 +201,7 @@ with tf.Session() as sess:
 
 ####################################VALIDATION#######################################
         if epoch % 2000 == 0 and epoch > 498: #this is the validation step
-            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V6Genetic", global_step=epoch)
+            saver.save(sess, "../Graphs_and_Results/" + NAME + "/models/V6Genetic_FORE", global_step=epoch)
             print("---------------------saved model-------------------------")
 
             next_state_hold = next_state #this "pauses" the training that is happening right now.
@@ -211,7 +212,7 @@ with tf.Session() as sess:
                 data = sm.next_epoch_valid_waterfall()
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
-                data = np.reshape(data, [FOOTPRINT, 1, 1])
+                data = np.reshape(data, [FOOTPRINT, 1, 21])
 
                 next_state, loss_ = sess.run([pass_back_state, loss], #why passback? Because we only shift by one!
                                                feed_dict = {inputs:data, Y:label, init_state:next_state})
@@ -235,7 +236,7 @@ with tf.Session() as sess:
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
-        data = np.reshape(data, [FOOTPRINT, 1, 1])
+        data = np.reshape(data, [FOOTPRINT, 1, 21])
 
         next_state, output_, loss_ = sess.run([pass_back_state, output, loss],  # why passback? Because we only shift by one!
                                      feed_dict={inputs: data, Y: label, init_state: next_state})
