@@ -47,7 +47,7 @@ with tf.name_scope("weights_and_biases"):
 with tf.name_scope("placeholders"):
     Y = tf.placeholder(shape=[1, 1], dtype=tf.float32, name="label")  # not used until the last cycle
     init_state = tf.placeholder(shape=[2, 1, cell_dim], dtype=tf.float32, name="initial_states")
-    inputs = tf.placeholder(shape=[FOOTPRINT, 1, 1], dtype=tf.float32, name="input_data")
+    inputs = tf.placeholder(shape=[FOOTPRINT, 1, 21], dtype=tf.float32, name="input_data")
 
 def step(last_state, X): #this is the function for each node of the LSTM
     with tf.name_scope("to_gates"):
