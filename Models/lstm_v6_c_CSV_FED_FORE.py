@@ -5,7 +5,7 @@ concatenation of input and forget
 this runs off a csv file
 """
 import tensorflow as tf
-from pipeline.dataset_maker import SetMaker
+from pipeline.dataset_maker_forecast import SetMaker_Forecast
 from pipeline.dataset_maker import Hyperparameters
 import numpy as np
 import csv
@@ -22,14 +22,14 @@ hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv fil
 FOOTPRINT = int(hyp_list[0][0])
 LEARNING_RATE = float(hyp_list[0][1])
 hidden_dim = cell_dim = int(hyp_list[0][2])
-sm = SetMaker(FOOTPRINT)
+sm = SetMaker_Forecast(FOOTPRINT)
 hyp = Hyperparameters() # this is used later for non-changing hyperparameters
 epochs = hyp.EPOCHS_LARGE #this is the epochs setting
 
 if len(sys.argv) > 1:
     epochs = int(sys.argv[1]) #this allows us to provide an arbitrary training size
 
-sm = SetMaker(FOOTPRINT)
+
 #constructing the big weight now
 with tf.name_scope("weights_and_biases"):
     W_Forget_and_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, cell_dim]),

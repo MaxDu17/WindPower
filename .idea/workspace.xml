@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v6_c_class_FORE/GRAPHS/f" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v6_c_class_FORE/models/f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/lstm_v6_c_CSV_FED_FORE.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/lstm_v6_c_CSV_FED_FORE.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -121,8 +118,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v6_c_CSV_FED_FORE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+            <state relative-caret-position="418">
+              <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+              <folding>
+                <element signature="e#146#169#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -938,8 +938,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v6_c_CSV_FED_FORE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="163" lean-forward="true" selection-start-line="163" selection-end-line="163" />
+        <state relative-caret-position="418">
+          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <folding>
+            <element signature="e#146#169#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
