@@ -49,39 +49,45 @@ with tf.name_scope("placeholders"):
     init_state = tf.placeholder(shape=[2, 1, cell_dim], dtype=tf.float32, name="initial_states")
     inputs = tf.placeholder(shape=[FOOTPRINT, 1, 21], dtype=tf.float32, name="input_data")
 
-def step(last_state, X): #this is the function for each node of the LSTM
+
+def step(last_state, X):  # this is the function for each node of the LSTM
     with tf.name_scope("to_gates"):
         C_last, H_last = tf.unstack(last_state)
-        concat_input = tf.concat([X, H_last], axis = 1, name = "input_concat") #concatenates the inputs to one vector
-        forget_gate = tf.add(tf.matmul(concat_input, W_Forget_and_Input, name = "f_w_m"),B_Forget_and_Input, name = "f_b_a") #decides which to drop from cell
+        concat_input = tf.concat([X, H_last], axis=1, name="input_concat")  # concatenates the inputs to one vector
+        forget_gate = tf.add(tf.matmul(concat_input, W_Forget_and_Input, name="f_w_m"), B_Forget_and_Input,
+                             name="f_b_a")  # decides which to drop from cell
 
-        gate_gate = tf.add(tf.matmul(concat_input, W_Gate, name = "g_w_m"), B_Gate, name = "g_b_a") #decides which things to change in cell state
+        gate_gate = tf.add(tf.matmul(concat_input, W_Gate, name="g_w_m"), B_Gate,
+                           name="g_b_a")  # decides which things to change in cell state
         output_gate = tf.add(tf.matmul(concat_input, W_Output, name="o_w_m"), B_Output, name="o_b_a")
 
-    with tf.name_scope("non-linearity"): #makes the gates into what they should be
-        forget_gate = tf.sigmoid(forget_gate, name = "sigmoid_forget")
+    with tf.name_scope("non-linearity"):  # makes the gates into what they should be
+        forget_gate = tf.sigmoid(forget_gate, name="sigmoid_forget")
 
-        forget_gate_negated = tf.scalar_mul(-1, forget_gate) #this has to be here because it is after the nonlin
+        forget_gate_negated = tf.scalar_mul(-1, forget_gate)  # this has to be here because it is after the nonlin
         input_gate = tf.add(tf.ones([1, cell_dim]), forget_gate_negated, name="making_input_gate")
         input_gate = tf.sigmoid(input_gate, name="sigmoid_input")
 
-        gate_gate = tf.tanh(gate_gate, name = "tanh_gate")
+        gate_gate = tf.tanh(gate_gate, name="tanh_gate")
         output_gate = tf.sigmoid(output_gate, name="sigmoid_output")
-    with tf.name_scope("forget_gate"): #forget gate values and propagate
+    with tf.name_scope("forget_gate"):  # forget gate values and propagate
 
-        current_cell = tf.multiply(forget_gate, C_last, name = "forget_gating")
+        current_cell = tf.multiply(forget_gate, C_last, name="forget_gating")
 
-    with tf.name_scope("suggestion_node"): #suggestion gate
-        suggestion_box = tf.multiply(input_gate, gate_gate, name = "input_determiner")
-        current_cell = tf.add(suggestion_box, current_cell, name = "input_and_gate_gating")
+    with tf.name_scope("suggestion_node"):  # suggestion gate
+        suggestion_box = tf.multiply(input_gate, gate_gate, name="input_determiner")
+        current_cell = tf.add(suggestion_box, current_cell, name="input_and_gate_gating")
 
-    with tf.name_scope("output_gate"): #output gate values to hidden
-        current_cell = tf.tanh(current_cell, name = "cell_squashing") #squashing the current cell, branching off now. Note the underscore, means saving a copy.
-        current_hidden = tf.multiply(output_gate, current_cell, name="next_hidden") #we are making the hidden by element-wise multiply of the squashed states
+    with tf.name_scope("output_gate"):  # output gate values to hidden
+        current_cell = tf.tanh(current_cell,
+                               name="cell_squashing")  # squashing the current cell, branching off now. Note the underscore, means saving a copy.
+        current_hidden = tf.multiply(output_gate, current_cell,
+                                     name="next_hidden")  # we are making the hidden by element-wise multiply of the squashed states
 
         states = tf.stack([current_cell, current_hidden])
 
     return states
+
 
 with tf.name_scope("forward_roll"):
     states_list = tf.scan(fn=step, elems=inputs, initializer=init_state,
