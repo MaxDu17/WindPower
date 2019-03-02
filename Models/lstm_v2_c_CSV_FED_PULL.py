@@ -35,7 +35,7 @@ with tf.name_scope("weights_and_biases"): #declares the matrices
     W_Input = tf.Variable(tf.random_normal(shape=[hidden_dim + 1, cell_dim]), name="input_weight")
     W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim,1]), name = "outwards_propagating_weight")
 
-    B_Forget = tf.Variable(tf.fill(shape=[1, cell_dim], value = 20), name = "forget_bias")
+    B_Forget = tf.Variable(tf.fill(dims=[1, cell_dim], value = 20), name = "forget_bias")
     B_Output = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="output_bias")
     B_Gate = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="gate_bias")
     B_Input = tf.Variable(tf.zeros(shape=[1,cell_dim]), name="input_bias")
