@@ -6,14 +6,15 @@ import csv
 
 hyp = Hyperparameters()
 
-version = 2
+version = 0
 
-custom_test = False
+custom_test = True
 test_number = 81072
 
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
 #MODEL_NAME = 'RNN_frozen'
 CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
+CSV_NAME = 'lstm_v' + str(2) + '_c_classbest'
 #CSV_NAME = 'RNN_classbest'
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
@@ -46,7 +47,7 @@ with tf.Session(graph=graph) as sess:
     if (custom_test):
         sm.set_test_number(test_number)
 
-    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/EVALUATE_TEST.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/EVALUATE_TEST__.csv', "w")
     #test = open('../Graphs_and_Results/RNN_class/GRAPHS/EVALUATE_TEST.csv', "w")
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
@@ -64,11 +65,19 @@ with tf.Session(graph=graph) as sess:
 
         init_state_ , output_= sess.run([pass_back_state, output],
                                                 feed_dict = {input: data, init_state: init_state_})
+        '''
         loss_ = np.square(output_[0][0] - label_)
         labels.append(label_)
         outputs.append(output_[0][0])
         RMS_loss += np.sqrt(loss_)
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
+        test_logger.writerow(carrier)
+        '''
+        loss_ = np.square(output_ - label_)
+        labels.append(label_)
+        outputs.append(output_)
+        RMS_loss += np.sqrt(loss_)
+        carrier = [label_, output_, np.sqrt(loss_)]
         test_logger.writerow(carrier)
 
 
