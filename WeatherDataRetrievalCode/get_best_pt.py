@@ -14,7 +14,7 @@ import pandas as pd
 data_lat = pd.read_csv("lats_ruc2_130.csv", header=None)
 data_lon = pd.read_csv("lons_ruc2_130.csv",header=None)
 
-target_frame = pd.read_csv("target.csv")
+target_frame = pd.read_csv("target_SHIRLEY.csv")
 lat_ = target_frame[["lat"]]
 long_ = target_frame[["long"]]
 
@@ -33,7 +33,7 @@ alphabet_dict = {'a': 1, 'c': 3, 'b': 2, 'e': 5, 'd': 4, 'g': 7,
                  'f': 6, 'i': 9, 'h': 8, 'k': 11, 'j': 10, 'm': 13,
                  'l': 12, 'o': 15, 'n': 14, 'q': 17, 'p': 16,
                  's': 19, 'r': 18, 'u': 21, 't': 20, 'w': 23,
-                 'v': 22, 'y': 25, 'x': 24, 'z': 26}
+                 'v': 22, 'y': 25, 'x': 24, 'z': 0}
 inverted_alphabet_dict = dict([v,k] for k,v in alphabet_dict.items())
 
 best_error = 99999999999999
@@ -49,7 +49,7 @@ for i in range(len(frame_lat)):
             best_error = total_error
             best_i = i
             best_j = j
-_ = open("best_coordinate_ruc2_130.csv", "w")
+_ = open("best_coordinate_ruc2_130_SHIRLEY.csv", "w")
 writer_ = csv.writer(_, lineterminator ="\n")
 writer_.writerow(["row", "column"])
 writer_.writerow([best_i, best_j])

@@ -20,7 +20,7 @@ try:
 except:
     print("crash folder seems to be removed. That's OK!")
 
-recovery_ = open("finished.csv", 'r')
+recovery_ = open("finished_SHIRLEY.csv", 'r')
 recovery =list(csv.reader(recovery_))
 recovery_.close()
 recovery = [j[0] for j in recovery]
@@ -33,7 +33,7 @@ if len(folders) == 0:
 
 input("Recovery finished! There are " + str(len(folders)) + " files left!")
 
-donefile_ = open("finished.csv", 'w')
+donefile_ = open("finished_SHIRLEY.csv", 'w')
 donefile = csv.writer(donefile_, lineterminator='\n')
 donefile.writerows(recovery) #this opens the finished csv file, so it can be appended to later.
 

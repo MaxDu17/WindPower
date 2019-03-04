@@ -1,6 +1,6 @@
 from tensorflow.python.tools import freeze_graph
 version = 2
-version_to_keep = 160000
+version_to_keep = 159700
 
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
 #MODEL_NAME = 'gru_c_genetic_frozen'

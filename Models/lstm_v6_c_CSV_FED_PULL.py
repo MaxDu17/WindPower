@@ -13,9 +13,9 @@ import sys
 import os
 
 
-NAME = "lstm_v6_c_class" #this is the name of the python file for logging purposes
+NAME = "lstm_v6_c_class_PULL" #this is the name of the python file for logging purposes
 
-k = open("../Genetic/" + NAME + "best.csv", "r")
+k = open("../Genetic/lstm_v6_c_classbest.csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
 
@@ -38,7 +38,7 @@ with tf.name_scope("weights_and_biases"):
 
     W_Hidden_to_Out = tf.Variable(tf.random_normal(shape=[hidden_dim,1]), name = "outwards_propagating_weight")
 
-    B_Forget_and_Input = tf.Variable(tf.constant(shape=[1, cell_dim], value=20, dtype=tf.float32), name="forget_bias")
+    B_Forget_and_Input = tf.Variable(tf.constant(shape=[1, cell_dim], value=3, dtype=tf.float32), name="forget_bias")
     B_Output = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="output_bias")
     B_Gate = tf.Variable(tf.zeros(shape=[1, cell_dim]), name="gate_bias")
     B_Hidden_to_Out = tf.Variable(tf.zeros(shape=[1,1]), name = "outwards_propagating_bias")
