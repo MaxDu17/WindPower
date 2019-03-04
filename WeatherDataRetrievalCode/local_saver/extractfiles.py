@@ -23,9 +23,14 @@ except:
 recovery_ = open("finished_SHIRLEY.csv", 'r')
 recovery =list(csv.reader(recovery_))
 recovery_.close()
-recovery = [j[0] for j in recovery]
-for name in recovery:
-    folders.remove(name)#this makes sure that we don't start from the begining
+try:
+    recovery = [j[0] for j in recovery]
+    for name in recovery:
+        folders.remove(name)  # this makes sure that we don't start from the begining
+except:
+    print("oops, we just started. That's ok!")
+    input("Press enter to continue")
+
 
 if len(folders) == 0:
     print("you are done!")
