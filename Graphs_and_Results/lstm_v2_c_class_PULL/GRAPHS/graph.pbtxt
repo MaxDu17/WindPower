@@ -1045,7 +1045,7 @@ node {
             size: 16
           }
         }
-        float_val: 20.0
+        float_val: 3.0
       }
     }
   }
