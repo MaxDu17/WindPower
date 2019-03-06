@@ -231,14 +231,14 @@ with tf.Session() as sess:
     sm.reset_test_counter()
     print(np.shape(next_state))
     for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
-
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
+        # data = np.reshape(data, [footprint, 1, 6])
         data = np.reshape(data, [FOOTPRINT, 1, 1])
-
-        next_state, output_, loss_ = sess.run([pass_back_state, output, loss],  # why passback? Because we only shift by one!
-                                     feed_dict={inputs: data, Y: label, init_state: next_state})
+        next_state_test, output_, loss_ = sess.run([pass_back_state, output, loss],
+                                                   # why passback? Because we only shift by one!
+                                                   feed_dict={inputs: data, Y: label, init_state: next_state_test})
         RMS_loss += np.sqrt(loss_)
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
         test_logger.writerow(carrier)
