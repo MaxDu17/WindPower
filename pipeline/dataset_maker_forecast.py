@@ -43,10 +43,12 @@ class SetMaker_Forecast:
     def next_epoch_test_waterfall(self): #this is nextepochtestsingleshift but with a waterfall
         if self.test_counter == 0:
             raise Exception("you forgot to initialize the test_counter! Execute create_training_set")
+
         if self.test_counter + self.FOOTPRINT + 1 > self.dp.dataset_size():
-            self.reset_test_counter()
-            print("test counter has reset")
-            #raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
+            #self.reset_test_counter()
+            #print("test counter has reset")
+            raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
+
         self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter+self.FOOTPRINT+1)
         self.test_counter += 1
         self.batch_counter = 0

@@ -7,7 +7,7 @@ import csv
 hyp = Hyperparameters()
 version = 2
 
-custom_test = False
+custom_test = True
 test_number = 81072
 
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE'
@@ -49,7 +49,7 @@ with tf.Session(graph=graph) as sess:
     if (custom_test):
         sm.set_test_number(test_number)
 
-    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_PULL/GRAPHS/EVALUATE_TEST.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_PULL/GRAPHS/EVALUATE_TEST__.csv', "w")
 
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
