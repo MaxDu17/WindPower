@@ -9,7 +9,7 @@ import os
 import sys
 import csv
 
-NAME = "lstm_v2_c_class_FORE" #this is the name of the python file for logging purposes
+NAME = "lstm_v2_c_class_FORE_DISC" #this is the name of the python file for logging purposes
 
 k = open("../Genetic/lstm_v2_c_class_FOREbest.csv", "r")
 
@@ -149,6 +149,7 @@ with tf.Session() as sess:
     next_state = np.zeros(shape=[2,1,cell_dim]) #this initializes the initial "next state"
 
     for epoch in range(epochs):
+        next_state = np.zeros(shape=[2, 1, cell_dim])  # initializations
         reset, data = sm.next_epoch_waterfall() #this gets you the entire data chunk
         label = sm.get_label() #this is the answer key
         label = np.reshape(label, [1, 1]) #reshaping for data transfer
@@ -184,6 +185,7 @@ with tf.Session() as sess:
             sm.reset_test_counter()
 
             for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
+                next_state_test = np.zeros(shape=[2, 1, cell_dim])  # initializations
                 data = sm.next_epoch_test_waterfall()
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
@@ -209,6 +211,7 @@ with tf.Session() as sess:
             RMS_loss = 0.0
             next_state = np.zeros(shape=[2, 1, cell_dim])
             for i in range(hyp.VALIDATION_NUMBER):
+                next_state = np.zeros(shape=[2, 1, cell_dim])  # initializations
                 data = sm.next_epoch_valid_waterfall()
                 label_ = sm.get_label()
                 label = np.reshape(label_, [1, 1])
@@ -231,7 +234,7 @@ with tf.Session() as sess:
     print(np.shape(next_state))
     #sm.reset_test_counter()
     for test in range(hyp.Info.TEST_SIZE):  # this will be replaced later
-
+        next_state = np.zeros(shape=[2, 1, cell_dim])  # initializations
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
