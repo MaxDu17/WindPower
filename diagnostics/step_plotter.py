@@ -5,7 +5,8 @@ upper_bound = 1000
 lower_bound = 0
 step_length = 1
 
-FILE_NAME = "lstm_v6_c_class_FORE_PULL"
+FILE_NAME = "lstm_v0_c_class"
+LABEL_NAME = "Vanilla_with_RELU"
 x = np.arange(0,step_length*(upper_bound-lower_bound),step_length)
 
 file_name_2 = "../Graphs_and_Results/" + FILE_NAME + "/GRAPHS/EVALUATE_TEST__.csv"
@@ -23,10 +24,11 @@ predict2_naive = np.roll(true, 1)
 
 plt.step(x, true[lower_bound:upper_bound], label='truth')
 
-plt.step(x, predict2[lower_bound:upper_bound], label=('predict version: ' + FILE_NAME))
+plt.step(x, predict2[lower_bound:upper_bound], label=('predict version: ' + LABEL_NAME))
 
-title = FILE_NAME + " and truth" + ". " +\
+title = LABEL_NAME + " vs. Truth" + ". " +\
         str(lower_bound)  + " to " + str(upper_bound) + ", step length " + str(step_length)
+
 
 plt.title(title)
 
