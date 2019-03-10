@@ -1,6 +1,6 @@
 from tensorflow.python.tools import freeze_graph
 version = 2
-version_to_keep = 159950
+version_to_keep = 160000
 
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
 #MODEL_NAME = 'gru_c_genetic_frozen'
@@ -10,7 +10,7 @@ input_graph_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_DIS
 #input_graph_path = '../Graphs_and_Results/gru_c_class/GRAPHS/graph.pbtxt'
 
 
-checkpoint_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_DISCL/models/V' + str(version) + 'Genetic-' + str(version_to_keep)
+checkpoint_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_DISC/models/V' + str(version) + 'Genetic-' + str(version_to_keep)
 #checkpoint_path = '../Graphs_and_Results/gru_c_class/models/GRUGenetic-' + str(version_to_keep)
 input_saver_def_path = ''
 input_binary = False

@@ -1,9 +1,4 @@
-"""Maximilian Du 7-2-18
-LSTM implementation with wind data set
-Version 6 changes:
--trying to concatenate the keep and forget gates into one (see ppt)
--still holding off on validation for now
-"""
+
 import tensorflow as tf
 from pipeline.dataset_maker_forecast import SetMaker_Forecast
 from pipeline.dataset_maker import Hyperparameters

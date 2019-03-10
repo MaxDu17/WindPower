@@ -6,7 +6,7 @@ import csv
 
 hyp = Hyperparameters()
 
-version = 6
+version = 2
 
 custom_test = False
 test_number = 81072
@@ -25,7 +25,7 @@ outputs = list()
 
 sm = SetMaker(footprint)
 
-pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_PULL/'+MODEL_NAME+'.pb'
+pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_DISC/'+MODEL_NAME+'.pb'
 #pbfilename = '../Graphs_and_Results/RNN_class/'+MODEL_NAME+'.pb'
 with tf.gfile.GFile(pbfilename, "rb") as f:
     graph_def = tf.GraphDef()
@@ -46,7 +46,7 @@ with tf.Session(graph=graph) as sess:
     if (custom_test):
         sm.set_test_number(test_number)
 
-    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_PULL/GRAPHS/EVALUATE_TEST.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_DISC/GRAPHS/EVALUATE_TEST.csv', "w")
     #test = open('../Graphs_and_Results/RNN_class/GRAPHS/EVALUATE_TEST.csv', "w")
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
@@ -103,7 +103,7 @@ naive_coeficient = big_total_normal - big_total_shift
 naive_ratio = big_total_shift/big_total_normal
 print("Naive coeficient: " + str(naive_coeficient))
 print("Naive ratio: " + str(naive_ratio))
-file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_PULL/GRAPHS/naivecoeff.txt', 'w')
+file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_DISC/GRAPHS/naivecoeff.txt', 'w')
 #file = open('../Graphs_and_Results/RNN_class/GRAPHS/naivecoeff.txt', 'w')
 
 file.write(str(naive_coeficient))
