@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-upper_bound = 1000
-lower_bound = 0
+upper_bound = 500
+lower_bound = 400
 step_length = 1
 
-FILE_NAME = "lstm_v0_c_class"
-LABEL_NAME = "Vanilla_with_RELU"
+FILE_NAME = "lstm_v9_c_class_FORE"
+LABEL_NAME = "IF and Hidden Propagation"
 x = np.arange(0,step_length*(upper_bound-lower_bound),step_length)
 
 file_name_2 = "../Graphs_and_Results/" + FILE_NAME + "/GRAPHS/EVALUATE_TEST__.csv"
