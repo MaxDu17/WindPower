@@ -5,7 +5,7 @@ import numpy as np
 import csv
 #THIS RUNS WEATHER FORECAST MODELS
 hyp = Hyperparameters()
-version = 9
+version = 7
 
 custom_test = True
 test_number = 81072
