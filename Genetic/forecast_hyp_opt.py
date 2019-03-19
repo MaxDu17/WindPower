@@ -8,8 +8,8 @@ import tensorflow as tf
 
 
 ############# CHANGE ME ###########
-from Models.lstm_v7_c_class_FORE import LSTM
-name = "lstm_v7_c_class_FORE"
+from Models.lstm_v2_c_class_FORE_AUTO import LSTM
+name = "lstm_v2_c_class_FORE_AUTO"
 ###################################
 
 
@@ -133,5 +133,6 @@ with tf.Session() as sess:
     k = open(name + "best.csv", "w")
     best_writer = csv.writer(k, lineterminator = "\n")
     best_writer.writerows(results[0:2])
+    print("I'm done!")
 
 
