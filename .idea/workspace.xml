@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v7_c_class_FORE/GRAPHS/f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Graphs_and_Results/lstm_v7_c_class_FORE/models/f" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Freeze_Programs/save_v6.py" beforeDir="false" afterPath="$PROJECT_DIR$/Freeze_Programs/save_v6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnostics/step_plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diagnostics/step_plotter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" beforeDir="false" afterPath="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +24,7 @@
             <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED_FORE.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state>
+                  <state relative-caret-position="4313">
                     <caret line="233" column="27" selection-start-line="233" selection-start-column="27" selection-end-line="233" selection-end-column="27" />
                     <folding>
                       <element signature="e#0#23#0" expanded="true" />
@@ -45,8 +45,8 @@
             <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="570">
-                    <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+                  <state relative-caret-position="494">
+                    <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
                     <folding>
                       <element signature="e#0#23#0" expanded="true" />
                     </folding>
@@ -61,7 +61,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/diagnostics/step_plotter.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="456">
@@ -73,11 +73,41 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+              <folding>
+                <element signature="e#147#160#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED_FORE.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Freeze_Programs/save_v6.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+              <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -85,7 +115,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/lstm_v9_c_CSV_FED_FORE.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-142">
+            <state relative-caret-position="2584">
               <caret line="168" column="108" selection-start-line="168" selection-start-column="108" selection-end-line="168" selection-end-column="108" />
             </state>
           </provider>
@@ -95,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v4.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -223,7 +253,6 @@
         <option value="$PROJECT_DIR$/Freeze_Programs/save_v4.py" />
         <option value="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v9_c_class_FORE.py" />
-        <option value="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED_FORE.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v7_c_class_FORE.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v9_c_CSV_FED_FORE.py" />
@@ -231,6 +260,7 @@
         <option value="$PROJECT_DIR$/Freeze_Programs/save_v6.py" />
         <option value="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v4.py" />
         <option value="$PROJECT_DIR$/diagnostics/step_plotter.py" />
+        <option value="$PROJECT_DIR$/Genetic/forecast_hyp_opt.py" />
       </list>
     </option>
   </component>
@@ -491,7 +521,7 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21162046" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21375267" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -534,12 +564,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Graphs_and_Results/lstm_v2_c_class_PULL/GRAPHS/f">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Graphs_and_Results/lstm_v2_c_class_PULL/models/f">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v1_c_CSV_FED.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -704,16 +728,6 @@
     <entry file="file://$PROJECT_DIR$/Models/lstm_v2_c_CSV_FED.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED_FORE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="233" column="27" selection-start-line="233" selection-start-column="27" selection-end-line="233" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/gru_c_class.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1710">
@@ -726,13 +740,6 @@
     <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_class.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_class_FORE.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1509">
@@ -740,13 +747,6 @@
           <folding>
             <element signature="e#126#149#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED_FORE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -771,23 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="29" lean-forward="true" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Freeze_Programs/save_v4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v0_c_CSV_FED.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1233">
@@ -802,37 +785,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding>
-            <element signature="e#147#160#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Freeze_Programs/save_v6.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="8" column="42" lean-forward="true" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v9_c_CSV_FED_FORE.py">
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v5_c_CSV_FED_FORE.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="168" column="108" selection-start-line="168" selection-start-column="108" selection-end-line="168" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        <state relative-caret-position="4313">
+          <caret line="233" column="27" selection-start-line="233" selection-start-column="27" selection-end-line="233" selection-end-column="27" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Freeze_Programs/save_v4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
@@ -842,6 +825,53 @@
           <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v9_c_CSV_FED_FORE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2584">
+          <caret line="168" column="108" selection-start-line="168" selection-start-column="108" selection-end-line="168" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED_FORE.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphs_and_Results/lstm_v7_c_class_FORE/models/f">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Graphs_and_Results/lstm_v7_c_class_FORE/GRAPHS/f">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Genetic/forecast_hyp_opt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="43" column="16" lean-forward="true" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+          <folding>
+            <element signature="e#147#160#0" expanded="true" />
           </folding>
         </state>
       </provider>
