@@ -1,5 +1,5 @@
 import tensorflow as tf
-from pipeline.dataset_maker import SetMaker
+from pipeline.dataset_maker_forecast import SetMaker_Forecast
 import numpy as np
 
 class LSTM: #ok, this is a GRU
@@ -16,7 +16,7 @@ class LSTM: #ok, this is a GRU
         test_size = hyperparameters[4]
         SERIAL_NUMBER = hyperparameters[5] # this is for telling which instance this is
 
-        sm = SetMaker(footprint)
+        sm = SetMaker_Forecast(footprint)
         with tf.name_scope("weights_and_biases"):
             W_Insertion = tf.Variable(tf.random_normal(shape=[hidden_dim + 21, hidden_dim]), name="insertion_weight")
             W_Input_Forget = tf.Variable(tf.random_normal(shape = [hidden_dim + 21, hidden_dim]), name = "Input_Forget_weight")
