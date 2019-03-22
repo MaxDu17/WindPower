@@ -67,12 +67,20 @@ with tf.Session(graph=graph) as sess:
 
         init_state_ , output_= sess.run([pass_back_state, output],
                                                 feed_dict = {input: data, init_state: init_state_})
-
+        '''
         loss_ = np.square(output_[0][0] - label_)
         labels.append(label_)
         outputs.append(output_[0][0])
         RMS_loss += np.sqrt(loss_)
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
+        test_logger.writerow(carrier)
+        '''
+
+        loss_ = np.square(output_- label_)
+        labels.append(label_)
+        outputs.append(output_)
+        RMS_loss += np.sqrt(loss_)
+        carrier = [label_, output_, np.sqrt(loss_)]
         test_logger.writerow(carrier)
 
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE

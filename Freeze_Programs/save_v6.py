@@ -1,6 +1,6 @@
 from tensorflow.python.tools import freeze_graph
 version = 1
-version_to_keep = 159800
+version_to_keep = 160000
 #this is for weather forecast networks
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE'
 

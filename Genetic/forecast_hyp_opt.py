@@ -8,8 +8,8 @@ import tensorflow as tf
 
 
 ############# CHANGE ME ###########
-from Models.lstm_v2_c_class_FORE_AUTO import LSTM
-name = "lstm_v2_c_class_FORE_AUTO"
+from Models.gru_c_class_FORE import LSTM
+name = "gru_c_class_FORE"
 ###################################
 
 
