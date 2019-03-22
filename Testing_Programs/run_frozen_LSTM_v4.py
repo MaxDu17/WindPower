@@ -5,7 +5,7 @@ import numpy as np
 import csv
 #THIS RUNS WEATHER FORECAST MODELS
 hyp = Hyperparameters()
-version = 7
+version = 1
 
 custom_test = True
 test_number = 81072
@@ -13,7 +13,7 @@ test_number = 81072
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE'
 
 CSV_NAME = 'lstm_v' + str(version) + '_c_class_FOREbest'
-
+CSV_NAME = 'lstm_v' + str(2) + '_c_class_FOREbest'
 
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
