@@ -5,15 +5,13 @@ import numpy as np
 import csv
 #THIS RUNS WEATHER FORECAST MODELS
 hyp = Hyperparameters()
-version = 1
+version = 2
 
 custom_test = True
 test_number = 81072
 
-MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE'
-MODEL_NAME = 'gru_frozen_FORE'
+MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE_ABS'
 CSV_NAME = 'lstm_v' + str(version) + '_c_class_FOREbest'
-CSV_NAME = 'gru_c_class_FOREbest'
 
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
@@ -26,8 +24,7 @@ outputs = list()
 
 
 
-pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/'+MODEL_NAME+'.pb'
-pbfilename = '../Graphs_and_Results/gru_c_class_FORE/'+MODEL_NAME+'.pb'
+pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_ABS/'+MODEL_NAME+'.pb'
 
 
 with tf.gfile.GFile(pbfilename, "rb") as f:
@@ -50,15 +47,15 @@ with tf.Session(graph=graph) as sess:
     if (custom_test):
         sm.set_test_number(test_number)
 
-    #test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/GRAPHS/EVALUATE_TEST__.csv', "w")
-    test = open('../Graphs_and_Results/gru_c_class_FORE/GRAPHS/EVALUATE_TEST__.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_ABS/GRAPHS/EVALUATE_TEST__.csv', "w")
+
 
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
     RMS_loss = 0.0
-    #init_state_ = np.zeros(shape=[2, 1, hidden_dim])
-    init_state_ = np.zeros(shape=[1, hidden_dim])
+    init_state_ = np.zeros(shape=[2, 1, hidden_dim])
+
 
     for i in range(hyp.Info.TEST_SIZE):  # this will be replaced later
         data = sm.next_epoch_test_waterfall()
@@ -110,8 +107,8 @@ naive_coeficient = big_total_normal - big_total_shift
 naive_ratio = big_total_shift/big_total_normal
 print("Naive coeficient: " + str(naive_coeficient))
 print("Naive ratio: " + str(naive_ratio))
-#file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/GRAPHS/naivecoeff.txt', 'w')
-file = open('../Graphs_and_Results/gru_c_class_FORE/GRAPHS/naivecoeff.txt', 'w')
+file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_ABS/GRAPHS/naivecoeff.txt', 'w')
+
 
 file.write(str(naive_coeficient))
 file.write("\n")
