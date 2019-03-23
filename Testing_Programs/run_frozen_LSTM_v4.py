@@ -11,7 +11,7 @@ custom_test = True
 test_number = 81072
 
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE'
-MODEL_NAME = 'gru_c_genetic_frozen_FORE'
+MODEL_NAME = 'gru_frozen_FORE'
 CSV_NAME = 'lstm_v' + str(version) + '_c_class_FOREbest'
 CSV_NAME = 'gru_c_class_FOREbest'
 
@@ -57,15 +57,16 @@ with tf.Session(graph=graph) as sess:
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
     RMS_loss = 0.0
-    init_state_ = np.zeros(shape=[2, 1, hidden_dim])
+    #init_state_ = np.zeros(shape=[2, 1, hidden_dim])
+    init_state_ = np.zeros(shape=[1, hidden_dim])
 
     for i in range(hyp.Info.TEST_SIZE):  # this will be replaced later
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
         print(i)
-        data = np.reshape(data, [footprint, 1, 21])
 
+        data = np.reshape(data, [footprint, 1, 21])
 
         init_state_ , output_= sess.run([pass_back_state, output],
                                                 feed_dict = {input: data, init_state: init_state_})
