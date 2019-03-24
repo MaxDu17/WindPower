@@ -1,17 +1,17 @@
 from tensorflow.python.tools import freeze_graph
 version = 2
-version_to_keep = 159650
+version_to_keep = 159850
 #this is for weather forecast networks
-MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE_ABS'
+MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE'
 
 
 # Freeze the graph
 
-input_graph_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_ABS/GRAPHS/graph.pbtxt'
+input_graph_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/GRAPHS/graph.pbtxt'
 
 
 
-checkpoint_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_ABS/models/V' + str(version) + 'Genetic_FORE-' + str(version_to_keep)
+checkpoint_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/models/V' + str(version) + 'Genetic_FORE-' + str(version_to_keep)
 
 input_saver_def_path = ''
 input_binary = False
