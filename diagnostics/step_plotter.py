@@ -5,7 +5,7 @@ upper_bound = 500
 lower_bound = 400
 step_length = 1
 
-FILE_NAME = "lstm_v9_c_class_FORE"
+FILE_NAME = "lstm_v2_c_class_FORE"
 LABEL_NAME = "IF and Hidden Propagation"
 x = np.arange(0,step_length*(upper_bound-lower_bound),step_length)
 
