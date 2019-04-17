@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71fe18c7-e3a7-4acc-9242-9bf3515cb330" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/diagnostics/step plotter live line.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diagnostics/step_plotter_livedemo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnostics/step plotter live bar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diagnostics/step plotter live line_dynamic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagnostics/step_plotter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diagnostics/step_plotter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnostics/step plotter live line.py" beforeDir="false" afterPath="$PROJECT_DIR$/diagnostics/step plotter live line.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagnostics/step_plotter_livedemo.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/diagnostics/step_plotter_livedemo.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/diagnostics/step plotter live line.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+            <state relative-caret-position="312">
+              <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -118,14 +119,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/diagnostics/step plotter live line.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/diagnostics/step plotter live line_dynamic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="228">
+              <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/diagnostics/step plotter live bar.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -203,7 +210,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hyp.hidden_dim</find>
       <find>curr_state</find>
       <find>sesss</find>
       <find>sm.create_training_set()</find>
@@ -233,6 +239,7 @@
       <find>V1</find>
       <find>V2G</find>
       <find>gru</find>
+      <find>ax</find>
     </findStrings>
     <replaceStrings>
       <replace>footpring</replace>
@@ -269,8 +276,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Models/lstm_v2_c_class.py" />
-        <option value="$PROJECT_DIR$/Models/gru_1.py" />
         <option value="$PROJECT_DIR$/Models/lstm_v6_c_CSV_FED.py" />
         <option value="$PROJECT_DIR$/Models/gru_c_class.py" />
         <option value="$PROJECT_DIR$/Models/gru_c_CSV_FED.py" />
@@ -319,6 +324,8 @@
         <option value="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py" />
         <option value="$PROJECT_DIR$/diagnostics/step_plotter.py" />
         <option value="$PROJECT_DIR$/diagnostics/step_plotter_livedemo.py" />
+        <option value="$PROJECT_DIR$/diagnostics/step plotter live bar.py" />
+        <option value="$PROJECT_DIR$/diagnostics/step plotter live line_dynamic.py" />
         <option value="$PROJECT_DIR$/diagnostics/step plotter live line.py" />
       </list>
     </option>
@@ -340,6 +347,11 @@
             <path>
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
               <item name="WindPower" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WindPower" type="462c0819:PsiDirectoryNode" />
+              <item name="diagnostics" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WindPower" type="b2602c69:ProjectViewProjectNode" />
@@ -406,28 +418,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.step plotter live line">
-    <configuration name="run_frozen_LSTM_v3" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="WindPower" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Testing_Programs" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Testing_Programs/run_frozen_LSTM_v3.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.step plotter live bar">
     <configuration name="significancetest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="WindPower" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -441,6 +432,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../finalcode/significancetest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="step plotter live bar" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="WindPower" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/diagnostics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/diagnostics/step plotter live bar.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -514,18 +526,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.step_plotter" />
-      <item itemvalue="Python.run_frozen_LSTM_v3" />
       <item itemvalue="Python.significancetest" />
       <item itemvalue="Python.step_plotter_livedemo" />
       <item itemvalue="Python.step plotter live line" />
+      <item itemvalue="Python.step plotter live bar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.step plotter live bar" />
         <item itemvalue="Python.step plotter live line" />
         <item itemvalue="Python.step_plotter_livedemo" />
         <item itemvalue="Python.significancetest" />
         <item itemvalue="Python.step_plotter" />
-        <item itemvalue="Python.run_frozen_LSTM_v3" />
       </list>
     </recent_temporary>
   </component>
@@ -555,7 +567,7 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.015991472" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26918977" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -577,19 +589,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Genetic/lstm_v7_c_classbest.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/lstm_v7_c_CSV_FED_FORE.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-583">
-          <caret line="184" selection-start-line="184" selection-end-line="184" />
-          <folding>
-            <element signature="e#86#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Models/lstm_v1_c_CSV_FED.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -898,16 +897,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diagnostics/step_plotter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="24" selection-start-line="24" selection-end-line="26" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/diagnostics/step_plotter_livedemo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -918,10 +907,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/diagnostics/step_plotter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="24" selection-start-line="24" selection-end-line="26" selection-end-column="88" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagnostics/step plotter live bar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagnostics/step plotter live line_dynamic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/diagnostics/step plotter live line.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        <state relative-caret-position="312">
+          <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

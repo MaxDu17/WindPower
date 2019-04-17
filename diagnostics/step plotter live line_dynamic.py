@@ -32,14 +32,15 @@ ax.set_title("Prediction and Truth on Wind Power")
 def animate(i):
     k = max(true[i:i+10])
     l = max(predict2[i:i + 10])
-    '''
+
     if(k>l):
         plt.ylim(-1, k+1)
     else:
         plt.ylim(-1, l+1)
-    '''
+
     line.set_ydata(true[i:i+10])  # update the data
     line2.set_ydata(predict2[i:i + 10])  # update the data
+    print(str(np.round(true[i], 3)) + "\t\t" + str(np.round(predict2[i], 3)))
     return line, line2,
 
 
@@ -47,7 +48,6 @@ def animate(i):
 def init():
     line.set_ydata(np.ma.array(x, mask=True))
     line2.set_ydata(np.ma.array(x, mask=True))
-    print(str(np.round(true[i], 3)) + "\t\t" + str(np.round(predict2[i], 3)))
     return line, line2
 
 ani = animation.FuncAnimation(fig, animate, init_func=init,
