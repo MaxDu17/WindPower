@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import pandas as pd
+import time
 upper_bound = 10
 lower_bound = 0
 step_length = 1
@@ -28,15 +29,24 @@ plt.ylim(-1, 10)
 line, = ax.bar(x = 0,height = true[0], label = "Truth")
 line2, = ax.bar(x = 1, height = predict2[0], label = "Prediction")
 ax.axes.get_xaxis().set_visible(False)
-text = ax.text(1, 9, "test", fontsize=12)
-ax.set_title("Prediction and Truth on Wind Power")
+text = ax.text(-0.1, -2, "True", fontsize=12)
+text2 = ax.text(0.9, -2, "Prediction", fontsize=12)
+ax.set_title("Prediction and Truth on Wind Power--Compression w/Forecast")
+plt.ylabel("Power in Megawatts")
+print("True\t\tPredict")
 
 def animate(i):
 
     line.set_height(true[i])  # update the data
     line2.set_height(predict2[i])  # update the data
+    k = str(np.round(true[i], 3))
+    while len(k) < 4:
+        k = k + "0"
+    l = str(np.round(predict2[i],3))
+    while len(l) < 4:
+        l = l + "0"
 
-    print(str(np.round(true[i], 3)) + "\t\t" +str(np.round(predict2[i],3)))
+    print(k + "\t\t" + l)
 
     return line, line2,
 
@@ -45,8 +55,10 @@ def animate(i):
 def init():
     line.set_height(np.ma.array(x, mask=True))
     line2.set_height(np.ma.array(x, mask=True))
+    time.sleep(2)
     return line, line2
 
+
 ani = animation.FuncAnimation(fig, animate, init_func=init,
-                              interval=100, blit=True)
+                              interval=120, blit=True)
 plt.show()

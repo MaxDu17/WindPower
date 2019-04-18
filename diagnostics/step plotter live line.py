@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import time
 import pandas as pd
 upper_bound = 10
 lower_bound = 0
@@ -27,17 +28,18 @@ plt.ylim(-1, 10)
 
 line, = ax.step(x, true[0:10])
 line2, = ax.step(x, predict2[0:10])
-ax.set_title("Prediction and Truth on Wind Power")
+ax.set_title("Compression w/Forecast Step")
+plt.ylabel("Power in Megawatts")
 
 def animate(i):
-    k = max(true[i:i+10])
-    l = max(predict2[i:i + 10])
-    '''
-    if(k>l):
-        plt.ylim(-1, k+1)
-    else:
-        plt.ylim(-1, l+1)
-    '''
+    k = str(np.round(true[i], 3))
+    while len(k) < 4:
+        k = k + "0"
+    l = str(np.round(predict2[i],3))
+    while len(l) < 4:
+        l = l + "0"
+
+    print(k + "\t\t" + l)
     line.set_ydata(true[i:i+10])  # update the data
     line2.set_ydata(predict2[i:i + 10])  # update the data
     return line, line2,
@@ -47,9 +49,9 @@ def animate(i):
 def init():
     line.set_ydata(np.ma.array(x, mask=True))
     line2.set_ydata(np.ma.array(x, mask=True))
-    print(str(np.round(true[i], 3)) + "\t\t" + str(np.round(predict2[i], 3)))
+    time.sleep(2)
     return line, line2
 
 ani = animation.FuncAnimation(fig, animate, init_func=init,
-                              interval=100, blit=True)
+                              interval=120, blit=True)
 plt.show()

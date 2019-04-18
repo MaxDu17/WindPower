@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import pandas as pd
+import time
 upper_bound = 10
 lower_bound = 0
 step_length = 1
@@ -27,7 +28,8 @@ plt.ylim(-1, 10)
 
 line, = ax.step(x, true[0:10])
 line2, = ax.step(x, predict2[0:10])
-ax.set_title("Prediction and Truth on Wind Power")
+ax.set_title("Compression w/Forecast Step_Dynamic")
+plt.ylabel("Ignore these axes")
 
 def animate(i):
     k = max(true[i:i+10])
@@ -37,6 +39,15 @@ def animate(i):
         plt.ylim(-1, k+1)
     else:
         plt.ylim(-1, l+1)
+
+    k = str(np.round(true[i], 3))
+    while len(k) < 4:
+        k = k + "0"
+    l = str(np.round(predict2[i],3))
+    while len(l) < 4:
+        l = l + "0"
+
+    print(k + "\t\t" + l)
 
     line.set_ydata(true[i:i+10])  # update the data
     line2.set_ydata(predict2[i:i + 10])  # update the data
@@ -51,5 +62,5 @@ def init():
     return line, line2
 
 ani = animation.FuncAnimation(fig, animate, init_func=init,
-                              interval=100, blit=True)
+                              interval=120, blit=True)
 plt.show()
