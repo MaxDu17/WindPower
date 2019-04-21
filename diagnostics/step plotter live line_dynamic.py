@@ -40,18 +40,18 @@ def animate(i):
     else:
         plt.ylim(-1, l+1)
 
-    k = str(np.round(true[i], 3))
-    while len(k) < 4:
-        k = k + "0"
-    l = str(np.round(predict2[i],3))
-    while len(l) < 4:
-        l = l + "0"
+    a = str(np.round(true[i], 3))
 
-    print(k + "\t\t" + l)
+    while len(a) < 4:
+        a = a + "0"
+    b = str(np.round(predict2[i],3))
 
+    while len(b) < 4:
+        b = b + "0"
+
+    print(a + "\t\t" + b)
     line.set_ydata(true[i:i+10])  # update the data
     line2.set_ydata(predict2[i:i + 10])  # update the data
-    print(str(np.round(true[i], 3)) + "\t\t" + str(np.round(predict2[i], 3)))
     return line, line2,
 
 

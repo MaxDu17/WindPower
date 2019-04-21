@@ -53,12 +53,13 @@ def animate(i):
 
 # Init only required for blitting to give a clean slate.
 def init():
+    plt.show()
     line.set_height(np.ma.array(x, mask=True))
     line2.set_height(np.ma.array(x, mask=True))
-    time.sleep(2)
+    time.sleep(10)
     return line, line2
-
 
 ani = animation.FuncAnimation(fig, animate, init_func=init,
                               interval=120, blit=True)
+
 plt.show()
