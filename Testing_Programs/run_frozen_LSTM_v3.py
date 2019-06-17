@@ -53,7 +53,7 @@ with tf.Session(graph=graph) as sess:
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
     RMS_loss = 0.0
-    percent_loss_total = 0.0
+    real_total = 0.0
     init_state_ = np.zeros(shape=[2, 1, hidden_dim])
    #init_state_ = np.zeros(shape=[1, hidden_dim])
     for i in range(hyp.Info.TEST_SIZE):  # this will be replaced later
@@ -66,7 +66,7 @@ with tf.Session(graph=graph) as sess:
 
         init_state_ , output_= sess.run([pass_back_state, output],
                                                 feed_dict = {input: data, init_state: init_state_})
-
+        '''
         loss_ = np.square(output_[0][0] - label_)
         labels.append(label_)
         outputs.append(output_[0][0])
@@ -76,18 +76,20 @@ with tf.Session(graph=graph) as sess:
         carrier = [label_, output_[0][0], np.sqrt(loss_), percent]
         test_logger.writerow(carrier)
         '''
+
         loss_ = np.square(output_ - label_)
         labels.append(label_)
         outputs.append(output_)
         RMS_loss += np.sqrt(loss_)
+        real_total += label_
         carrier = [label_, output_, np.sqrt(loss_)]
         test_logger.writerow(carrier)
-        '''
+
 
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
     print("test: MAE loss is ", RMS_loss)
-    percent_loss = percent_loss_total/hyp.Info.TEST_SIZE
-    print("test: percent MAE is ", percent_loss)
+    percent_loss = RMS_loss/real_total
+    print("test: WAPE is ", percent_loss)
 
 ######finding naive coeficient###########
 big_total_normal = 0
