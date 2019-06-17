@@ -6,7 +6,7 @@ import csv
 
 hyp = Hyperparameters()
 
-version = 9
+version = 0
 
 custom_test = False
 test_number = 81072
@@ -14,6 +14,7 @@ test_number = 81072
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
 #MODEL_NAME = 'RNN_frozen'
 CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
+CSV_NAME = 'lstm_v2_c_classbest'
 #CSV_NAME = 'RNN_classbest'
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
@@ -46,12 +47,13 @@ with tf.Session(graph=graph) as sess:
     if (custom_test):
         sm.set_test_number(test_number)
 
-    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/EVALUATE_TEST.csv', "w")
+    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/EVALUATE_TEST_percent.csv', "w")
     #test = open('../Graphs_and_Results/RNN_class/GRAPHS/EVALUATE_TEST.csv', "w")
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
     test_logger.writerow(carrier)
     RMS_loss = 0.0
+    percent_loss_total = 0.0
     init_state_ = np.zeros(shape=[2, 1, hidden_dim])
    #init_state_ = np.zeros(shape=[1, hidden_dim])
     for i in range(hyp.Info.TEST_SIZE):  # this will be replaced later
@@ -69,7 +71,9 @@ with tf.Session(graph=graph) as sess:
         labels.append(label_)
         outputs.append(output_[0][0])
         RMS_loss += np.sqrt(loss_)
-        carrier = [label_, output_[0][0], np.sqrt(loss_)]
+        percent = loss_/label_
+        percent_loss_total += percent
+        carrier = [label_, output_[0][0], np.sqrt(loss_), percent]
         test_logger.writerow(carrier)
         '''
         loss_ = np.square(output_ - label_)
@@ -81,7 +85,9 @@ with tf.Session(graph=graph) as sess:
         '''
 
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
-    print("test: rms loss is ", RMS_loss)
+    print("test: MAE loss is ", RMS_loss)
+    percent_loss = percent_loss_total/hyp.Info.TEST_SIZE
+    print("test: percent MAE is ", percent_loss)
 
 ######finding naive coeficient###########
 big_total_normal = 0
