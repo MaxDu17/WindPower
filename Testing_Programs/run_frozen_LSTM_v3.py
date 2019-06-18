@@ -6,8 +6,7 @@ import csv
 
 hyp = Hyperparameters()
 
-version = 0
-
+version = 2
 custom_test = False
 test_number = 81072
 
@@ -71,9 +70,8 @@ with tf.Session(graph=graph) as sess:
         labels.append(label_)
         outputs.append(output_[0][0])
         RMS_loss += np.sqrt(loss_)
-        percent = loss_/label_
-        percent_loss_total += percent
-        carrier = [label_, output_[0][0], np.sqrt(loss_), percent]
+        real_total += label_
+        carrier = [label_, output_[0][0], np.sqrt(loss_)]
         test_logger.writerow(carrier)
         '''
 
@@ -85,11 +83,11 @@ with tf.Session(graph=graph) as sess:
         carrier = [label_, output_, np.sqrt(loss_)]
         test_logger.writerow(carrier)
 
-
+    percent_loss = RMS_loss / real_total
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
     print("test: MAE loss is ", RMS_loss)
-    percent_loss = RMS_loss/real_total
-    print("test: WAPE is ", percent_loss)
+
+    print("test: WAPE is ", 100 * percent_loss)
 
 ######finding naive coeficient###########
 big_total_normal = 0

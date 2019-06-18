@@ -2,23 +2,24 @@ from tensorflow.python.tools import freeze_graph
 version = 2
 version_to_keep = 159850
 #this is for weather forecast networks
-MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE'
+MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE_ABS'
+MODEL = 'lstm_v' + str(version) + '_c_class_FORE_ABS/'
 
 
 # Freeze the graph
 
-input_graph_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/GRAPHS/graph.pbtxt'
+input_graph_path = '../Graphs_and_Results/'+ MODEL + 'GRAPHS/graph.pbtxt'
 
 
 
-checkpoint_path = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE/models/V' + str(version) + 'Genetic_FORE-' + str(version_to_keep)
+checkpoint_path = '../Graphs_and_Results/' + MODEL + '/models/V' + str(version) + 'Genetic_FORE-' + str(version_to_keep)
 
 input_saver_def_path = ''
 input_binary = False
 output_node_names = 'prediction/output, forward_roll/pass_back_state'
 restore_op_name = 'save/restore_all'
 filename_tensor_name = 'save/Const:0'
-output_frozen_graph_name = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_ABS/'+MODEL_NAME+'.pb'
+output_frozen_graph_name = '../Graphs_and_Results/' + MODEL +  '/'+MODEL_NAME+'.pb'
 
 clear_devices = True
 

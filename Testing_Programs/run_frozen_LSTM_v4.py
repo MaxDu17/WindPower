@@ -11,6 +11,7 @@ custom_test = True
 test_number = 81072
 
 MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE_ABS'
+MODEL = 'lstm_v' + str(version) + '_c_class_FORE_ABS'
 CSV_NAME = 'lstm_v' + str(version) + '_c_class_FOREbest'
 
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
@@ -24,7 +25,7 @@ outputs = list()
 
 
 
-pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_ABS/'+MODEL_NAME+'.pb'
+pbfilename = '../Graphs_and_Results/' + MODEL + '/' +MODEL_NAME+'.pb'
 
 
 with tf.gfile.GFile(pbfilename, "rb") as f:
@@ -47,7 +48,7 @@ with tf.Session(graph=graph) as sess:
     if (custom_test):
         sm.set_test_number(test_number)
 
-    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_ABS/GRAPHS/EVALUATE_TEST__.csv', "w")
+    test = open('../Graphs_and_Results/' + MODEL + '/GRAPHS/EVALUATE_TEST__.csv', "w")
 
 
     test_logger = csv.writer(test, lineterminator="\n")
@@ -55,7 +56,7 @@ with tf.Session(graph=graph) as sess:
     test_logger.writerow(carrier)
     RMS_loss = 0.0
     init_state_ = np.zeros(shape=[2, 1, hidden_dim])
-
+    real_total = 0.0
 
     for i in range(hyp.Info.TEST_SIZE):  # this will be replaced later
         data = sm.next_epoch_test_waterfall()
@@ -67,11 +68,12 @@ with tf.Session(graph=graph) as sess:
 
         init_state_ , output_= sess.run([pass_back_state, output],
                                                 feed_dict = {input: data, init_state: init_state_})
-
+        '''
         loss_ = np.square(output_[0][0] - label_)
         labels.append(label_)
         outputs.append(output_[0][0])
         RMS_loss += np.sqrt(loss_)
+        real_total += label_
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
         test_logger.writerow(carrier)
         '''
@@ -80,12 +82,16 @@ with tf.Session(graph=graph) as sess:
         labels.append(label_)
         outputs.append(output_)
         RMS_loss += np.sqrt(loss_)
+        real_total += label_
         carrier = [label_, output_, np.sqrt(loss_)]
         test_logger.writerow(carrier)
-        '''
 
+
+    percent_loss = RMS_loss / real_total
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
-    print("test: rms loss is ", RMS_loss)
+    print("test: MAE loss is ", RMS_loss)
+
+    print("test: WAPE is ", 100*percent_loss)
 
 ######finding naive coeficient###########
 big_total_normal = 0
@@ -107,7 +113,7 @@ naive_coeficient = big_total_normal - big_total_shift
 naive_ratio = big_total_shift/big_total_normal
 print("Naive coeficient: " + str(naive_coeficient))
 print("Naive ratio: " + str(naive_ratio))
-file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class_FORE_ABS/GRAPHS/naivecoeff.txt', 'w')
+file = open('../Graphs_and_Results/'+ MODEL+ '/GRAPHS/naivecoeff.txt', 'w')
 
 
 file.write(str(naive_coeficient))
