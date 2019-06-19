@@ -68,7 +68,7 @@ with tf.Session(graph=graph) as sess:
 
         init_state_ , output_= sess.run([pass_back_state, output],
                                                 feed_dict = {input: data, init_state: init_state_})
-        '''
+
         loss_ = np.square(output_[0][0] - label_)
         labels.append(label_)
         outputs.append(output_[0][0])
@@ -76,8 +76,8 @@ with tf.Session(graph=graph) as sess:
         real_total += label_
         carrier = [label_, output_[0][0], np.sqrt(loss_)]
         test_logger.writerow(carrier)
-        '''
 
+        '''
         loss_ = np.square(output_- label_)
         labels.append(label_)
         outputs.append(output_)
@@ -85,7 +85,7 @@ with tf.Session(graph=graph) as sess:
         real_total += label_
         carrier = [label_, output_, np.sqrt(loss_)]
         test_logger.writerow(carrier)
-
+        '''
 
     percent_loss = RMS_loss / real_total
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE
