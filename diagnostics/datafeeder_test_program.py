@@ -8,6 +8,13 @@ SM = SetMaker_Forecast(2)
 SM.create_training_set()
 
 print("--------------------------------------")
+print("This tests the training set generator")
+for i in range(10):
+    print(SM.next_epoch_waterfall())
+    print(SM.get_label())
+    print("\n")
+
+print("--------------------------------------")
 print("This tests the validation set generator")
 SM.create_validation_set()
 for i in range(10):
@@ -15,12 +22,6 @@ for i in range(10):
     print(SM.get_label())
     print("\n")
 
-print("--------------------------------------")
-print("This tests the training set generator")
-for i in range(10):
-    print(SM.next_epoch_waterfall())
-    print(SM.get_label())
-    print("\n")
 
 print("--------------------------------------")
 print("This tests the test set generator")

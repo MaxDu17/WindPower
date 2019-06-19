@@ -17,9 +17,6 @@ class SetMaker_Forecast:
         self.FOOTPRINT = FOOTPRINT #this will allow genetic feeding
         self.custom_test = 81072  # for recording purposes
 
-    def use_foreign(self, file_name): #wrapper function used to load a different-than-normal dataset, for foreign testing
-        self.dp.use_foreign(file_name)
-
     def create_training_set(self): #initializing statement for training
         self.training_set_size = self.hyp.TRAIN_PERCENT * self.dp.dataset_size()
         self.test_counter = self.training_set_size
@@ -53,10 +50,14 @@ class SetMaker_Forecast:
             self.clear_counter()
             carrier = True #this effectively tells the network to reset
             print("wraparound")
+
         self.master_list = self.dp.grab_list_range(self.counter, self.counter+self.FOOTPRINT+1)
+        self.pca_only = list()
+        for k in self.master_list:
+            self.pca_only.append(k[0])
         self.counter += self.FOOTPRINT
         self.batch_counter = 0
-        return carrier, self.master_list[:-1]
+        return carrier, self.pca_only[:-1]
 
     def next_epoch_test(self): #this jumps a footprint to test. Biased estimator, and so is depreciated.
         if self.test_counter == 0:
@@ -76,32 +77,15 @@ class SetMaker_Forecast:
             raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
         self.master_list = list()
         self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter + self.FOOTPRINT + 1)
-        self.test_counter += 1
+    
+        self.pca_only = list()
+        for k in self.master_list:
+            self.pca_only.append(k[0])
+        self.counter += self.FOOTPRINT
         self.batch_counter = 0
-        return self.master_list[:-1]
+        self.test_counter += 1
+        return self.pca_only[:-1]
 
-    def next_epoch_test_single_shift(self): #instead of jumping a footprint, we shift by one; this is necessary for assessment
-        if self.test_counter == 0:
-            raise Exception("you forgot to initialize the test_counter! Execute create_training_set")
-        if self.test_counter + self.FOOTPRINT + 1 > self.dp.dataset_size():
-            raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
-        self.master_list = list()
-        self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter + self.FOOTPRINT + 1)
-        self.test_counter += 1
-        self.batch_counter = 0
-
-    def next_epoch_test_pair(self): #gives in pairs: one data and one label, then shift one.
-        if self.test_counter == 0:
-            raise Exception("you forgot to initialize the test_counter! Execute create_training_set")
-        if self.test_counter + self.FOOTPRINT + 1 > self.dp.dataset_size():
-            raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
-        self.master_list = list()
-        self.master_list = self.dp.grab_list_range(self.test_counter+1, self.test_counter + 3)
-        self.test_counter += 1
-        self.batch_counter = 0
-        data = self.master_list[0]
-        label = self.master_list[1]
-        return data, label
 
     def next_epoch_valid(self): #next validation epoch. Note that this is imperative; it doesn't return anything
         if self.valid_counter + self.FOOTPRINT + 1 > self.validation_set_size:
@@ -118,9 +102,13 @@ class SetMaker_Forecast:
                              " for boundary cases. Violation dataset_maker/next_epoch_valid")
         self.master_list = list()
         self.master_list = self.dp.grab_list_range(self.valid_counter, self.valid_counter + self.FOOTPRINT + 1)
-        self.valid_counter += 1
+        self.pca_only = list()
+        for k in self.master_list:
+            self.pca_only.append(k[0])
+        self.counter += self.FOOTPRINT
         self.batch_counter = 0
-        return self.master_list[:-1]
+        self.valid_counter +=1
+        return self.pca_only[:-1]
 
     def clear_valid_counter(self): #this is a public function that clears the validation counter
         self.valid_counter =0
@@ -132,7 +120,7 @@ class SetMaker_Forecast:
         self.counter = 0
 
     def get_label(self): #returns the label of the current epoch
-        return self.master_list[-1]
+        return self.master_list[-1][1]
 
     def next_sample(self): #returns the next sample of the epoch
         if self.batch_counter >=self.FOOTPRINT:
