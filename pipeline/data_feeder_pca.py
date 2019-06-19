@@ -11,12 +11,12 @@ class DataParser_Forecast:
         #self.data = pd.read_csv("Training_sets/83863-2011.csv", skiprows = 3) #read file
         self.data = pd.read_csv("../Training_Sets/ALL_DATA_PCA.csv", skiprows=3)  # read file
         #clean_data = data[["Month", "Day", "Hour", "Minute", "power (MW)"]] #extract critical data, not used here
-        self.power_ds = self.data[["power (MW)"]] #extract a single column
+        self.power_ds = self.data #extract a single column
 
     def use_foreign(self, file_name):
         self.data = pd.read_csv(file_name, skiprows = 3) #read file
         #clean_data = data[["Month", "Day", "Hour", "Minute", "power (MW)"]] #extract critical data, not used here
-        self.power_ds = self.data[["power (MW)"]] #extract a single column
+        self.power_ds = self.data #extract a single column
 
     def print_from_start(self, number):
         return self.power_ds.head(number) #print everything. Seldom used, but is an option

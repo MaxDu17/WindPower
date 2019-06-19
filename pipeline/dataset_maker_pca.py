@@ -3,7 +3,7 @@ from pipeline.hyperparameters import Hyperparameters
 
 class SetMaker_Forecast:
     def __init__(self, FOOTPRINT): #initializing variables used in calculation
-        self.dp = DataParser()
+        self.dp = DataParser_Forecast()
         self.hyp = Hyperparameters()
         self.master_list = list()
         self.counter = 0
