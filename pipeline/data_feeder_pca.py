@@ -17,7 +17,8 @@ class DataParser_Forecast:
         return self.power_ds.head(number) #print everything. Seldom used, but is an option
 
     def dataset_size(self):
-        return self.power_ds.size
+        return len(self.power_ds.index)
+
 
     def grab_list_range(self,start,end): #selects a range to query
         self.power_ds.index.name = "index" #sets index to "index" for ease of query

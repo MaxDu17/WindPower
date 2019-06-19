@@ -18,7 +18,7 @@ class SetMaker_Forecast:
         self.custom_test = 81072  # for recording purposes
 
     def create_training_set(self): #initializing statement for training
-        self.training_set_size = self.hyp.TRAIN_PERCENT * self.dp.dataset_size()
+        self.training_set_size = int(self.hyp.TRAIN_PERCENT * self.dp.dataset_size())
         self.test_counter = self.training_set_size
 
     def create_validation_set(self): #initializing phrase for validation
@@ -77,7 +77,6 @@ class SetMaker_Forecast:
             raise ValueError("you have reached the end of the test set. Violation dataset_maker/next_epoch_test")
         self.master_list = list()
         self.master_list = self.dp.grab_list_range(self.test_counter, self.test_counter + self.FOOTPRINT + 1)
-    
         self.pca_only = list()
         for k in self.master_list:
             self.pca_only.append(k[0])
