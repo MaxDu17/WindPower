@@ -5,15 +5,14 @@ import numpy as np
 import csv
 #THIS RUNS WEATHER FORECAST MODELS
 hyp = Hyperparameters()
-version = 2
+version = 0
 
 custom_test = True
 test_number = 81072
 
-MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_FORE_ABS'
-MODEL = 'lstm_v' + str(version) + '_c_class_FORE_ABS'
-CSV_NAME = 'lstm_v' + str(version) + '_c_class_FOREbest'
-
+MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_PCA'
+MODEL = 'lstm_v' + str(version) + '_c_class_PCA'
+CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
 k = open("../Genetic/" + CSV_NAME + ".csv", "r")
 
 hyp_list =  list(csv.reader(k)) #extracing the first data point from the csv file
@@ -60,15 +59,16 @@ with tf.Session(graph=graph) as sess:
 
     for i in range(hyp.Info.TEST_SIZE):  # this will be replaced later
         data = sm.next_epoch_test_waterfall()
+
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
         print(i)
-
         data = np.reshape(data, [footprint, 1, 21])
+
 
         init_state_ , output_= sess.run([pass_back_state, output],
                                                 feed_dict = {input: data, init_state: init_state_})
-
+        '''
         loss_ = np.square(output_[0][0] - label_)
         labels.append(label_)
         outputs.append(output_[0][0])
@@ -85,7 +85,7 @@ with tf.Session(graph=graph) as sess:
         real_total += label_
         carrier = [label_, output_, np.sqrt(loss_)]
         test_logger.writerow(carrier)
-        '''
+
 
     percent_loss = RMS_loss / real_total
     RMS_loss = RMS_loss / hyp.Info.TEST_SIZE

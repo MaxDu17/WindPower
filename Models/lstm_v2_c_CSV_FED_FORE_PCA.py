@@ -9,7 +9,7 @@ import os
 import sys
 import csv
 
-NAME = "lstm_v2_c_class_PCA" #this is the name of the python file for logging purposes
+NAME = "lstm_v2_c_class_FORE_PCA" #this is the name of the python file for logging purposes
 
 k = open("../Genetic/lstm_v2_c_classbest.csv", "r")
 

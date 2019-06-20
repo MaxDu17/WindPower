@@ -13,6 +13,7 @@ input_graph_path = '../Graphs_and_Results/'+ MODEL + 'GRAPHS/graph.pbtxt'
 
 
 checkpoint_path = '../Graphs_and_Results/' + MODEL + 'models/V' + str(version) + 'Genetic_FORE-' + str(version_to_keep)
+checkpoint_path = '../Graphs_and_Results/' + MODEL + 'models/V' + str(version) + 'Genetic-' + str(version_to_keep)
 
 input_saver_def_path = ''
 input_binary = False

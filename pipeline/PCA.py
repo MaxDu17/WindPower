@@ -21,7 +21,9 @@ def main():
 
     eigen_space_list = np.matmul(compressed_eigen.T,features_mat.T)
     print(eigenvalues)
+    print(eigenvalues/sum(eigenvalues))
     final_PCA = eigen_space_list.T
+    input()
     k = open("../Training_Sets/ALL_DATA_PCA.csv", "w")
     final = csv.writer(k, lineterminator="\n")
     final_list = final_PCA.tolist()

@@ -1,17 +1,19 @@
+#this is for non-forecast versions
+
 import tensorflow as tf
-from pipeline.dataset_maker import SetMaker
+from pipeline.dataset_maker_pca import SetMaker_Forecast
 from pipeline.hyperparameters import Hyperparameters
 import numpy as np
 import csv
 
 hyp = Hyperparameters()
 
-version = 2
-custom_test = False
+version = 0
+custom_test = True
 test_number = 81072
 
-MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen'
-#MODEL_NAME = 'RNN_frozen'
+MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_PCA'
+MODEL = 'lstm_v' + str(version) + '_c_class_PCA'
 CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
 CSV_NAME = 'lstm_v2_c_classbest'
 #CSV_NAME = 'RNN_classbest'
@@ -23,9 +25,9 @@ hidden_dim =  int(hyp_list[0][2])
 labels = list()
 outputs = list()
 
-sm = SetMaker(footprint)
+sm = SetMaker_Forecast(footprint)
 
-pbfilename = '../Graphs_and_Results/lstm_v' + str(version) + '_c_class/'+MODEL_NAME+'.pb'
+pbfilename = '../Graphs_and_Results/' + MODEL + '/'+MODEL_NAME+'.pb'
 #pbfilename = '../Graphs_and_Results/RNN_class/'+MODEL_NAME+'.pb'
 with tf.gfile.GFile(pbfilename, "rb") as f:
     graph_def = tf.GraphDef()
@@ -46,7 +48,7 @@ with tf.Session(graph=graph) as sess:
     if (custom_test):
         sm.set_test_number(test_number)
 
-    test = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/EVALUATE_TEST_percent.csv', "w")
+    test = open('../Graphs_and_Results/' + MODEL + '/GRAPHS/EVALUATE_TEST_percent.csv', "w")
     #test = open('../Graphs_and_Results/RNN_class/GRAPHS/EVALUATE_TEST.csv', "w")
     test_logger = csv.writer(test, lineterminator="\n")
     carrier = ["true_values", "predicted_values", "abs_error"]
@@ -109,7 +111,7 @@ naive_coeficient = big_total_normal - big_total_shift
 naive_ratio = big_total_shift/big_total_normal
 print("Naive coeficient: " + str(naive_coeficient))
 print("Naive ratio: " + str(naive_ratio))
-file = open('../Graphs_and_Results/lstm_v' + str(version) + '_c_class/GRAPHS/naivecoeff.txt', 'w')
+file = open('../Graphs_and_Results/' + MODEL + '/GRAPHS/naivecoeff.txt', 'w')
 #file = open('../Graphs_and_Results/RNN_class/GRAPHS/naivecoeff.txt', 'w')
 
 file.write(str(naive_coeficient))
