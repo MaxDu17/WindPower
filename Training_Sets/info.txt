@@ -1,1 +1,3 @@
 test set starts at 63077 position
+
+capacity is 16 mw

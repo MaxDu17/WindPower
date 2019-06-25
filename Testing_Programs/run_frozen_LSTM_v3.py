@@ -9,11 +9,11 @@ import csv
 hyp = Hyperparameters()
 
 version = 0
-custom_test = True
+custom_test = False
 test_number = 81072
 
-MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_PCA'
-MODEL = 'lstm_v' + str(version) + '_c_class_PCA'
+MODEL_NAME = 'LSTM_v' + str(version) + '_genetic_frozen_pca'
+MODEL = 'lstm_v' + str(version) + '_c_class_pca'
 CSV_NAME = 'lstm_v' + str(version) + '_c_classbest'
 CSV_NAME = 'lstm_v2_c_classbest'
 #CSV_NAME = 'RNN_classbest'
@@ -58,6 +58,7 @@ with tf.Session(graph=graph) as sess:
     init_state_ = np.zeros(shape=[2, 1, hidden_dim])
    #init_state_ = np.zeros(shape=[1, hidden_dim])
     for i in range(hyp.Info.TEST_SIZE):  # this will be replaced later
+        init_state_ = np.zeros(shape=[2, 1, hidden_dim])
         data = sm.next_epoch_test_waterfall()
         label_ = sm.get_label()
         label = np.reshape(label_, [1, 1])
